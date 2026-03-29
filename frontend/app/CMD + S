@@ -1,0 +1,56 @@
+export default function Home() {
+  return (
+    <div style={{
+      height: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      fontFamily: "Arial",
+      background: "#f0f4f8"
+    }}>
+      
+      <h1 style={{ fontSize: "40px", marginBottom: "20px" }}>
+        Silver Garden Siófok
+      </h1>
+
+      <h2 style={{ marginBottom: "30px" }}>
+        Kata – virtuális recepciós
+      </h2>
+
+      <p style={{ marginBottom: "30px" }}>
+        Válasszon nyelvet vagy kérdezzen bátran
+      </p>
+
+      <div style={{ display: "flex", gap: "10px", marginBottom: "30px" }}>
+        <button>🇭🇺 Magyar</button>
+        <button>🇬🇧 English</button>
+        <button>🇩🇪 Deutsch</button>
+      </div>
+
+      <button style={{
+        padding: "20px",
+        fontSize: "18px",
+        background: "green",
+        color: "white",
+        border: "none",
+        borderRadius: "10px"
+      }}>
+        🎤 Beszélek Katával
+      </button>
+
+      <button style={{
+        marginTop: "20px",
+        padding: "20px",
+        fontSize: "18px",
+        background: "black",
+        color: "white",
+        border: "none",
+        borderRadius: "10px"
+      }}>
+        👩‍💼 Recepcióst kérek
+      </button>
+
+    </div>
+  );
+}
