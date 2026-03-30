@@ -1,14 +1,53 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 
 type LangCode = "hu-HU" | "en-US" | "de-DE" | "it-IT" | "pl-PL" | "uk-UA";
 type LocalizedText = Record<LangCode, string>;
 
+type RecognitionAlternative = {
+  transcript: string;
+};
+
+type RecognitionResultLike = {
+  0: RecognitionAlternative;
+  length: number;
+  isFinal?: boolean;
+};
+
+type RecognitionResultListLike = {
+  0: RecognitionResultLike;
+  length: number;
+};
+
+type SpeechRecognitionEventLike = Event & {
+  results: RecognitionResultListLike;
+};
+
+type SpeechRecognitionErrorEventLike = Event & {
+  error?: string;
+};
+
+interface SpeechRecognitionInstance extends EventTarget {
+  lang: string;
+  interimResults: boolean;
+  maxAlternatives: number;
+  onstart: (() => void) | null;
+  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
+  onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+}
+
+interface SpeechRecognitionConstructor {
+  new (): SpeechRecognitionInstance;
+}
+
 declare global {
   interface Window {
-    webkitSpeechRecognition: any;
-    SpeechRecognition: any;
+    webkitSpeechRecognition?: SpeechRecognitionConstructor;
+    SpeechRecognition?: SpeechRecognitionConstructor;
   }
 }
 
@@ -35,19 +74,19 @@ const tr = (
   "uk-UA": uk,
 });
 
-const getText = (text: LocalizedText, lang: LangCode) =>
-  text[lang] || text["hu-HU"];
+const getText = (text: LocalizedText, lang: LangCode) => text[lang] || text["hu-HU"];
 
 export default function Home() {
   const [answer, setAnswer] = useState("Kérdezzen bátran!");
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [heardText, setHeardText] = useState("");
-  const [selectedLanguage, setSelectedLanguage] =
-    useState<LangCode>("hu-HU");
+  const [selectedLanguage, setSelectedLanguage] = useState<LangCode>("hu-HU");
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [showEmergency, setShowEmergency] = useState(false);
+
   const speakTimeoutRef = useRef<number | null>(null);
+  const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
 
   const ui = useMemo(
     () => ({
@@ -172,6 +211,14 @@ export default function Home() {
         "Mikrofon nie jest włączony w przeglądarce.",
         "Мікрофон не дозволено в браузері."
       ),
+      micUnavailable: tr(
+        "A mikrofon nem érhető el ezen az eszközön vagy böngészőben.",
+        "The microphone is not available on this device or browser.",
+        "Das Mikrofon ist auf diesem Gerät oder in diesem Browser nicht verfügbar.",
+        "Il microfono non è disponibile su questo dispositivo o browser.",
+        "Mikrofon nie jest dostępny na tym urządzeniu lub w tej przeglądarce.",
+        "Мікрофон недоступний на цьому пристрої або в браузері."
+      ),
       speechUnsupported: tr(
         "A hangos felolvasás nem támogatott ebben a böngészőben.",
         "Speech synthesis is not supported in this browser.",
@@ -179,6 +226,14 @@ export default function Home() {
         "La sintesi vocale non è supportata in questo browser.",
         "Synteza mowy nie jest obsługiwana w tej przeglądarce.",
         "Синтез мовлення не підтримується в цьому браузері."
+      ),
+      recognitionFailed: tr(
+        "Beszédfelismerési hiba történt.",
+        "A speech recognition error occurred.",
+        "Bei der Spracherkennung ist ein Fehler aufgetreten.",
+        "Si è verificato un errore nel riconoscimento vocale.",
+        "Wystąpił błąd rozpoznawania mowy.",
+        "Сталася помилка розпізнавання мовлення."
       ),
       fallback: tr(
         "Ebben egy kollégám fog segíteni. Kérem, egy pillanat türelmet.",
@@ -224,14 +279,7 @@ export default function Home() {
     () => [
       {
         id: "szoba1",
-        label: tr(
-          "Szoba 1",
-          "Room 1",
-          "Zimmer 1",
-          "Camera 1",
-          "Pokój 1",
-          "Кімната 1"
-        ),
+        label: tr("Szoba 1", "Room 1", "Zimmer 1", "Camera 1", "Pokój 1", "Кімната 1"),
         answer: tr(
           "Az 1-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Balra az első szoba az 1-es szoba.",
           "To find room 1, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The first room on the left is room 1.",
@@ -240,28 +288,11 @@ export default function Home() {
           "Aby znaleźć pokój 1, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Pierwszy pokój po lewej stronie to pokój 1.",
           "Щоб знайти кімнату 1, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Перша кімната ліворуч — це кімната 1."
         ),
-        keywords: [
-          "szoba 1",
-          "szoba egy",
-          "1-es szoba",
-          "room 1",
-          "where is room 1",
-          "zimmer 1",
-          "camera 1",
-          "pokój 1",
-          "кімната 1",
-        ],
+        keywords: ["szoba 1", "szoba egy", "1-es szoba", "room 1", "where is room 1", "zimmer 1", "camera 1", "pokój 1", "кімната 1"],
       },
       {
         id: "szoba2",
-        label: tr(
-          "Szoba 2",
-          "Room 2",
-          "Zimmer 2",
-          "Camera 2",
-          "Pokój 2",
-          "Кімната 2"
-        ),
+        label: tr("Szoba 2", "Room 2", "Zimmer 2", "Camera 2", "Pokój 2", "Кімната 2"),
         answer: tr(
           "A 2-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Balra a második szoba a 2-es szoba.",
           "To find room 2, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The second room on the left is room 2.",
@@ -270,28 +301,11 @@ export default function Home() {
           "Aby znaleźć pokój 2, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Drugi pokój po lewej stronie to pokój 2.",
           "Щоб знайти кімнату 2, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Друга кімната ліворуч — це кімната 2."
         ),
-        keywords: [
-          "szoba 2",
-          "szoba kettő",
-          "2-es szoba",
-          "room 2",
-          "where is room 2",
-          "zimmer 2",
-          "camera 2",
-          "pokój 2",
-          "кімната 2",
-        ],
+        keywords: ["szoba 2", "szoba kettő", "2-es szoba", "room 2", "where is room 2", "zimmer 2", "camera 2", "pokój 2", "кімната 2"],
       },
       {
         id: "szoba3",
-        label: tr(
-          "Szoba 3",
-          "Room 3",
-          "Zimmer 3",
-          "Camera 3",
-          "Pokój 3",
-          "Кімната 3"
-        ),
+        label: tr("Szoba 3", "Room 3", "Zimmer 3", "Camera 3", "Pokój 3", "Кімната 3"),
         answer: tr(
           "A 3-as szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Balra a harmadik szoba a 3-as szoba.",
           "To find room 3, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The third room on the left is room 3.",
@@ -300,28 +314,11 @@ export default function Home() {
           "Aby znaleźć pokój 3, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po lewej stronie to pokój 3.",
           "Щоб знайти кімнату 3, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Третя кімната ліворуч — це кімната 3."
         ),
-        keywords: [
-          "szoba 3",
-          "szoba három",
-          "3-as szoba",
-          "room 3",
-          "where is room 3",
-          "zimmer 3",
-          "camera 3",
-          "pokój 3",
-          "кімната 3",
-        ],
+        keywords: ["szoba 3", "szoba három", "3-as szoba", "room 3", "where is room 3", "zimmer 3", "camera 3", "pokój 3", "кімната 3"],
       },
       {
         id: "szoba4",
-        label: tr(
-          "Szoba 4",
-          "Room 4",
-          "Zimmer 4",
-          "Camera 4",
-          "Pokój 4",
-          "Кімната 4"
-        ),
+        label: tr("Szoba 4", "Room 4", "Zimmer 4", "Camera 4", "Pokój 4", "Кімната 4"),
         answer: tr(
           "A 4-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Balra a negyedik szoba a 4-es szoba.",
           "To find room 4, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The fourth room on the left is room 4.",
@@ -330,28 +327,11 @@ export default function Home() {
           "Aby znaleźć pokój 4, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po lewej stronie to pokój 4.",
           "Щоб знайти кімнату 4, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Четверта кімната ліворуч — це кімната 4."
         ),
-        keywords: [
-          "szoba 4",
-          "szoba négy",
-          "4-es szoba",
-          "room 4",
-          "where is room 4",
-          "zimmer 4",
-          "camera 4",
-          "pokój 4",
-          "кімната 4",
-        ],
+        keywords: ["szoba 4", "szoba négy", "4-es szoba", "room 4", "where is room 4", "zimmer 4", "camera 4", "pokój 4", "кімната 4"],
       },
       {
         id: "szoba5",
-        label: tr(
-          "Szoba 5",
-          "Room 5",
-          "Zimmer 5",
-          "Camera 5",
-          "Pokój 5",
-          "Кімната 5"
-        ),
+        label: tr("Szoba 5", "Room 5", "Zimmer 5", "Camera 5", "Pokój 5", "Кімната 5"),
         answer: tr(
           "Az 5-ös szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Jobbra a második szoba az 5-ös szoba.",
           "To find room 5, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The second room on the right is room 5.",
@@ -360,28 +340,11 @@ export default function Home() {
           "Aby znaleźć pokój 5, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Drugi pokój po prawej stronie to pokój 5.",
           "Щоб знайти кімнату 5, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Друга кімната праворуч — це кімната 5."
         ),
-        keywords: [
-          "szoba 5",
-          "szoba öt",
-          "5-ös szoba",
-          "room 5",
-          "where is room 5",
-          "zimmer 5",
-          "camera 5",
-          "pokój 5",
-          "кімната 5",
-        ],
+        keywords: ["szoba 5", "szoba öt", "5-ös szoba", "room 5", "where is room 5", "zimmer 5", "camera 5", "pokój 5", "кімната 5"],
       },
       {
         id: "szoba6",
-        label: tr(
-          "Szoba 6",
-          "Room 6",
-          "Zimmer 6",
-          "Camera 6",
-          "Pokój 6",
-          "Кімната 6"
-        ),
+        label: tr("Szoba 6", "Room 6", "Zimmer 6", "Camera 6", "Pokój 6", "Кімната 6"),
         answer: tr(
           "A 6-os szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Jobbra a harmadik szoba a 6-os szoba.",
           "To find room 6, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The third room on the right is room 6.",
@@ -390,28 +353,11 @@ export default function Home() {
           "Aby znaleźć pokój 6, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po prawej stronie to pokój 6.",
           "Щоб знайти кімнату 6, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Третя кімната праворуч — це кімната 6."
         ),
-        keywords: [
-          "szoba 6",
-          "szoba hat",
-          "6-os szoba",
-          "room 6",
-          "where is room 6",
-          "zimmer 6",
-          "camera 6",
-          "pokój 6",
-          "кімната 6",
-        ],
+        keywords: ["szoba 6", "szoba hat", "6-os szoba", "room 6", "where is room 6", "zimmer 6", "camera 6", "pokój 6", "кімната 6"],
       },
       {
         id: "szoba7",
-        label: tr(
-          "Szoba 7",
-          "Room 7",
-          "Zimmer 7",
-          "Camera 7",
-          "Pokój 7",
-          "Кімната 7"
-        ),
+        label: tr("Szoba 7", "Room 7", "Zimmer 7", "Camera 7", "Pokój 7", "Кімната 7"),
         answer: tr(
           "A 7-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Jobbra a negyedik szoba a 7-es szoba.",
           "To find room 7, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The fourth room on the right is room 7.",
@@ -420,28 +366,11 @@ export default function Home() {
           "Aby znaleźć pokój 7, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po prawej stronie to pokój 7.",
           "Щоб знайти кімнату 7, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Четверта кімната праворуч — це кімната 7."
         ),
-        keywords: [
-          "szoba 7",
-          "szoba hét",
-          "7-es szoba",
-          "room 7",
-          "where is room 7",
-          "zimmer 7",
-          "camera 7",
-          "pokój 7",
-          "кімната 7",
-        ],
+        keywords: ["szoba 7", "szoba hét", "7-es szoba", "room 7", "where is room 7", "zimmer 7", "camera 7", "pokój 7", "кімната 7"],
       },
       {
         id: "szoba8",
-        label: tr(
-          "Szoba 8",
-          "Room 8",
-          "Zimmer 8",
-          "Camera 8",
-          "Pokój 8",
-          "Кімната 8"
-        ),
+        label: tr("Szoba 8", "Room 8", "Zimmer 8", "Camera 8", "Pokój 8", "Кімната 8"),
         answer: tr(
           "A 8-as szobát úgy találja meg, hogy tovább halad a recepció mellett. Jobbra a 8-as felirat jelzi a szobát. A kulcsot a zárban találja.",
           "To find room 8, continue past the reception. On the right, the number 8 marks the room. You will find the key in the lock.",
@@ -450,17 +379,7 @@ export default function Home() {
           "Aby znaleźć pokój 8, proszę iść dalej obok recepcji. Po prawej stronie numer 8 oznacza pokój. Klucz znajduje się w zamku.",
           "Щоб знайти кімнату 8, пройдіть далі повз рецепцію. Праворуч номер 8 позначає кімнату. Ключ ви знайдете в замку."
         ),
-        keywords: [
-          "szoba 8",
-          "szoba nyolc",
-          "8-as szoba",
-          "room 8",
-          "where is room 8",
-          "zimmer 8",
-          "camera 8",
-          "pokój 8",
-          "кімната 8",
-        ],
+        keywords: ["szoba 8", "szoba nyolc", "8-as szoba", "room 8", "where is room 8", "zimmer 8", "camera 8", "pokój 8", "кімната 8"],
       },
     ],
     []
@@ -470,14 +389,7 @@ export default function Home() {
     () => [
       {
         id: "apartman1",
-        label: tr(
-          "Apartman 1",
-          "Apartment 1",
-          "Apartment 1",
-          "Appartamento 1",
-          "Apartament 1",
-          "Апартамент 1"
-        ),
+        label: tr("Apartman 1", "Apartment 1", "Apartment 1", "Appartamento 1", "Apartament 1", "Апартамент 1"),
         answer: tr(
           "Az Apartman 1-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Jobb oldalon találja az utolsó előtti ajtót A 1 feliratot. A kulcs a zárban van.",
           "To find apartment 1, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. On the right side you will find the second to last door marked A 1. The key is in the lock.",
@@ -486,25 +398,11 @@ export default function Home() {
           "Aby znaleźć apartament 1, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Po prawej stronie znajdzie Pan przedostatnie drzwi oznaczone A 1. Klucz jest w zamku.",
           "Щоб знайти апартамент 1, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Праворуч ви побачите передостанні двері з написом A 1. Ключ у замку."
         ),
-        keywords: [
-          "apartman 1",
-          "1-es apartman",
-          "apartment 1",
-          "appartamento 1",
-          "apartament 1",
-          "апартамент 1",
-        ],
+        keywords: ["apartman 1", "1-es apartman", "apartment 1", "appartamento 1", "apartament 1", "апартамент 1"],
       },
       {
         id: "apartman2",
-        label: tr(
-          "Apartman 2",
-          "Apartment 2",
-          "Apartment 2",
-          "Appartamento 2",
-          "Apartament 2",
-          "Апартамент 2"
-        ),
+        label: tr("Apartman 2", "Apartment 2", "Apartment 2", "Appartamento 2", "Apartament 2", "Апартамент 2"),
         answer: tr(
           "Az Apartman 2-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Bal oldalon találja az utolsó előtti ajtót A 2 feliratot. A kulcs a zárban van.",
           "To find apartment 2, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. On the left side you will find the second to last door marked A 2. The key is in the lock.",
@@ -513,25 +411,11 @@ export default function Home() {
           "Aby znaleźć apartament 2, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Po lewej stronie znajdzie Pan przedostatnie drzwi oznaczone A 2. Klucz jest w zamku.",
           "Щоб знайти апартамент 2, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Ліворуч ви побачите передостанні двері з написом A 2. Ключ у замку."
         ),
-        keywords: [
-          "apartman 2",
-          "2-es apartman",
-          "apartment 2",
-          "appartamento 2",
-          "apartament 2",
-          "апартамент 2",
-        ],
+        keywords: ["apartman 2", "2-es apartman", "apartment 2", "appartamento 2", "apartament 2", "апартамент 2"],
       },
       {
         id: "apartman3",
-        label: tr(
-          "Apartman 3",
-          "Apartment 3",
-          "Apartment 3",
-          "Appartamento 3",
-          "Apartament 3",
-          "Апартамент 3"
-        ),
+        label: tr("Apartman 3", "Apartment 3", "Apartment 3", "Appartamento 3", "Apartament 3", "Апартамент 3"),
         answer: tr(
           "Az Apartman 3 szobát úgy találja meg, hogy tovább halad a recepció mellett. Jobbra az A 3 felirat jelzi a szobát. A kulcsot a zárban találja.",
           "To find apartment 3, continue past the reception. On the right, the A 3 sign marks the room. You will find the key in the lock.",
@@ -540,25 +424,11 @@ export default function Home() {
           "Aby znaleźć apartament 3, proszę iść dalej obok recepcji. Po prawej stronie oznaczenie A 3 wskazuje pokój. Klucz znajduje się w zamku.",
           "Щоб знайти апартамент 3, пройдіть далі повз рецепцію. Праворуч напис A 3 позначає кімнату. Ключ ви знайдете в замку."
         ),
-        keywords: [
-          "apartman 3",
-          "3-as apartman",
-          "apartment 3",
-          "appartamento 3",
-          "apartament 3",
-          "апартамент 3",
-        ],
+        keywords: ["apartman 3", "3-as apartman", "apartment 3", "appartamento 3", "apartament 3", "апартамент 3"],
       },
       {
         id: "apartman4",
-        label: tr(
-          "Apartman 4",
-          "Apartment 4",
-          "Apartment 4",
-          "Appartamento 4",
-          "Apartament 4",
-          "Апартамент 4"
-        ),
+        label: tr("Apartman 4", "Apartment 4", "Apartment 4", "Appartamento 4", "Apartament 4", "Апартамент 4"),
         answer: tr(
           "Az Apartman 4 szobát úgy találja meg, hogy megkerüli az épületet. Megkeresi az A 4-es feliratot. A kulcs a zárba be van készítve.",
           "To find apartment 4, walk around the building. Look for the A 4 sign. The key is already placed in the lock.",
@@ -567,25 +437,11 @@ export default function Home() {
           "Aby znaleźć apartament 4, proszę obejść budynek. Proszę szukać oznaczenia A 4. Klucz jest już włożony do zamka.",
           "Щоб знайти апартамент 4, обійдіть будівлю. Знайдіть позначення A 4. Ключ уже вставлено в замок."
         ),
-        keywords: [
-          "apartman 4",
-          "4-es apartman",
-          "apartment 4",
-          "appartamento 4",
-          "apartament 4",
-          "апартамент 4",
-        ],
+        keywords: ["apartman 4", "4-es apartman", "apartment 4", "appartamento 4", "apartament 4", "апартамент 4"],
       },
       {
         id: "apartman5",
-        label: tr(
-          "Apartman 5",
-          "Apartment 5",
-          "Apartment 5",
-          "Appartamento 5",
-          "Apartament 5",
-          "Апартамент 5"
-        ),
+        label: tr("Apartman 5", "Apartment 5", "Apartment 5", "Appartamento 5", "Apartament 5", "Апартамент 5"),
         answer: tr(
           "Az Apartman 5 szobát úgy találja meg, hogy tovább halad a recepció mellett. Az épület hátsó felénél jobbra fordul. A lépcsővel szemben találja az A 5 feliratot. A kulcs a zárba be van készítve.",
           "To find apartment 5, continue past the reception. At the back side of the building, turn right. Opposite the stairs you will find the A 5 sign. The key is already placed in the lock.",
@@ -594,14 +450,7 @@ export default function Home() {
           "Aby znaleźć apartament 5, proszę iść dalej obok recepcji. Z tyłu budynku proszę skręcić w prawo. Naprzeciw schodów znajdzie Pan oznaczenie A 5. Klucz jest już włożony do zamka.",
           "Щоб знайти апартамент 5, пройдіть далі повз рецепцію. На задній стороні будівлі поверніть праворуч. Навпроти сходів ви знайдете позначення A 5. Ключ уже вставлено в замок."
         ),
-        keywords: [
-          "apartman 5",
-          "5-ös apartman",
-          "apartment 5",
-          "appartamento 5",
-          "apartament 5",
-          "апартамент 5",
-        ],
+        keywords: ["apartman 5", "5-ös apartman", "apartment 5", "appartamento 5", "apartament 5", "апартамент 5"],
       },
     ],
     []
@@ -611,14 +460,7 @@ export default function Home() {
     () => [
       {
         id: "relax1",
-        label: tr(
-          "Relax 1",
-          "Relax 1",
-          "Relax 1",
-          "Relax 1",
-          "Relax 1",
-          "Relax 1"
-        ),
+        label: tr("Relax 1", "Relax 1", "Relax 1", "Relax 1", "Relax 1", "Relax 1"),
         answer: tr(
           "A Relax 1 szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett egy másik épülethez. Megkerüli a medence felől az épületet. Ott találja az R 1 feliratot. A kulcsot a zárban találja.",
           "To find Relax 1, walk towards the back and pass the sauna to another building. Walk around the building from the pool side. There you will find the R 1 sign. The key is in the lock.",
@@ -631,14 +473,7 @@ export default function Home() {
       },
       {
         id: "relax2",
-        label: tr(
-          "Relax 2",
-          "Relax 2",
-          "Relax 2",
-          "Relax 2",
-          "Relax 2",
-          "Relax 2"
-        ),
+        label: tr("Relax 2", "Relax 2", "Relax 2", "Relax 2", "Relax 2", "Relax 2"),
         answer: tr(
           "A Relax 2 szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett egy másik épülethez. Megkerüli a medence felől az épületet. Ott találja az R 2 feliratot. A kulcsot a zárban találja.",
           "To find Relax 2, walk towards the back and pass the sauna to another building. Walk around the building from the pool side. There you will find the R 2 sign. The key is in the lock.",
@@ -651,14 +486,7 @@ export default function Home() {
       },
       {
         id: "relax3",
-        label: tr(
-          "Relax 3",
-          "Relax 3",
-          "Relax 3",
-          "Relax 3",
-          "Relax 3",
-          "Relax 3"
-        ),
+        label: tr("Relax 3", "Relax 3", "Relax 3", "Relax 3", "Relax 3", "Relax 3"),
         answer: tr(
           "A Relax 3 szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett egy másik épülethez. Megkerüli a medence felől az épületet. Ott találja az R 3 feliratot. A kulcsot a zárban találja.",
           "To find Relax 3, walk towards the back and pass the sauna to another building. Walk around the building from the pool side. There you will find the R 3 sign. The key is in the lock.",
@@ -671,14 +499,7 @@ export default function Home() {
       },
       {
         id: "relax4",
-        label: tr(
-          "Relax 4",
-          "Relax 4",
-          "Relax 4",
-          "Relax 4",
-          "Relax 4",
-          "Relax 4"
-        ),
+        label: tr("Relax 4", "Relax 4", "Relax 4", "Relax 4", "Relax 4", "Relax 4"),
         answer: tr(
           "A Relax 4 szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett. Egy másik épülethez ér. Ott találja az R 4 feliratot. A kulcsot a zárban találja.",
           "To find Relax 4, walk towards the back and pass the sauna. You will arrive at another building. There you will find the R 4 sign. The key is in the lock.",
@@ -691,14 +512,7 @@ export default function Home() {
       },
       {
         id: "relaxpremium",
-        label: tr(
-          "Relax Prémium",
-          "Relax Premium",
-          "Relax Premium",
-          "Relax Premium",
-          "Relax Premium",
-          "Relax Premium"
-        ),
+        label: tr("Relax Prémium", "Relax Premium", "Relax Premium", "Relax Premium", "Relax Premium", "Relax Premium"),
         answer: tr(
           "A Relax Prémium szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett egy másik épülethez. Felmegy a lépcsőn. Ott találja az R P feliratot. A kulcsot a zárban találja.",
           "To find Relax Premium, walk towards the back and pass the sauna to another building. Go up the stairs. There you will find the R P sign. The key is in the lock.",
@@ -707,13 +521,7 @@ export default function Home() {
           "Aby znaleźć Relax Premium, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę wejść po schodach. Tam znajdzie Pan oznaczenie R P. Klucz jest w zamku.",
           "Щоб знайти Relax Premium, пройдіть назад повз сауну до іншої будівлі. Підніміться сходами. Там ви знайдете позначення R P. Ключ у замку."
         ),
-        keywords: [
-          "relax premium",
-          "relax prémium",
-          "premium relax",
-          "prémium relax",
-          "rp",
-        ],
+        keywords: ["relax premium", "relax prémium", "premium relax", "prémium relax", "rp"],
       },
     ],
     []
@@ -723,14 +531,7 @@ export default function Home() {
     () => [
       {
         id: "reggeli",
-        label: tr(
-          "Reggeli",
-          "Breakfast",
-          "Frühstück",
-          "Colazione",
-          "Śniadanie",
-          "Сніданок"
-        ),
+        label: tr("Reggeli", "Breakfast", "Frühstück", "Colazione", "Śniadanie", "Сніданок"),
         answer: tr(
           "A reggeli minden nap 8:00 és 10:00 között érhető el. A reggeli ára 8 euro per fő per nap.",
           "Breakfast is available every day between 8:00 and 10:00. The price is 8 euro per person per day.",
@@ -739,14 +540,7 @@ export default function Home() {
           "Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena wynosi 8 euro za osobę za dzień.",
           "Сніданок доступний щодня з 8:00 до 10:00. Вартість — 8 євро з особи на день."
         ),
-        keywords: [
-          "reggeli",
-          "breakfast",
-          "frühstück",
-          "colazione",
-          "śniadanie",
-          "сніданок",
-        ],
+        keywords: ["reggeli", "breakfast", "frühstück", "colazione", "śniadanie", "сніданок"],
       },
       {
         id: "wifi",
@@ -763,14 +557,7 @@ export default function Home() {
       },
       {
         id: "parkolas",
-        label: tr(
-          "Parkolás",
-          "Parking",
-          "Parken",
-          "Parcheggio",
-          "Parking",
-          "Паркування"
-        ),
+        label: tr("Parkolás", "Parking", "Parken", "Parcheggio", "Parking", "Паркування"),
         answer: tr(
           "A vendégek számára ingyenes parkoló áll rendelkezésre az épület előtt az utcai parkolóban.",
           "Free parking is available for guests in the street parking area in front of the building.",
@@ -779,25 +566,11 @@ export default function Home() {
           "Dla gości dostępny jest bezpłatny parking przed budynkiem, na miejscach parkingowych przy ulicy.",
           "Для гостей доступне безкоштовне паркування перед будівлею на вуличних місцях."
         ),
-        keywords: [
-          "parkol",
-          "parkolás",
-          "parking",
-          "parcheggio",
-          "parken",
-          "паркування",
-        ],
+        keywords: ["parkol", "parkolás", "parking", "parcheggio", "parken", "паркування"],
       },
       {
         id: "wellnesz",
-        label: tr(
-          "Wellnesz",
-          "Wellness",
-          "Wellness",
-          "Wellness",
-          "Wellness",
-          "Велнес"
-        ),
+        label: tr("Wellnesz", "Wellness", "Wellness", "Wellness", "Wellness", "Велнес"),
         answer: tr(
           "A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő per 3 óra. Megrendeléstől számított 2 órán belül használható.",
           "The wellness area is available to guests for an extra fee. Sauna use costs 4000 forints per person for 3 hours. It can be used within 2 hours after ordering.",
@@ -810,14 +583,7 @@ export default function Home() {
       },
       {
         id: "checkout",
-        label: tr(
-          "Kijelentkezés",
-          "Check-out",
-          "Check-out",
-          "Check-out",
-          "Wymeldowanie",
-          "Виїзд"
-        ),
+        label: tr("Kijelentkezés", "Check-out", "Check-out", "Check-out", "Wymeldowanie", "Виїзд"),
         answer: tr(
           "A kijelentkezés legkésőbb 10:00 óráig lehetséges. Megkérjük vendégeinket a kulcsot hagyják a szobaajtóban.",
           "Check-out is possible until 10:00 at the latest. We ask our guests to leave the key in the room door.",
@@ -826,25 +592,11 @@ export default function Home() {
           "Wymeldowanie jest możliwe najpóźniej do godziny 10:00. Prosimy naszych gości o pozostawienie klucza w drzwiach pokoju.",
           "Виїзд можливий не пізніше 10:00. Ми просимо наших гостей залишати ключ у дверях номера."
         ),
-        keywords: [
-          "kijelentkezés",
-          "checkout",
-          "check-out",
-          "check out",
-          "wymeldowanie",
-          "виїзд",
-        ],
+        keywords: ["kijelentkezés", "checkout", "check-out", "check out", "wymeldowanie", "виїзд"],
       },
       {
         id: "checkin",
-        label: tr(
-          "Bejelentkezés",
-          "Check-in",
-          "Check-in",
-          "Check-in",
-          "Zameldowanie",
-          "Заселення"
-        ),
+        label: tr("Bejelentkezés", "Check-in", "Check-in", "Check-in", "Zameldowanie", "Заселення"),
         answer: tr(
           "A bejelentkezés 14:00 órától lehetséges.",
           "Check-in is possible from 14:00.",
@@ -853,25 +605,11 @@ export default function Home() {
           "Zameldowanie jest możliwe od godziny 14:00.",
           "Заселення можливе з 14:00."
         ),
-        keywords: [
-          "bejelentkezés",
-          "checkin",
-          "check-in",
-          "check in",
-          "zameldowanie",
-          "заселення",
-        ],
+        keywords: ["bejelentkezés", "checkin", "check-in", "check in", "zameldowanie", "заселення"],
       },
       {
         id: "recepcio",
-        label: tr(
-          "Recepció",
-          "Reception",
-          "Rezeption",
-          "Reception",
-          "Recepcja",
-          "Рецепція"
-        ),
+        label: tr("Recepció", "Reception", "Rezeption", "Reception", "Recepcja", "Рецепція"),
         answer: tr(
           "Ebben egy kollégám fog segíteni. Kérem, egy pillanat türelmet.",
           "A colleague will help you with this. Please wait a moment.",
@@ -880,13 +618,7 @@ export default function Home() {
           "W tej sprawie pomoże Panu kolega. Proszę o chwilę cierpliwości.",
           "У цьому вам допоможе мій колега. Будь ласка, зачекайте хвилинку."
         ),
-        keywords: [
-          "recepció",
-          "reception",
-          "rezeption",
-          "recepcja",
-          "рецепція",
-        ],
+        keywords: ["recepció", "reception", "rezeption", "recepcja", "рецепція"],
       },
       {
         id: "kapu",
@@ -903,14 +635,7 @@ export default function Home() {
       },
       {
         id: "hazirend",
-        label: tr(
-          "Házirend",
-          "House rules",
-          "Hausordnung",
-          "Regole della casa",
-          "Zasady domu",
-          "Правила внутрішнього розпорядку"
-        ),
+        label: tr("Házirend", "House rules", "Hausordnung", "Regole della casa", "Zasady domu", "Правила внутрішнього розпорядку"),
         answer: tr(
           "Házirend. A medence szabályzat 9 órától 21 óráig. Üveg poharat a kertben használni tilos. Kültéri eszközöket használat után szíveskedjenek tisztán tartani. A hulladékot és az ételmaradékot a tárolókonténerbe szíveskedjenek kiüríteni.",
           "House rules. Pool rules apply from 9:00 to 21:00. Glass cups are not allowed in the garden. Please keep outdoor equipment clean after use. Please empty waste and food leftovers into the storage container.",
@@ -919,29 +644,11 @@ export default function Home() {
           "Zasady domu. Zasady korzystania z basenu obowiązują od 9:00 do 21:00. Szklane kubki są zabronione w ogrodzie. Prosimy o utrzymanie sprzętu zewnętrznego w czystości po użyciu. Prosimy o wyrzucanie odpadów i resztek jedzenia do pojemnika.",
           "Правила проживання. Правила басейну діють з 9:00 до 21:00. Скляний посуд заборонено використовувати в саду. Будь ласка, тримайте в чистоті вуличне обладнання після використання. Будь ласка, викидайте сміття та залишки їжі в контейнер."
         ),
-        keywords: [
-          "házirend",
-          "hazirend",
-          "házi rend",
-          "hazi rend",
-          "szabályzat",
-          "house rules",
-          "hausordnung",
-          "regole della casa",
-          "zasady domu",
-          "правила",
-        ],
+        keywords: ["házirend", "hazirend", "házi rend", "hazi rend", "szabályzat", "house rules", "hausordnung", "regole della casa", "zasady domu", "правила"],
       },
       {
         id: "kisallat",
-        label: tr(
-          "Kisállat",
-          "Pet",
-          "Haustier",
-          "Animale domestico",
-          "Zwierzę domowe",
-          "Домашня тварина"
-        ),
+        label: tr("Kisállat", "Pet", "Haustier", "Animale domestico", "Zwierzę domowe", "Домашня тварина"),
         answer: tr(
           "Kisállat felár ellenében behozható a szálláshelyre előzetes bejelentés alapján. Ár: 10 euro per éj. Nem bejelentett kisállat után extraköltséget számítunk fel.",
           "Pets can be brought to the accommodation for an extra fee with prior notice. Price: 10 euro per night. Extra charges apply for undeclared pets.",
@@ -950,19 +657,7 @@ export default function Home() {
           "Zwierzęta domowe można przywieźć do obiektu za dodatkową opłatą po wcześniejszym zgłoszeniu. Cena: 10 euro za noc. Za niezgłoszone zwierzęta naliczana jest dodatkowa opłata.",
           "Домашніх тварин можна привозити до помешкання за додаткову плату після попереднього повідомлення. Ціна: 10 євро за ніч. За незаявлених тварин стягується додаткова плата."
         ),
-        keywords: [
-          "kisállat",
-          "kisallat",
-          "állat",
-          "allat",
-          "kutya",
-          "macska",
-          "pet",
-          "haustier",
-          "animale domestico",
-          "zwierzę domowe",
-          "домашня тварина",
-        ],
+        keywords: ["kisállat", "kisallat", "állat", "allat", "kutya", "macska", "pet", "haustier", "animale domestico", "zwierzę domowe", "домашня тварина"],
       },
     ],
     []
@@ -978,6 +673,10 @@ export default function Home() {
   }, [selectedLanguage, ui.welcome]);
 
   useEffect(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      return;
+    }
+
     const loadVoices = () => {
       const allVoices = window.speechSynthesis.getVoices();
       if (allVoices.length > 0) {
@@ -986,29 +685,27 @@ export default function Home() {
     };
 
     loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
 
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.onvoiceschanged = loadVoices;
-
-      const t1 = window.setTimeout(loadVoices, 200);
-      const t2 = window.setTimeout(loadVoices, 800);
-      const t3 = window.setTimeout(loadVoices, 1500);
-
-      return () => {
-        window.clearTimeout(t1);
-        window.clearTimeout(t2);
-        window.clearTimeout(t3);
-        if (speakTimeoutRef.current) {
-          window.clearTimeout(speakTimeoutRef.current);
-        }
-        window.speechSynthesis.cancel();
-      };
-    }
+    const t1 = window.setTimeout(loadVoices, 200);
+    const t2 = window.setTimeout(loadVoices, 800);
+    const t3 = window.setTimeout(loadVoices, 1500);
 
     return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+
       if (speakTimeoutRef.current) {
         window.clearTimeout(speakTimeoutRef.current);
       }
+
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.onvoiceschanged = null;
+      }
+
+      recognitionRef.current?.stop();
     };
   }, []);
 
@@ -1041,23 +738,19 @@ export default function Home() {
   const pickBestVoice = (lang: LangCode) => {
     if (!voices.length) return null;
 
-    const exact = voices.find(
-      (voice) => voice.lang.toLowerCase() === lang.toLowerCase()
-    );
+    const exact = voices.find((voice) => voice.lang.toLowerCase() === lang.toLowerCase());
     if (exact) return exact;
 
     const base = lang.toLowerCase().split("-")[0];
 
-    const byBase = voices.find((voice) =>
-      voice.lang.toLowerCase().startsWith(base)
-    );
+    const byBase = voices.find((voice) => voice.lang.toLowerCase().startsWith(base));
     if (byBase) return byBase;
 
     return voices[0] || null;
   };
 
   const speak = (text: string) => {
-    if (!("speechSynthesis" in window)) {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       setAnswer(getText(ui.speechUnsupported, selectedLanguage));
       return;
     }
@@ -1118,12 +811,23 @@ export default function Home() {
   };
 
   const startListening = async () => {
+    if (typeof window === "undefined") return;
+
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       setAnswer(getText(ui.recognitionUnsupported, selectedLanguage));
       return;
+    }
+
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setAnswer(getText(ui.micUnavailable, selectedLanguage));
+      return;
+    }
+
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
     }
 
     try {
@@ -1133,7 +837,14 @@ export default function Home() {
       return;
     }
 
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
+
     const recognition = new SpeechRecognition();
+    recognitionRef.current = recognition;
+
     recognition.lang = selectedLanguage;
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
@@ -1144,7 +855,7 @@ export default function Home() {
       setAnswer(getText(ui.speakNow, selectedLanguage));
     };
 
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event: SpeechRecognitionEventLike) => {
       const transcript = event.results?.[0]?.[0]?.transcript || "";
       setHeardText(transcript);
 
@@ -1152,10 +863,16 @@ export default function Home() {
       setAnswerAndSpeak(response);
     };
 
-    recognition.onerror = (event: any) => {
+    recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
       setIsListening(false);
       setHeardText("");
-      setAnswer(`Beszédfelismerési hiba: ${event.error || "ismeretlen hiba"}`);
+
+      const knownError =
+        event.error === "not-allowed"
+          ? getText(ui.micDenied, selectedLanguage)
+          : getText(ui.recognitionFailed, selectedLanguage);
+
+      setAnswer(knownError);
     };
 
     recognition.onend = () => {
@@ -1169,7 +886,7 @@ export default function Home() {
     setAnswerAndSpeak(getText(item.answer, selectedLanguage));
   };
 
-  const sectionWrapperStyle = (background: string) => ({
+  const sectionWrapperStyle = (background: string): CSSProperties => ({
     maxWidth: "1100px",
     width: "100%",
     marginBottom: "20px",
@@ -1180,7 +897,7 @@ export default function Home() {
     boxShadow: "0 4px 14px rgba(80, 60, 40, 0.05)",
   });
 
-  const menuButtonStyle: React.CSSProperties = {
+  const menuButtonStyle: CSSProperties = {
     padding: "10px 14px",
     borderRadius: "12px",
     border: "1px solid #d8cfc2",
@@ -1190,6 +907,17 @@ export default function Home() {
     color: "#4b4034",
     boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
     transition: "all 0.2s ease",
+  };
+
+  const actionButtonStyle: CSSProperties = {
+    padding: "20px",
+    fontSize: "18px",
+    color: "white",
+    border: "none",
+    borderRadius: "12px",
+    cursor: "pointer",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.10)",
+    fontWeight: 700,
   };
 
   const renderMenuButtons = (items: MenuItem[]) =>
@@ -1268,9 +996,7 @@ export default function Home() {
               "radial-gradient(circle, rgba(255,255,255,0.15) 35%, rgba(173,140,96,0.18) 70%, rgba(173,140,96,0.28) 100%)",
             filter: "blur(2px)",
             opacity: avatarIsActive ? 1 : 0,
-            animation: avatarIsActive
-              ? "kataRingGlow 1.4s ease-in-out infinite"
-              : "none",
+            animation: avatarIsActive ? "kataRingGlow 1.4s ease-in-out infinite" : "none",
             transition: "opacity 0.3s ease",
           }}
         />
@@ -1319,16 +1045,8 @@ export default function Home() {
 
         <button
           onClick={startListening}
-          title={
-            isListening
-              ? getText(ui.listening, selectedLanguage)
-              : getText(ui.listen, selectedLanguage)
-          }
-          aria-label={
-            isListening
-              ? getText(ui.listening, selectedLanguage)
-              : getText(ui.listen, selectedLanguage)
-          }
+          title={isListening ? getText(ui.listening, selectedLanguage) : getText(ui.listen, selectedLanguage)}
+          aria-label={isListening ? getText(ui.listening, selectedLanguage) : getText(ui.listen, selectedLanguage)}
           style={{
             position: "absolute",
             right: "8px",
@@ -1349,9 +1067,7 @@ export default function Home() {
             boxShadow: isListening
               ? "0 10px 24px rgba(166, 61, 47, 0.35)"
               : "0 10px 24px rgba(95, 125, 78, 0.28)",
-            animation: isListening
-              ? "kataPulse 1s ease-in-out infinite"
-              : "none",
+            animation: isListening ? "kataPulse 1s ease-in-out infinite" : "none",
             zIndex: 7,
           }}
         >
@@ -1388,12 +1104,8 @@ export default function Home() {
             style={{
               padding: "10px 14px",
               borderRadius: "12px",
-              border:
-                selectedLanguage === lang.code
-                  ? "2px solid #9f8c72"
-                  : "1px solid #d9cbb6",
-              background:
-                selectedLanguage === lang.code ? "#e9decd" : "#f7f1e7",
+              border: selectedLanguage === lang.code ? "2px solid #9f8c72" : "1px solid #d9cbb6",
+              background: selectedLanguage === lang.code ? "#e9decd" : "#f7f1e7",
               color: "#4e4438",
               cursor: "pointer",
               boxShadow:
@@ -1419,7 +1131,6 @@ export default function Home() {
           }}
         >
           <div style={{ fontSize: "26px" }}>🛏️</div>
-
           <h3
             style={{
               margin: 0,
@@ -1431,7 +1142,6 @@ export default function Home() {
           >
             {getText(ui.rooms, selectedLanguage)}
           </h3>
-
           <div
             style={{
               width: "40px",
@@ -1465,7 +1175,6 @@ export default function Home() {
           }}
         >
           <div style={{ fontSize: "26px" }}>🏡</div>
-
           <h3
             style={{
               margin: 0,
@@ -1477,7 +1186,6 @@ export default function Home() {
           >
             {getText(ui.apartments, selectedLanguage)}
           </h3>
-
           <div
             style={{
               width: "40px",
@@ -1511,7 +1219,6 @@ export default function Home() {
           }}
         >
           <div style={{ fontSize: "26px" }}>🧖‍♂️</div>
-
           <h3
             style={{
               margin: 0,
@@ -1523,7 +1230,6 @@ export default function Home() {
           >
             {getText(ui.relax, selectedLanguage)}
           </h3>
-
           <div
             style={{
               width: "40px",
@@ -1568,77 +1274,75 @@ export default function Home() {
       </div>
 
       <div
-  style={{
-    display: "flex",
-    gap: "12px",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    marginBottom: "20px",
-  }}
->
-  <button
-    onClick={() => {
-      const phoneNumber = "36709469181";
-      const message = encodeURIComponent(
-        `Szia, recepcióst kérek. Nyelv: ${selectedLanguage}.`
-      );
-      window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
-    }}
-    style={{
-      padding: "20px",
-      fontSize: "18px",
-      background: "#4f463d",
-      color: "white",
-      border: "none",
-      borderRadius: "12px",
-      cursor: "pointer",
-      boxShadow: "0 4px 10px rgba(0,0,0,0.10)",
-    }}
-  >
-    {getText(ui.askReception, selectedLanguage)}
-  </button>
+        style={{
+          display: "flex",
+          gap: "12px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <button
+          onClick={() => speak(getText(ui.hello, selectedLanguage))}
+          style={{
+            ...actionButtonStyle,
+            background: "linear-gradient(180deg, #7d8fa6 0%, #5c6f86 100%)",
+          }}
+        >
+          {getText(ui.soundTest, selectedLanguage)}
+        </button>
 
-  <button
-    onClick={() => {
-      setShowEmergency(true);
-      window.location.href = "tel:+36704089437";
-    }}
-    style={{
-      padding: "20px",
-      fontSize: "18px",
-      background: "linear-gradient(180deg, #e53935 0%, #b71c1c 100%)",
-      color: "white",
-      border: "none",
-      borderRadius: "12px",
-      cursor: "pointer",
-      boxShadow: "0 6px 16px rgba(183,28,28,0.35)",
-      fontWeight: 700,
-    }}
-  >
-    {getText(ui.emergencyPhone, selectedLanguage)}
-  </button>
-</div>
+        <button
+          onClick={() => {
+            const phoneNumber = "36709469181";
+            const message = encodeURIComponent(
+              `Szia, recepcióst kérek. Nyelv: ${selectedLanguage}.`
+            );
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+          }}
+          style={{
+            ...actionButtonStyle,
+            background: "#4f463d",
+          }}
+        >
+          {getText(ui.askReception, selectedLanguage)}
+        </button>
 
-{showEmergency && (
-  <a
-    href="tel:+36704089437"
-    style={{
-      display: "inline-block",
-      marginBottom: "20px",
-      background: "#fff3f3",
-      padding: "16px 20px",
-      borderRadius: "14px",
-      border: "1px solid #f5c2c2",
-      color: "#7a1c1c",
-      fontSize: "20px",
-      fontWeight: 700,
-      boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
-      textDecoration: "none",
-    }}
-  >
-    📞 +36 70 408 9437
-  </a>
-)}
+        <button
+          onClick={() => {
+            setShowEmergency(true);
+            window.location.href = "tel:+36704089437";
+          }}
+          style={{
+            ...actionButtonStyle,
+            background: "linear-gradient(180deg, #e53935 0%, #b71c1c 100%)",
+            boxShadow: "0 6px 16px rgba(183,28,28,0.35)",
+          }}
+        >
+          {getText(ui.emergencyPhone, selectedLanguage)}
+        </button>
+      </div>
+
+      {showEmergency && (
+        <a
+          href="tel:+36704089437"
+          style={{
+            display: "inline-block",
+            marginBottom: "20px",
+            background: "#fff3f3",
+            padding: "16px 20px",
+            borderRadius: "14px",
+            border: "1px solid #f5c2c2",
+            color: "#7a1c1c",
+            fontSize: "20px",
+            fontWeight: 700,
+            boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+            textDecoration: "none",
+          }}
+        >
+          📞 +36 70 408 9437
+        </a>
+      )}
 
       <div
         style={{
