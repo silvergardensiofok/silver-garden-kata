@@ -114,22 +114,8 @@ export default function Home() {
         "Wybierz język lub zadaj pytanie",
         "Оберіть мову або просто запитайте"
       ),
-      rooms: tr(
-        "Silver Garden Szobák",
-        "Rooms",
-        "Zimmer",
-        "Camere",
-        "Pokoje",
-        "Кімнати"
-      ),
-      apartments: tr(
-        "Apartmanok",
-        "Apartments",
-        "Apartments",
-        "Appartamenti",
-        "Apartamenty",
-        "Апартаменти"
-      ),
+      rooms: tr("Silver Garden Szobák", "Rooms", "Zimmer", "Camere", "Pokoje", "Кімнати"),
+      apartments: tr("Apartmanok", "Apartments", "Apartments", "Appartamenti", "Apartamenty", "Апартаменти"),
       relax: tr("Relax", "Relax", "Relax", "Relax", "Relax", "Релакс"),
       heard: tr(
         "Felismert beszéd:",
@@ -201,7 +187,7 @@ export default function Home() {
         "Die Spracherkennung wird in diesem Browser nicht unterstützt. Bitte öffnen Sie Chrome.",
         "Il riconoscimento vocale non è supportato in questo browser. Aprilo in Chrome.",
         "Rozpoznawanie mowy nie jest obsługiwane w tej przeglądarce. Otwórz ją w Chrome.",
-        "Розпізнавання мовлення не підтримується в цьому браузері. Відкрийте його в Chrome."
+        "Розпізнавання мовлення не підтримується в цьому браузері. Відкрийте в Chrome."
       ),
       micDenied: tr(
         "A mikrofon nincs engedélyezve a böngészőben.",
@@ -223,7 +209,7 @@ export default function Home() {
         "A hangos felolvasás nem támogatott ebben a böngészőben.",
         "Speech synthesis is not supported in this browser.",
         "Die Sprachausgabe wird in diesem Browser nicht unterstützt.",
-        "La sintesi vocale non è supportata in questo browser.",
+        "La sintesi vocale non supportata in questo browser.",
         "Synteza mowy nie jest obsługiwana w tej przeglądarce.",
         "Синтез мовлення не підтримується в цьому браузері."
       ),
@@ -259,6 +245,22 @@ export default function Home() {
         "Naciśnij, aby rozmawiać",
         "Натисніть, щоб говорити"
       ),
+      weatherUnavailable: tr(
+        "Most nem tudok időjárást lekérdezni. Kérem, próbálja később.",
+        "I can't fetch the weather right now. Please try again later.",
+        "Ich kann das Wetter im Moment nicht abrufen. Bitte versuchen Sie es später erneut.",
+        "Al momento non riesco a recuperare il meteo. Riprovi più tardi.",
+        "Nie mogę teraz pobrać pogody. Proszę spróbować później.",
+        "Зараз я не можу отримати погоду. Спробуйте пізніше."
+      ),
+      timeNow: tr(
+        "A pontos idő:",
+        "The current time is:",
+        "Die aktuelle Uhrzeit ist:",
+        "L'ora esatta è:",
+        "Aktualna godzina to:",
+        "Точний час:"
+      ),
     }),
     []
   );
@@ -288,7 +290,17 @@ export default function Home() {
           "Aby znaleźć pokój 1, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Pierwszy pokój po lewej stronie to pokój 1.",
           "Щоб знайти кімнату 1, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Перша кімната ліворуч — це кімната 1."
         ),
-        keywords: ["szoba 1", "szoba egy", "1-es szoba", "room 1", "where is room 1", "zimmer 1", "camera 1", "pokój 1", "кімната 1"],
+        keywords: [
+          "szoba 1",
+          "szoba egy",
+          "1-es szoba",
+          "room 1",
+          "where is room 1",
+          "zimmer 1",
+          "camera 1",
+          "pokój 1",
+          "кімната 1",
+        ],
       },
       {
         id: "szoba2",
@@ -309,10 +321,10 @@ export default function Home() {
         answer: tr(
           "A 3-as szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Balra a harmadik szoba a 3-as szoba.",
           "To find room 3, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The third room on the left is room 3.",
-          "Um Zimmer 3 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das dritte Zimmer links ist Zimmer 3.",
+          "Um Zimmer 3 zu finden, Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das dritte Zimmer links ist Zimmer 3.",
           "Per trovare la camera 3, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La terza camera a sinistra è la camera 3.",
           "Aby znaleźć pokój 3, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po lewej stronie to pokój 3.",
-          "Щоб знайти кімнату 3, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Третя кімната ліворуч — це кімната 3."
+          "Щоб знайти кімнату 3, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайdете сходи. Підніміться на перший поверх. Третя кімната ліворуч — це кімната 3."
         ),
         keywords: ["szoba 3", "szoba három", "3-as szoba", "room 3", "where is room 3", "zimmer 3", "camera 3", "pokój 3", "кімната 3"],
       },
@@ -338,7 +350,7 @@ export default function Home() {
           "Um Zimmer 5 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das zweite Zimmer rechts ist Zimmer 5.",
           "Per trovare la camera 5, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La seconda camera a destra è la camera 5.",
           "Aby znaleźć pokój 5, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Drugi pokój po prawej stronie to pokój 5.",
-          "Щоб знайти кімнату 5, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Друга кімната праворуч — це кімната 5."
+          "Щоб знайти кімнату 5, пройдіть уздовż будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Друга кімната праворуч — це кімната 5."
         ),
         keywords: ["szoba 5", "szoba öt", "5-ös szoba", "room 5", "where is room 5", "zimmer 5", "camera 5", "pokój 5", "кімната 5"],
       },
@@ -364,7 +376,7 @@ export default function Home() {
           "Um Zimmer 7 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das vierte Zimmer rechts ist Zimmer 7.",
           "Per trovare la camera 7, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La quarta camera a destra è la camera 7.",
           "Aby znaleźć pokój 7, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po prawej stronie to pokój 7.",
-          "Щоб знайти кімнату 7, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Четверта кімната праворуч — це кімната 7."
+          "Щоб знайти кімнату 7, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайdете сходи. Підніміться на перший поверх. Четверта кімната праворуч — це кімната 7."
         ),
         keywords: ["szoba 7", "szoba hét", "7-es szoba", "room 7", "where is room 7", "zimmer 7", "camera 7", "pokój 7", "кімната 7"],
       },
@@ -391,7 +403,7 @@ export default function Home() {
         id: "apartman1",
         label: tr("Apartman 1", "Apartment 1", "Apartment 1", "Appartamento 1", "Apartament 1", "Апартамент 1"),
         answer: tr(
-          "Az Apartman 1-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Jobb oldalon találja az utolsó előtti ajtót A 1 feliratot. A kulcs a zárban van.",
+          "Az Apartman 1-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Jobb oldalon találja az utolsó előtti ajtót A 1 felirattal. A kulcs a zárban van.",
           "To find apartment 1, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. On the right side you will find the second to last door marked A 1. The key is in the lock.",
           "Um Apartment 1 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Auf der rechten Seite finden Sie die vorletzte Tür mit der Aufschrift A 1. Der Schlüssel steckt im Schloss.",
           "Per trovare l'appartamento 1, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. Sul lato destro troverà la penultima porta con la scritta A 1. La chiave è nella serratura.",
@@ -404,7 +416,7 @@ export default function Home() {
         id: "apartman2",
         label: tr("Apartman 2", "Apartment 2", "Apartment 2", "Appartamento 2", "Apartament 2", "Апартамент 2"),
         answer: tr(
-          "Az Apartman 2-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Bal oldalon találja az utolsó előtti ajtót A 2 feliratot. A kulcs a zárban van.",
+          "Az Apartman 2-es szobát úgy találja meg, hogy elindul az épület mellett. Hátul jobbra fordul. Ott megtalálja a lépcsőt. Felmegy az első emeletre. Bal oldalon találja az utolsó előtti ajtót A 2 felirattal. A kulcs a zárban van.",
           "To find apartment 2, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. On the left side you will find the second to last door marked A 2. The key is in the lock.",
           "Um Apartment 2 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Auf der linken Seite finden Sie die vorletzte Tür mit der Aufschrift A 2. Der Schlüssel steckt im Schloss.",
           "Per trovare l'appartamento 2, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. Sul lato sinistro troverà la penultima porta con la scritta A 2. La chiave è nella serratura.",
@@ -467,7 +479,7 @@ export default function Home() {
           "Um Relax 1 zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie auf der Poolseite um das Gebäude herum. Dort finden Sie die Aufschrift R 1. Der Schlüssel steckt im Schloss.",
           "Per trovare Relax 1, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Faccia il giro dell'edificio dal lato della piscina. Lì troverà l'insegna R 1. La chiave è nella serratura.",
           "Aby znaleźć Relax 1, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Tam znajdzie Pan oznaczenie R 1. Klucz jest w zamku.",
-          "Щоб знайти Relax 1, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейну. Там ви знайдете позначення R 1. Ключ у замку."
+          "Щоб знайти Relax 1, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейну. Там ви знайдете позначення R 1. Ключ у замku."
         ),
         keywords: ["relax 1", "1-es relax", "relax room 1", "relax 1 room"],
       },
@@ -493,7 +505,7 @@ export default function Home() {
           "Um Relax 3 zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie auf der Poolseite um das Gebäude herum. Dort finden Sie die Aufschrift R 3. Der Schlüssel steckt im Schloss.",
           "Per trovare Relax 3, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Faccia il giro dell'edificio dal lato della piscina. Lì troverà l'insegna R 3. La chiave è nella serratura.",
           "Aby znaleźć Relax 3, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Tam znajdzie Pan oznaczenie R 3. Klucz jest w zamku.",
-          "Щоб знайти Relax 3, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейну. Там ви знайдете позначення R 3. Ключ у замку."
+          "Щоб знайти Relax 3, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейnu. Там ви знайдете позначення R 3. Ключ у замku."
         ),
         keywords: ["relax 3", "3-es relax", "relax room 3", "relax 3 room"],
       },
@@ -506,7 +518,7 @@ export default function Home() {
           "Um Relax 4 zu finden, gehen Sie nach hinten und an der Sauna vorbei. Sie kommen zu einem anderen Gebäude. Dort finden Sie die Aufschrift R 4. Der Schlüssel steckt im Schloss.",
           "Per trovare Relax 4, vada verso il retro e passi accanto alla sauna. Arriverà a un altro edificio. Lì troverà l'insegna R 4. La chiave è nella serratura.",
           "Aby znaleźć Relax 4, proszę iść do tyłu i minąć saunę. Dojdzie Pan do drugiego budynku. Tam znajdzie Pan oznaczenie R 4. Klucz jest w zamku.",
-          "Щоб знайти Relax 4, пройдіть назад повз сауну. Ви дійдете до іншої будівлі. Там ви знайдете позначення R 4. Ключ у замку."
+          "Щоб знайти Relax 4, пройдіть назад повз сауну. Ви дійдете до іншої будівлі. Там ви знайдете позначення R 4. Ключ у замku."
         ),
         keywords: ["relax 4", "4-es relax", "relax room 4", "relax 4 room"],
       },
@@ -519,9 +531,141 @@ export default function Home() {
           "Um Relax Premium zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie die Treppe hinauf. Dort finden Sie die Aufschrift R P. Der Schlüssel steckt im Schloss.",
           "Per trovare Relax Premium, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Salga le scale. Lì troverà l'insegna R P. La chiave è nella serratura.",
           "Aby znaleźć Relax Premium, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę wejść po schodach. Tam znajdzie Pan oznaczenie R P. Klucz jest w zamku.",
-          "Щоб знайти Relax Premium, пройдіть назад повз сауну до іншої будівлі. Підніміться сходами. Там ви знайдете позначення R P. Ключ у замку."
+          "Щоб знайти Relax Premium, пройдіть назад повз сауну до іншої будівлі. Підніміться сходами. Там ви знайдете позначення R P. Ключ у замku."
         ),
         keywords: ["relax premium", "relax prémium", "premium relax", "prémium relax", "rp"],
+      },
+    ],
+    []
+  );
+
+  const extraVoiceItems: MenuItem[] = useMemo(
+    () => [
+      {
+        id: "koszones",
+        label: tr("Köszönés", "Greeting", "Begrüßung", "Saluto", "Powitanie", "Вітання"),
+        answer: tr(
+          "Szia! Kata vagyok, a Silver Garden virtuális recepciósa. Miben segíthetek?",
+          "Hello! I'm Kata, the Silver Garden virtual receptionist. How can I help?",
+          "Hallo! Ich bin Kata, die virtuelle Rezeptionistin von Silver Garden. Wie kann ich helfen?",
+          "Ciao! Sono Kata, la receptionist virtuale di Silver Garden. Come posso aiutarti?",
+          "Cześć! Jestem Kata, wirtualna recepcjonistka Silver Garden. W czym mogę pomóc?",
+          "Привіт! Я Ката, віртуальна адміністраторка Silver Garden. Чим можу допомогти?"
+        ),
+        keywords: [
+          "szia",
+          "hello",
+          "hi",
+          "jó reggelt",
+          "jo reggelt",
+          "jó napot",
+          "jo napot",
+          "jó estét",
+          "jo estet",
+          "hallo",
+          "guten morgen",
+          "guten tag",
+          "guten abend",
+          "ciao",
+          "buongiorno",
+          "buonasera",
+          "dzień dobry",
+          "dzien dobry",
+          "cześć",
+          "czesc",
+          "dobry wieczór",
+          "dobry wieczor",
+          "привіт",
+          "добрий день",
+          "доброго ранку",
+          "добрий вечір",
+        ],
+      },
+      {
+        id: "kornyek",
+        label: tr("Környék", "Nearby", "Umgebung", "Dintorni", "Okolica", "Поруч"),
+        answer: tr(
+          "A környéken rövid sétával elérhetők éttermek, boltok és a Balaton-part. Mondja meg, hogy gyalog vagy autóval menne, és mit keres (strand, étterem, bolt, gyógyszertár), és adok tippet.",
+          "Nearby you can reach restaurants, shops, and Lake Balaton within a short walk. Tell me if you go on foot or by car and what you're looking for (beach, restaurant, shop, pharmacy), and I'll suggest options.",
+          "In der Umgebung erreichen Sie Restaurants, Geschäfte und das Balaton-Ufer in wenigen Minuten zu Fuß. Sagen Sie mir bitte, ob Sie zu Fuß oder mit dem Auto unterwegs sind und was Sie suchen (Strand, Restaurant, Geschäft, Apotheke).",
+          "Nei dintorni, con una breve passeggiata, può raggiungere ristoranti, negozi e il lago Balaton. Mi dica se va a piedi o in auto e cosa cerca (spiaggia, ristorante, negozio, farmacia) e le do qualche consiglio.",
+          "W okolicy w krótkim spacerze znajdziesz restauracje, sklepy i brzeg Balatonu. Powiedz, czy idziesz pieszo czy jedziesz autem i czego szukasz (plaża, restauracja, sklep, apteka), a podpowiem.",
+          "Поруч за коротку прогулянку можна дістатися ресторанів, магазинів і берега Балатону. Скажіть, будь ласка, пішки чи авто, і що саме шукаєте (пляж, ресторан, магазин, аптека) — я підкажу."
+        ),
+        keywords: [
+          "környék",
+          "kornyek",
+          "közelben",
+          "kozelben",
+          "nearby",
+          "around here",
+          "in the area",
+          "umgebung",
+          "in der nähe",
+          "in der nahe",
+          "dintorni",
+          "nelle vicinanze",
+          "okolic",
+          "w okolicy",
+          "поруч",
+          "поблизу",
+          "район",
+        ],
+      },
+      {
+        id: "programok",
+        label: tr("Programlehetőségek", "Programs", "Programme", "Attività", "Atrakcje", "Розваги"),
+        answer: tr(
+          "Programokhoz javaslom: Balaton-parti séta, strand, hajózás, kilátók, valamint siófoki belvárosi esti programok. Mondja meg, hogy családdal vagy párban van, és nappali vagy esti programot keres.",
+          "For things to do: lakeside walk, beach, boat trips, viewpoints, and evening programs in downtown Siófok. Tell me if you're here with family or as a couple, and whether you want daytime or evening ideas.",
+          "Für Aktivitäten empfehle ich: Spaziergang am Balaton, Strand, Schifffahrt, Aussichtspunkte und abendliche Programme in der Innenstadt von Siófok. Sagen Sie mir bitte, ob Sie mit Familie oder als Paar da sind und ob Sie tagsüber oder abends etwas suchen.",
+          "Per attività: passeggiata sul lago, spiaggia, gite in barca, punti panoramici e programmi serali nel centro di Siófok. Mi dica se è in famiglia o in coppia e se cerca idee per il giorno o per la sera.",
+          "Jeśli chodzi o atrakcje: spacer nad Balatonem, plaża, rejsy statkiem, punkty widokowe i wieczorne wyjścia w centrum Siófok. Powiedz, czy jesteś z rodziną czy w parze i czy szukasz czegoś na dzień czy na wieczór.",
+          "Щодо розваг: прогулянка набережною Балатону, пляж, прогулянки на кораблику, оглядові точки та вечірні програми в центрі Шіофока. Скажіть, ви з родиною чи парою, і шукаєте ідеї на день чи на вечір."
+        ),
+        keywords: [
+          "program",
+          "programok",
+          "programlehetőség",
+          "programlehetoseg",
+          "mit lehet csinálni",
+          "mit lehet csinalni",
+          "látnivaló",
+          "latnivalo",
+          "things to do",
+          "programs",
+          "what can we do",
+          "what to do",
+          "activities",
+          "programme",
+          "was kann man machen",
+          "aktivitaten",
+          "aktivitäten",
+          "attività",
+          "attivita",
+          "cosa fare",
+          "atrakcje",
+          "co robić",
+          "co robic",
+          "rozrywka",
+          "розваги",
+          "що робити",
+          "активності",
+          "активности",
+        ],
+      },
+      {
+        id: "balaton",
+        label: tr("Balaton", "Lake Balaton", "Balaton", "Balaton", "Balaton", "Балатон"),
+        answer: tr(
+          "A Balaton Magyarország legnagyobb tava. Siófokon népszerű a szabadstrand és a kikötő. Ha mondja, melyik napszakban menne, ajánlok nyugis vagy nyüzsgő partszakaszt.",
+          "Lake Balaton is Hungary's largest lake. In Siófok, the free beach and the harbour are popular. Tell me what time of day you plan to go, and I'll suggest a calm or lively spot.",
+          "Der Balaton ist der größte See Ungarns. In Siófok sind der freie Strand und der Hafen besonders beliebt. Sagen Sie mir bitte, zu welcher Tageszeit Sie gehen möchten – ich empfehle einen ruhigen oder belebten Abschnitt.",
+          "Il Balaton è il lago più grande dell’Ungheria. A Siófok sono molto popolari la spiaggia libera e il porto. Mi dica a che ora vorrebbe andarci e le consiglio una zona tranquilla o più vivace.",
+          "Balaton to największe jezioro na Węgrzech. W Siófok popularne są plaża bezpłatna i port. Powiedz, o jakiej porze chcesz iść, a polecę spokojniejsze lub bardziej tętniące życiem miejsce.",
+          "Балатон — найбільше озеро Угорщини. У Шіофоку популярні безкоштовний пляж і порт. Скажіть, у який час дня плануєте йти — пораджу тихіше або більш жваве місце."
+        ),
+        keywords: ["balaton", "balatonrol", "balatonról", "tó", "to", "lake balaton", "plattensee", "lago balaton", "jezioro balaton", "балатон"],
       },
     ],
     []
@@ -533,14 +677,14 @@ export default function Home() {
         id: "reggeli",
         label: tr("Reggeli", "Breakfast", "Frühstück", "Colazione", "Śniadanie", "Сніданок"),
         answer: tr(
-          "A reggeli minden nap 8:00 és 10:00 között érhető el. A reggeli ára 8 euro per fő per nap.",
-          "Breakfast is available every day between 8:00 and 10:00. The price is 8 euro per person per day.",
-          "Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar. Der Preis beträgt 8 Euro pro Person und Tag.",
-          "La colazione è disponibile ogni giorno dalle 8:00 alle 10:00. Il prezzo è di 8 euro a persona al giorno.",
-          "Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena wynosi 8 euro za osobę za dzień.",
-          "Сніданок доступний щодня з 8:00 до 10:00. Вартість — 8 євро з особи на день."
+          "A reggeli minden nap 8:00 és 10:00 között érhető el. A reggeli ára 8 euro per fő per nap. A reggelit à la carte rendszerben adjuk: általában 4 féle ételválasztékból lehet választani, jellemzően tojásos ételek. A csomag tartalmaz egy pohár narancslevet és egy kávét (például cappuccinót) is.",
+  "Breakfast is available every day between 8:00 and 10:00. The price is 8 euro per person per day. Breakfast is served à la carte: usually you can choose from 4 options, typically egg-based dishes. The package includes a glass of orange juice and a coffee (for example a cappuccino).",
+  "Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar. Der Preis beträgt 8 Euro pro Person und Tag. Das Frühstück wird à la carte serviert: in der Regel können Sie aus 4 Optionen wählen, meist Eierspeisen. Im Paket enthalten sind ein Glas Orangensaft und ein Kaffee (z. B. Cappuccino).",
+  "La colazione è disponibile ogni giorno dalle 8:00 alle 10:00. Il prezzo è di 8 euro a persona al giorno. La colazione è servita à la carte: di solito può scegliere tra 4 opzioni, generalmente piatti a base di uova. Il pacchetto include un bicchiere di succo d’arancia e un caffè (ad esempio un cappuccino).",
+  "Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena wynosi 8 euro za osobę za dzień. Śniadanie serwujemy à la carte: zwykle można wybrać z 4 opcji, najczęściej potrawy z jajek. W pakiecie jest szklanka soku pomarańczowego oraz kawa (np. cappuccino).",
+  "Сніданок доступний щодня з 8:00 до 10:00. Вартість — 8 євро з особи на день. Сніданок подаємо à la carte: зазвичай можна обрати з 4 варіантів, переважно страви з яєць. У пакет входить склянка апельсинового соку та кава (наприклад, капучино)."
         ),
-        keywords: ["reggeli", "breakfast", "frühstück", "colazione", "śniadanie", "сніданок"],
+        keywords: ["reggeli", "breakfast", "frühstück", "fruhstuck", "colazione", "śniadanie", "sniadanie", "сніданок"],
       },
       {
         id: "wifi",
@@ -566,7 +710,7 @@ export default function Home() {
           "Dla gości dostępny jest bezpłatny parking przed budynkiem, na miejscach parkingowych przy ulicy.",
           "Для гостей доступне безкоштовне паркування перед будівлею на вуличних місцях."
         ),
-        keywords: ["parkol", "parkolás", "parking", "parcheggio", "parken", "паркування"],
+        keywords: ["parkol", "parkolás", "parkolas", "parking", "parcheggio", "parken", "паркування"],
       },
       {
         id: "wellnesz",
@@ -592,7 +736,7 @@ export default function Home() {
           "Wymeldowanie jest możliwe najpóźniej do godziny 10:00. Prosimy naszych gości o pozostawienie klucza w drzwiach pokoju.",
           "Виїзд можливий не пізніше 10:00. Ми просимо наших гостей залишати ключ у дверях номера."
         ),
-        keywords: ["kijelentkezés", "checkout", "check-out", "check out", "wymeldowanie", "виїзд"],
+        keywords: ["kijelentkezés", "kijelentkezes", "checkout", "check-out", "check out", "wymeldowanie", "виїзд"],
       },
       {
         id: "checkin",
@@ -605,7 +749,7 @@ export default function Home() {
           "Zameldowanie jest możliwe od godziny 14:00.",
           "Заселення можливе з 14:00."
         ),
-        keywords: ["bejelentkezés", "checkin", "check-in", "check in", "zameldowanie", "заселення"],
+        keywords: ["bejelentkezés", "bejelentkezes", "checkin", "check-in", "check in", "zameldowanie", "заселення"],
       },
       {
         id: "recepcio",
@@ -618,7 +762,7 @@ export default function Home() {
           "W tej sprawie pomoże Panu kolega. Proszę o chwilę cierpliwości.",
           "У цьому вам допоможе мій колега. Будь ласка, зачекайте хвилинку."
         ),
-        keywords: ["recepció", "reception", "rezeption", "recepcja", "рецепція"],
+        keywords: ["recepció", "recepcio", "reception", "rezeption", "recepcja", "рецепція"],
       },
       {
         id: "kapu",
@@ -644,7 +788,7 @@ export default function Home() {
           "Zasady domu. Zasady korzystania z basenu obowiązują od 9:00 do 21:00. Szklane kubki są zabronione w ogrodzie. Prosimy o utrzymanie sprzętu zewnętrznego w czystości po użyciu. Prosimy o wyrzucanie odpadów i resztek jedzenia do pojemnika.",
           "Правила проживання. Правила басейну діють з 9:00 до 21:00. Скляний посуд заборонено використовувати в саду. Будь ласка, тримайте в чистоті вуличне обладнання після використання. Будь ласка, викидайте сміття та залишки їжі в контейнер."
         ),
-        keywords: ["házirend", "hazirend", "házi rend", "hazi rend", "szabályzat", "house rules", "hausordnung", "regole della casa", "zasady domu", "правила"],
+        keywords: ["házirend", "hazirend", "házi rend", "hazi rend", "szabályzat", "szabalyzat", "house rules", "hausordnung", "regole della casa", "zasady domu", "правила"],
       },
       {
         id: "kisallat",
@@ -657,15 +801,15 @@ export default function Home() {
           "Zwierzęta domowe można przywieźć do obiektu za dodatkową opłatą po wcześniejszym zgłoszeniu. Cena: 10 euro za noc. Za niezgłoszone zwierzęta naliczana jest dodatkowa opłata.",
           "Домашніх тварин можна привозити до помешкання за додаткову плату після попереднього повідомлення. Ціна: 10 євро за ніч. За незаявлених тварин стягується додаткова плата."
         ),
-        keywords: ["kisállat", "kisallat", "állat", "allat", "kutya", "macska", "pet", "haustier", "animale domestico", "zwierzę domowe", "домашня тварина"],
+        keywords: ["kisállat", "kisallat", "állat", "allat", "kutya", "macska", "pet", "haustier", "animale domestico", "zwierzę", "zwierze", "домашня тварина"],
       },
     ],
     []
   );
 
   const allVoiceItems = useMemo(
-    () => [...faqItems, ...roomItems, ...apartmentItems, ...relaxItems],
-    [faqItems, roomItems, apartmentItems, relaxItems]
+    () => [...faqItems, ...roomItems, ...apartmentItems, ...relaxItems, ...extraVoiceItems],
+    [faqItems, roomItems, apartmentItems, relaxItems, extraVoiceItems]
   );
 
   useEffect(() => {
@@ -673,15 +817,11 @@ export default function Home() {
   }, [selectedLanguage, ui.welcome]);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      return;
-    }
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
 
     const loadVoices = () => {
       const allVoices = window.speechSynthesis.getVoices();
-      if (allVoices.length > 0) {
-        setVoices(allVoices);
-      }
+      if (allVoices.length > 0) setVoices(allVoices);
     };
 
     loadVoices();
@@ -696,9 +836,7 @@ export default function Home() {
       window.clearTimeout(t2);
       window.clearTimeout(t3);
 
-      if (speakTimeoutRef.current) {
-        window.clearTimeout(speakTimeoutRef.current);
-      }
+      if (speakTimeoutRef.current) window.clearTimeout(speakTimeoutRef.current);
 
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
@@ -738,12 +876,11 @@ export default function Home() {
   const pickBestVoice = (lang: LangCode) => {
     if (!voices.length) return null;
 
-    const exact = voices.find((voice) => voice.lang.toLowerCase() === lang.toLowerCase());
+    const exact = voices.find((v) => v.lang.toLowerCase() === lang.toLowerCase());
     if (exact) return exact;
 
     const base = lang.toLowerCase().split("-")[0];
-
-    const byBase = voices.find((voice) => voice.lang.toLowerCase().startsWith(base));
+    const byBase = voices.find((v) => v.lang.toLowerCase().startsWith(base));
     if (byBase) return byBase;
 
     return voices[0] || null;
@@ -763,28 +900,15 @@ export default function Home() {
     utterance.rate = 0.95;
     utterance.pitch = 1;
     utterance.volume = 1;
+    if (voice) utterance.voice = voice;
 
-    if (voice) {
-      utterance.voice = voice;
-    }
-
-    utterance.onstart = () => {
-      setIsSpeaking(true);
-    };
-
-    utterance.onend = () => {
-      setIsSpeaking(false);
-    };
-
-    utterance.onerror = () => {
-      setIsSpeaking(false);
-    };
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
 
     window.speechSynthesis.cancel();
 
-    if (speakTimeoutRef.current) {
-      window.clearTimeout(speakTimeoutRef.current);
-    }
+    if (speakTimeoutRef.current) window.clearTimeout(speakTimeoutRef.current);
 
     speakTimeoutRef.current = window.setTimeout(() => {
       window.speechSynthesis.speak(utterance);
@@ -796,8 +920,85 @@ export default function Home() {
     speak(text);
   };
 
-  const getResponse = (input: string): string => {
+  const getCurrentTimeText = (lang: LangCode) => {
+    const now = new Date();
+    const formatted = new Intl.DateTimeFormat(lang, { hour: "2-digit", minute: "2-digit" }).format(now);
+    return `${getText(ui.timeNow, lang)} ${formatted}.`;
+  };
+
+  const SIOFOK = { lat: 46.9077, lon: 18.0436 };
+
+  const getWeatherText = async (lang: LangCode) => {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${SIOFOK.lat}&longitude=${SIOFOK.lon}&current=temperature_2m,apparent_temperature,wind_speed_10m&timezone=auto`;
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error("weather fetch failed");
+      const data = await res.json();
+
+      const cur = data?.current;
+      const t = cur?.temperature_2m;
+      const feels = cur?.apparent_temperature;
+      const wind = cur?.wind_speed_10m;
+
+      const temp = typeof t === "number" ? Math.round(t) : null;
+      const feel = typeof feels === "number" ? Math.round(feels) : null;
+      const w = typeof wind === "number" ? Math.round(wind) : null;
+
+      const localized = tr(
+        `Siófokon jelenleg${temp !== null ? ` ${temp}°C` : ""}${feel !== null ? `, hőérzet ${feel}°C` : ""}${w !== null ? `, szél ${w} km/h` : ""}.`,
+        `In Siófok right now${temp !== null ? ` it's ${temp}°C` : ""}${feel !== null ? ` (feels like ${feel}°C)` : ""}${w !== null ? `, wind ${w} km/h` : ""}.`,
+        `In Siófok ist es aktuell${temp !== null ? ` ${temp}°C` : ""}${feel !== null ? `, gefühlt ${feel}°C` : ""}${w !== null ? `, Wind ${w} km/h` : ""}.`,
+        `A Siófok adesso${temp !== null ? ` ${temp}°C` : ""}${feel !== null ? `, percepiti ${feel}°C` : ""}${w !== null ? `, vento ${w} km/h` : ""}.`,
+        `W Siófok teraz${temp !== null ? ` jest ${temp}°C` : ""}${feel !== null ? `, odczuwalne ${feel}°C` : ""}${w !== null ? `, wiatr ${w} km/h` : ""}.`,
+        `У Шіофоку зараз${temp !== null ? ` ${temp}°C` : ""}${feel !== null ? `, відчувається як ${feel}°C` : ""}${w !== null ? `, вітер ${w} км/год` : ""}.`
+      );
+
+      return getText(localized, lang);
+    } catch {
+      return getText(ui.weatherUnavailable, lang);
+    }
+  };
+
+  const getResponse = async (input: string): Promise<string> => {
     const q = normalizeForMatch(input);
+
+    const timeTriggers = [
+      "mennyi az idő",
+      "mennyi az ido",
+      "pontos idő",
+      "pontos ido",
+      "what time is it",
+      "time now",
+      "uhrzeit",
+      "wie spät",
+      "wie spat",
+      "che ore sono",
+      "która godzina",
+      "ktora godzina",
+      "котра година",
+      "час",
+    ].map(normalizeForMatch);
+
+    if (timeTriggers.some((t) => q.includes(t))) {
+      return getCurrentTimeText(selectedLanguage);
+    }
+
+    const weatherTriggers = [
+      "időjárás",
+      "idojaras",
+      "milyen az idő",
+      "milyen az ido",
+      "weather",
+      "forecast",
+      "wetter",
+      "meteo",
+      "pogoda",
+      "погода",
+    ].map(normalizeForMatch);
+
+    if (weatherTriggers.some((t) => q.includes(t))) {
+      return await getWeatherText(selectedLanguage);
+    }
 
     const matchedItem = allVoiceItems.find((item) =>
       item.keywords.some((keyword) => q.includes(normalizeForMatch(keyword)))
@@ -813,8 +1014,7 @@ export default function Home() {
   const startListening = async () => {
     if (typeof window === "undefined") return;
 
-    const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       setAnswer(getText(ui.recognitionUnsupported, selectedLanguage));
@@ -826,9 +1026,7 @@ export default function Home() {
       return;
     }
 
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
 
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -855,11 +1053,11 @@ export default function Home() {
       setAnswer(getText(ui.speakNow, selectedLanguage));
     };
 
-    recognition.onresult = (event: SpeechRecognitionEventLike) => {
+    recognition.onresult = async (event: SpeechRecognitionEventLike) => {
       const transcript = event.results?.[0]?.[0]?.transcript || "";
       setHeardText(transcript);
 
-      const response = getResponse(transcript);
+      const response = await getResponse(transcript);
       setAnswerAndSpeak(response);
     };
 
@@ -922,11 +1120,7 @@ export default function Home() {
 
   const renderMenuButtons = (items: MenuItem[]) =>
     items.map((item) => (
-      <button
-        key={item.id}
-        onClick={() => handleItemClick(item)}
-        style={menuButtonStyle}
-      >
+      <button key={item.id} onClick={() => handleItemClick(item)} style={menuButtonStyle}>
         {getText(item.label, selectedLanguage)}
       </button>
     ));
@@ -961,18 +1155,9 @@ export default function Home() {
         }
 
         @keyframes kataRingGlow {
-          0% {
-            opacity: 0.45;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.9;
-            transform: scale(1.08);
-          }
-          100% {
-            opacity: 0.45;
-            transform: scale(1);
-          }
+          0% { opacity: 0.45; transform: scale(1); }
+          50% { opacity: 0.9; transform: scale(1.08); }
+          100% { opacity: 0.45; transform: scale(1); }
         }
       `}</style>
 
@@ -1014,9 +1199,7 @@ export default function Home() {
             boxShadow: avatarIsActive
               ? "0 12px 30px rgba(140, 108, 72, 0.28)"
               : "0 6px 18px rgba(90,70,45,0.16)",
-            animation: avatarIsActive
-              ? "kataPulse 1.05s ease-in-out infinite"
-              : "kataFloat 3.5s ease-in-out infinite",
+            animation: avatarIsActive ? "kataPulse 1.05s ease-in-out infinite" : "kataFloat 3.5s ease-in-out infinite",
             transition: "border 0.25s ease, box-shadow 0.25s ease",
           }}
         />
@@ -1064,9 +1247,7 @@ export default function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: isListening
-              ? "0 10px 24px rgba(166, 61, 47, 0.35)"
-              : "0 10px 24px rgba(95, 125, 78, 0.28)",
+            boxShadow: isListening ? "0 10px 24px rgba(166, 61, 47, 0.35)" : "0 10px 24px rgba(95, 125, 78, 0.28)",
             animation: isListening ? "kataPulse 1s ease-in-out infinite" : "none",
             zIndex: 7,
           }}
@@ -1075,13 +1256,8 @@ export default function Home() {
         </button>
       </div>
 
-      <h1 style={{ fontSize: "40px", marginBottom: "10px", color: "#4b3f31" }}>
-        Silver Garden Siófok
-      </h1>
-
-      <h2 style={{ marginBottom: "20px", color: "#6a5a48" }}>
-        {getText(ui.subtitle, selectedLanguage)}
-      </h2>
+      <h1 style={{ fontSize: "40px", marginBottom: "10px", color: "#4b3f31" }}>Silver Garden Siófok</h1>
+      <h2 style={{ marginBottom: "20px", color: "#6a5a48" }}>{getText(ui.subtitle, selectedLanguage)}</h2>
 
       <p style={{ marginBottom: "16px", fontSize: "18px", color: "#5a4e40" }}>
         {getText(ui.chooseLang, selectedLanguage)}
@@ -1108,10 +1284,7 @@ export default function Home() {
               background: selectedLanguage === lang.code ? "#e9decd" : "#f7f1e7",
               color: "#4e4438",
               cursor: "pointer",
-              boxShadow:
-                selectedLanguage === lang.code
-                  ? "0 4px 10px rgba(120,95,65,0.10)"
-                  : "0 2px 6px rgba(0,0,0,0.04)",
+              boxShadow: selectedLanguage === lang.code ? "0 4px 10px rgba(120,95,65,0.10)" : "0 2px 6px rgba(0,0,0,0.04)",
               fontWeight: selectedLanguage === lang.code ? 700 : 500,
             }}
           >
@@ -1121,173 +1294,71 @@ export default function Home() {
       </div>
 
       <div style={sectionWrapperStyle("#fcf8f2")}>
-        <div
-          style={{
-            marginBottom: "18px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "6px",
-          }}
-        >
+        <div style={{ marginBottom: "18px", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
           <div style={{ fontSize: "26px" }}>🛏️</div>
-          <h3
-            style={{
-              margin: 0,
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#4b3f31",
-              letterSpacing: "0.5px",
-            }}
-          >
+          <h3 style={{ margin: 0, fontSize: "24px", fontWeight: 700, color: "#4b3f31", letterSpacing: "0.5px" }}>
             {getText(ui.rooms, selectedLanguage)}
           </h3>
-          <div
-            style={{
-              width: "40px",
-              height: "3px",
-              background: "#c9b79c",
-              borderRadius: "2px",
-            }}
-          />
+          <div style={{ width: "40px", height: "3px", background: "#c9b79c", borderRadius: "2px" }} />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
           {renderMenuButtons(roomItems)}
         </div>
       </div>
 
       <div style={sectionWrapperStyle("#f8f2e9")}>
-        <div
-          style={{
-            marginBottom: "18px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "6px",
-          }}
-        >
+        <div style={{ marginBottom: "18px", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
           <div style={{ fontSize: "26px" }}>🏡</div>
-          <h3
-            style={{
-              margin: 0,
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#4b3f31",
-              letterSpacing: "0.5px",
-            }}
-          >
+          <h3 style={{ margin: 0, fontSize: "24px", fontWeight: 700, color: "#4b3f31", letterSpacing: "0.5px" }}>
             {getText(ui.apartments, selectedLanguage)}
           </h3>
-          <div
-            style={{
-              width: "40px",
-              height: "3px",
-              background: "#c9b79c",
-              borderRadius: "2px",
-            }}
-          />
+          <div style={{ width: "40px", height: "3px", background: "#c9b79c", borderRadius: "2px" }} />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
           {renderMenuButtons(apartmentItems)}
         </div>
       </div>
 
       <div style={sectionWrapperStyle("#fdf9f4")}>
-        <div
-          style={{
-            marginBottom: "18px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "6px",
-          }}
-        >
+        <div style={{ marginBottom: "18px", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
           <div style={{ fontSize: "26px" }}>🧖‍♂️</div>
-          <h3
-            style={{
-              margin: 0,
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#4b3f31",
-              letterSpacing: "0.5px",
-            }}
-          >
+          <h3 style={{ margin: 0, fontSize: "24px", fontWeight: 700, color: "#4b3f31", letterSpacing: "0.5px" }}>
             {getText(ui.relax, selectedLanguage)}
           </h3>
-          <div
-            style={{
-              width: "40px",
-              height: "3px",
-              background: "#c9b79c",
-              borderRadius: "2px",
-            }}
-          />
+          <div style={{ width: "40px", height: "3px", background: "#c9b79c", borderRadius: "2px" }} />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
           {renderMenuButtons(relaxItems)}
         </div>
       </div>
 
       <div style={sectionWrapperStyle("#f6efe5")}>
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
           {faqItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleItemClick(item)}
-              style={menuButtonStyle}
-            >
+            <button key={item.id} onClick={() => handleItemClick(item)} style={menuButtonStyle}>
               {getText(item.label, selectedLanguage)}
             </button>
           ))}
         </div>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "12px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          marginBottom: "20px",
-        }}
-      >
+      <div style={sectionWrapperStyle("#fffaf3")}>
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+          {extraVoiceItems.map((item) => (
+            <button key={item.id} onClick={() => handleItemClick(item)} style={menuButtonStyle}>
+              {getText(item.label, selectedLanguage)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center", marginBottom: "20px" }}>
         <button
           onClick={() => speak(getText(ui.hello, selectedLanguage))}
-          style={{
-            ...actionButtonStyle,
-            background: "linear-gradient(180deg, #7d8fa6 0%, #5c6f86 100%)",
-          }}
+          style={{ ...actionButtonStyle, background: "linear-gradient(180deg, #7d8fa6 0%, #5c6f86 100%)" }}
         >
           {getText(ui.soundTest, selectedLanguage)}
         </button>
@@ -1295,15 +1366,10 @@ export default function Home() {
         <button
           onClick={() => {
             const phoneNumber = "36709469181";
-            const message = encodeURIComponent(
-              `Szia, recepcióst kérek. Nyelv: ${selectedLanguage}.`
-            );
+            const message = encodeURIComponent(`Szia, recepcióst kérek. Nyelv: ${selectedLanguage}.`);
             window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
           }}
-          style={{
-            ...actionButtonStyle,
-            background: "#4f463d",
-          }}
+          style={{ ...actionButtonStyle, background: "#4f463d" }}
         >
           {getText(ui.askReception, selectedLanguage)}
         </button>
@@ -1359,9 +1425,7 @@ export default function Home() {
         }}
       >
         <strong>{getText(ui.heard, selectedLanguage)}</strong>
-        <div style={{ marginTop: "8px", color: "#6b5b49" }}>
-          {heardText || "—"}
-        </div>
+        <div style={{ marginTop: "8px", color: "#6b5b49" }}>{heardText || "—"}</div>
       </div>
 
       <div
