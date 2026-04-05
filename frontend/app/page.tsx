@@ -204,7 +204,7 @@ const roomRoutes: Record<number, RouteInfo> = {
       "To find room 3, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The third room on the left is room 3.",
       "Um Zimmer 3 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das dritte Zimmer links ist Zimmer 3.",
       "Per trovare la camera 3, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La terza camera a sinistra è la camera 3.",
-      "Aby znaleźć pokój 3, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po lewej stronie to pokój 3.",
+      "Aby znaleźć pokój 3, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po lewej stronie to pokój 3.",
       "Щоб знайти кімнату 3, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Третя кімната ліворуч — це кімната 3."
     ),
   },
@@ -215,7 +215,7 @@ const roomRoutes: Record<number, RouteInfo> = {
       "To find room 4, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The fourth room on the left is room 4.",
       "Um Zimmer 4 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das vierte Zimmer links ist Zimmer 4.",
       "Per trovare la camera 4, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La quarta camera a sinistra è la camera 4.",
-      "Aby znaleźć pokój 4, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po lewej stronie to pokój 4.",
+      "Aby znaleźć pokój 4, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po lewej stronie to pokój 4.",
       "Щоб знайти кімнату 4, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Четверта кімната ліворуч — це кімната 4."
     ),
   },
@@ -226,7 +226,7 @@ const roomRoutes: Record<number, RouteInfo> = {
       "To find room 5, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The second room on the right is room 5.",
       "Um Zimmer 5 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das zweite Zimmer rechts ist Zimmer 5.",
       "Per trovare la camera 5, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La seconda camera a destra è la camera 5.",
-      "Aby znaleźć pokój 5, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Drugi pokój po prawej stronie to pokój 5.",
+      "Aby znaleźć pokój 5, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Drugi pokój po prawej stronie to pokój 5.",
       "Щоб знайти кімнату 5, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Друга кімната праворуч — це кімната 5."
     ),
   },
@@ -237,7 +237,7 @@ const roomRoutes: Record<number, RouteInfo> = {
       "To find room 6, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The third room on the right is room 6.",
       "Um Zimmer 6 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das dritte Zimmer rechts ist Zimmer 6.",
       "Per trovare la camera 6, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La terza camera a destra è la camera 6.",
-      "Aby znaleźć pokój 6, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po prawej stronie to pokój 6.",
+      "Aby znaleźć pokój 6, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Trzeci pokój po prawej stronie to pokój 6.",
       "Щоб знайти кімнату 6, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Третя кімната праворуч — це кімната 6."
     ),
   },
@@ -248,7 +248,7 @@ const roomRoutes: Record<number, RouteInfo> = {
       "To find room 7, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. The fourth room on the right is room 7.",
       "Um Zimmer 7 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Das vierte Zimmer rechts ist Zimmer 7.",
       "Per trovare la camera 7, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. La quarta camera a destra è la camera 7.",
-      "Aby znaleźć pokój 7, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po prawej stronie to pokój 7.",
+      "Aby znaleźć pokój 7, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Czwarty pokój po prawej stronie to pokój 7.",
       "Щоб знайти кімнату 7, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Четверта кімната праворуч — це кімната 7."
     ),
   },
@@ -273,7 +273,7 @@ const apartmentRoutes: Record<number, RouteInfo> = {
       "To find apartment 1, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. On the right side you will find the second-to-last door marked A 1. The key is in the lock.",
       "Um Apartment 1 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Auf der rechten Seite finden Sie die vorletzte Tür mit der Aufschrift A 1. Der Schlüssel steckt im Schloss.",
       "Per trovare l'appartamento 1, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. Sul lato destro troverà la penultima porta con la scritta A 1. La chiave è nella serratura.",
-      "Aby znaleźć apartament 1, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Po prawej stronie znajdzie Pan przedostatnie drzwi oznaczone A 1. Klucz jest w zamku.",
+      "Aby znaleźć apartament 1, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Po prawej stronie znajdzie Pan przedostatnie drzwi oznaczone A 1. Klucz jest w zamku.",
       "Щоб знайти апартамент 1, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Праворуч ви побачите передостанні двері з написом A 1. Ключ у замку."
     ),
   },
@@ -284,7 +284,7 @@ const apartmentRoutes: Record<number, RouteInfo> = {
       "To find apartment 2, walk along the building. Turn right at the back. There you will find the stairs. Go up to the first floor. On the left side you will find the second-to-last door marked A 2. The key is in the lock.",
       "Um Apartment 2 zu finden, gehen Sie am Gebäude entlang. Hinten biegen Sie rechts ab. Dort finden Sie die Treppe. Gehen Sie in den ersten Stock. Auf der linken Seite finden Sie die vorletzte Tür mit der Aufschrift A 2. Der Schlüssel steckt im Schloss.",
       "Per trovare l'appartamento 2, cammini lungo l'edificio. In fondo giri a destra. Lì troverà le scale. Salga al primo piano. Sul lato sinistro troverà la penultima porta con la scritta A 2. La chiave è nella serratura.",
-      "Aby znaleźć apartament 2, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Tam znajdzie Pan schody. Proszę wejść na pierwsze piętro. Po lewej stronie znajdzie Pan przedostatnie drzwi oznaczone A 2. Klucz jest w zamku.",
+      "Aby znaleźć apartament 2, proszę iść wzdłuż budynku. Z tyłu skręcić w prawo. Там znajdzie Pan schody. Proszę wejść na pierwsze piętro. Po lewej stronie znajdzie Pan przedostatnie drzwi oznaczone A 2. Klucz jest w zamku.",
       "Щоб знайти апартамент 2, пройдіть уздовж будівлі. Позаду поверніть праворуч. Там ви знайдете сходи. Підніміться на перший поверх. Ліворуч ви побачите передостанні двері з написом A 2. Ключ у замку."
     ),
   },
@@ -331,7 +331,7 @@ const relaxRoutes: Record<string, RouteInfo> = {
       "To find Relax 1, walk towards the back and pass the sauna to another building. Walk around the building from the pool side. There you will find the R 1 sign. The key is in the lock.",
       "Um Relax 1 zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie auf der Poolseite um das Gebäude herum. Dort finden Sie die Aufschrift R 1. Der Schlüssel steckt im Schloss.",
       "Per trovare Relax 1, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Faccia il giro dell'edificio dal lato della piscina. Lì troverà l'insegna R 1. La chiave è nella serratura.",
-      "Aby znaleźć Relax 1, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Tam znajdzie Pan oznaczenie R 1. Klucz jest w zamku.",
+      "Aby znaleźć Relax 1, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Там znajdzie Pan oznaczenie R 1. Klucz jest w zamku.",
       "Щоб знайти Relax 1, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейну. Там ви знайдете позначення R 1. Ключ у замку."
     ),
   },
@@ -342,7 +342,7 @@ const relaxRoutes: Record<string, RouteInfo> = {
       "To find Relax 2, walk towards the back and pass the sauna to another building. Walk around the building from the pool side. There you will find the R 2 sign. The key is in the lock.",
       "Um Relax 2 zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie auf der Poolseite um das Gebäude herum. Dort finden Sie die Aufschrift R 2. Der Schlüssel steckt im Schloss.",
       "Per trovare Relax 2, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Faccia il giro dell'edificio dal lato della piscina. Lì troverà l'insegna R 2. La chiave è nella serratura.",
-      "Aby znaleźć Relax 2, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Tam znajdzie Pan oznaczenie R 2. Klucz jest w zamku.",
+      "Aby znaleźć Relax 2, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Там znajdzie Pan oznaczenie R 2. Klucz jest w zamku.",
       "Щоб знайти Relax 2, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейну. Там ви знайдете позначення R 2. Ключ у замку."
     ),
   },
@@ -353,7 +353,7 @@ const relaxRoutes: Record<string, RouteInfo> = {
       "To find Relax 3, walk towards the back and pass the sauna to another building. Walk around the building from the pool side. There you will find the R 3 sign. The key is in the lock.",
       "Um Relax 3 zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie auf der Poolseite um das Gebäude herum. Dort finden Sie die Aufschrift R 3. Der Schlüssel steckt im Schloss.",
       "Per trovare Relax 3, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Faccia il giro dell'edificio dal lato della piscina. Lì troverà l'insegna R 3. La chiave è nella serratura.",
-      "Aby znaleźć Relax 3, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Tam znajdzie Pan oznaczenie R 3. Klucz jest w zamku.",
+      "Aby znaleźć Relax 3, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę obejść budynek od strony basenu. Там znajdzie Pan oznaczenie R 3. Klucz jest w zamku.",
       "Щоб знайти Relax 3, пройдіть назад повз сауну до іншої будівлі. Обійдіть будівлю з боку басейну. Там ви знайдете позначення R 3. Ключ у замку."
     ),
   },
@@ -364,7 +364,7 @@ const relaxRoutes: Record<string, RouteInfo> = {
       "To find Relax 4, walk towards the back and pass the sauna. You will arrive at another building. There you will find the R 4 sign. The key is in the lock.",
       "Um Relax 4 zu finden, gehen Sie nach hinten und an der Sauna vorbei. Sie kommen zu einem anderen Gebäude. Dort finden Sie die Aufschrift R 4. Der Schlüssel steckt im Schloss.",
       "Per trovare Relax 4, vada verso il retro e passi accanto alla sauna. Arriverà a un altro edificio. Lì troverà l'insegna R 4. La chiave è nella serratura.",
-      "Aby znaleźć Relax 4, proszę iść do tyłu i minąć saunę. Dojdzie Pan do drugiego budynku. Tam znajdzie Pan oznaczenie R 4. Klucz jest w zamku.",
+      "Aby znaleźć Relax 4, proszę iść do tyłu i minąć saunę. Dojdzie Pan do drugiego budynku. Там znajdzie Pan oznaczenie R 4. Klucz jest w zamku.",
       "Щоб знайти Relax 4, пройдіть назад повз сауну. Ви дійдете до іншої будівлі. Там ви знайдете позначення R 4. Ключ у замку."
     ),
   },
@@ -375,7 +375,7 @@ const relaxRoutes: Record<string, RouteInfo> = {
       "To find Relax Premium, walk towards the back and pass the sauna to another building. Go up the stairs. There you will find the R P sign. The key is in the lock.",
       "Um Relax Premium zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie die Treppe hinauf. Dort finden Sie die Aufschrift R P. Der Schlüssel steckt im Schloss.",
       "Per trovare Relax Premium, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Salga le scale. Lì troverà l'insegna R P. La chiave è nella serratura.",
-      "Aby znaleźć Relax Premium, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę wejść po schodach. Tam znajdzie Pan oznaczenie R P. Klucz jest w zamku.",
+      "Aby znaleźć Relax Premium, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę wejść po schodach. Там znajdzie Pan oznaczenie R P. Klucz jest w zamku.",
       "Щоб знайти Relax Premium, пройдіть назад повз сауну до іншої будівлі. Підніміться сходами. Там ви знайдете позначення R P. Ключ у замку."
     ),
   },
@@ -387,30 +387,30 @@ const faqItems: MenuItem[] = [
     label: tr("Reggeli", "Breakfast", "Frühstück", "Colazione", "Śniadanie", "Сніданок"),
     answer: tr(
       "A reggeli minden nap 8:00 és 10:00 között érhető el. A reggeli ára 8 euro per fő per nap. A reggelit à la carte rendszerben adjuk: általában 4 féle ételválasztékból lehet választani, jellemzően tojásos ételek. A csomag tartalmaz egy pohár narancslevet és egy kávét is.",
-      "Breakfast is available every day between 8:00 and 10:00. The price is 8 euro per person per day. Breakfast is served à la carte, usually with 4 choices, typically egg-based dishes. The package includes a glass of orange juice and a coffee.",
-      "Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar. Der Preis beträgt 8 Euro pro Person und Tag. Das Frühstück wird à la carte serviert, meist mit 4 Auswahlmöglichkeiten, typischerweise Eierspeisen. Im Paket sind ein Glas Orangensaft und ein Kaffee enthalten.",
-      "La colazione è disponibile ogni giorno dalle 8:00 alle 10:00. Il prezzo è di 8 euro a persona al giorno. La colazione è servita à la carte, di solito con 4 opzioni, generalmente piatti a base di uova. Il pacchetto include un bicchiere di succo d’arancia e un caffè.",
-      "Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena wynosi 8 euro za osobę za dzień. Śniadanie serwujemy à la carte, zwykle z 4 opcjami, najczęściej daniami z jajek. W pakiecie jest sok pomarańczowy i kawa.",
-      "Сніданок доступний щодня з 8:00 до 10:00. Вартість — 8 євро з особи на день. Сніданок подаємо à la carte, зазвичай із 4 варіантами, переважно стравами з яєць. У пакет входить апельсиновий сік і кава."
+      "Breakfast is available every day between 8:00 and 10:00. The price is 8 euro per person per day. Breakfast is served à la carte: usually you can choose from 4 options, typically egg dishes. The package includes a glass of orange juice and a coffee.",
+      "Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar. Der Preis beträgt 8 Euro pro Person und Tag. Das Frühstück wird à la carte serviert: in der Regel können Sie aus 4 Optionen wählen, meist Eierspeisen. Im Preis sind ein Glas Orangensaft und ein Kaffee enthalten.",
+      "La colazione è disponibile ogni giorno dalle 8:00 alle 10:00. Il prezzo è di 8 euro a persona al giorno. La colazione viene servita à la carte: di solito si può scegliere tra 4 opzioni, generalmente piatti a base di uova. Il pacchetto include un bicchiere di succo d’arancia e un caffè.",
+      "Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena wynosi 8 euro za osobę za dzień. Śniadanie serwujemy à la carte: zwykle można wybrać z 4 opcji, najczęściej potraw z jajek. W pakiecie jest sok pomarańczowy i kawa.",
+      "Сніданок доступний щодня з 8:00 до 10:00. Вартість — 8 євро з особи на день. Сніданок подаємо à la carte: зазвичай можна обрати з 4 варіантів, переважно страв із яєць. У пакет входить апельсиновий сік і кава."
     ),
   },
   {
     id: "wifi",
-    label: tr("Wifi", "Wifi", "WLAN", "Wifi", "Wifi", "Wi-Fi"),
+    label: tr("Wifi", "Wifi", "WLAN", "Wifi", "Wifi", "Wi‑Fi"),
     answer: tr(
-      "A wifi neve SilverGarden. A jelszó: balatonlive, kisbetűvel, egybeírva.",
+      "A wifi neve SilverGarden. A jelszó balatonlive, kisbetűvel, egybeírva.",
       "The wifi name is SilverGarden. The password is balatonlive in lowercase, written together.",
       "Das WLAN heißt SilverGarden. Das Passwort ist balatonlive, klein geschrieben und zusammen.",
       "Il nome del wifi è SilverGarden. La password è balatonlive, in minuscolo e senza spazi.",
       "Nazwa wifi to SilverGarden. Hasło to balatonlive, małymi literami, bez spacji.",
-      "Назва Wi-Fi — SilverGarden. Пароль — balatonlive, маленькими літерами, без пробілів."
+      "Назва Wi‑Fi — SilverGarden. Пароль — balatonlive, маленькими літерами, без пробілів."
     ),
   },
   {
-    id: "parkolas",
+    id: "parking",
     label: tr("Parkolás", "Parking", "Parken", "Parcheggio", "Parking", "Паркування"),
     answer: tr(
-      "A vendégek számára ingyenes parkoló áll rendelkezésre az épület előtt, az utcai parkolóban.",
+      "A vendégek számára ingyenes parkoló áll rendelkezésre az épület előtt az utcai parkolóban.",
       "Free parking is available for guests in the street parking area in front of the building.",
       "Für Gäste stehen kostenlose Parkplätze vor dem Gebäude auf den Straßenparkplätzen zur Verfügung.",
       "Per gli ospiti è disponibile un parcheggio gratuito davanti all'edificio, nei posti auto sulla strada.",
@@ -419,7 +419,7 @@ const faqItems: MenuItem[] = [
     ),
   },
   {
-    id: "wellnesz",
+    id: "wellness",
     label: tr("Wellnesz", "Wellness", "Wellness", "Wellness", "Wellness", "Велнес"),
     answer: tr(
       "A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő, 3 órára. Megrendeléstől számított 2 órán belül használható.",
@@ -436,10 +436,10 @@ const faqItems: MenuItem[] = [
     answer: tr(
       "A kijelentkezés legkésőbb 10:00 óráig lehetséges. Megkérjük vendégeinket, hogy a kulcsot hagyják a szobaajtóban.",
       "Check-out is possible until 10:00 at the latest. Please leave the key in the room door.",
-      "Der Check-out ist spätestens bis 10:00 Uhr möglich. Bitte lassen Sie den Schlüssel in der Zimmertür.",
-      "Il check-out è possibile entro le 10:00. Chiediamo gentilmente di lasciare la chiave nella porta della camera.",
-      "Wymeldowanie jest możliwe najpóźniej do godziny 10:00. Prosimy o pozostawienie klucza w drzwiach pokoju.",
-      "Виїзд можливий не пізніше 10:00. Будь ласка, залиште ключ у дверях номера."
+      "Der Check-out ist spätestens bis 10:00 Uhr möglich. Wir bitten unsere Gäste, den Schlüssel in der Zimmertür zu lassen.",
+      "Il check-out è possibile al più tardi entro le 10:00. Chiediamo gentilmente agli ospiti di lasciare la chiave nella porta della camera.",
+      "Wymeldowanie jest możliwe najpóźniej do godziny 10:00. Prosimy gości o pozostawienie klucza w drzwiach pokoju.",
+      "Виїзд можливий не пізніше 10:00. Просимо гостей залишити ключ у дверях номера."
     ),
   },
   {
@@ -455,7 +455,7 @@ const faqItems: MenuItem[] = [
     ),
   },
   {
-    id: "kapu",
+    id: "gate",
     label: tr("Kapu", "Gate", "Tor", "Cancello", "Brama", "Ворота"),
     answer: tr(
       "A kapu éjszaka nyitva van. Bármikor kulcs nélkül be lehet jutni.",
@@ -467,7 +467,7 @@ const faqItems: MenuItem[] = [
     ),
   },
   {
-    id: "hazirend",
+    id: "rules",
     label: tr("Házirend", "House rules", "Hausordnung", "Regole della casa", "Zasady domu", "Правила"),
     answer: tr(
       "Házirend: a medence 9:00 és 21:00 között használható. Üveg poharat a kertben használni tilos. A kültéri eszközöket használat után kérjük tisztán tartani. A hulladékot és az ételmaradékot a tárolókonténerbe kérjük kiüríteni.",
@@ -479,7 +479,7 @@ const faqItems: MenuItem[] = [
     ),
   },
   {
-    id: "kisallat",
+    id: "pet",
     label: tr("Kisállat", "Pet", "Haustier", "Animale domestico", "Zwierzę domowe", "Домашня тварина"),
     answer: tr(
       "Kisállat felár ellenében, előzetes bejelentéssel behozható. Ár: 10 euro per éj. Nem bejelentett kisállat után extraköltséget számítunk fel.",
@@ -494,7 +494,7 @@ const faqItems: MenuItem[] = [
 
 const extraVoiceItems: MenuItem[] = [
   {
-    id: "koszones",
+    id: "greeting",
     label: tr("Köszönés", "Greeting", "Begrüßung", "Saluto", "Powitanie", "Вітання"),
     answer: tr(
       "Szia! Kata vagyok, a Silver Garden virtuális recepciósa. Miben segíthetek?",
@@ -506,7 +506,7 @@ const extraVoiceItems: MenuItem[] = [
     ),
   },
   {
-    id: "kornyek",
+    id: "nearby",
     label: tr("Környék", "Nearby", "Umgebung", "Dintorni", "Okolica", "Поруч"),
     answer: tr(
       "A környéken rövid sétával elérhetők éttermek, boltok és a Balaton-part. Mondja meg, hogy gyalog vagy autóval menne, és mit keres, például strandot, éttermet, boltot vagy gyógyszertárat.",
@@ -518,7 +518,7 @@ const extraVoiceItems: MenuItem[] = [
     ),
   },
   {
-    id: "programok",
+    id: "programs",
     label: tr("Programlehetőségek", "Programs", "Programme", "Attività", "Atrakcje", "Розваги"),
     answer: tr(
       "Programokhoz javaslom a Balaton-parti sétát, strandot, hajózást, kilátókat és a siófoki esti programokat. Mondja meg, hogy családdal vagy párban van, és nappali vagy esti programot keres.",
@@ -564,7 +564,6 @@ export default function Home() {
   const speakTimeoutRef = useRef<number | null>(null);
   const isStartingRecognitionRef = useRef(false);
   const isStoppingRecognitionRef = useRef(false);
-  const manualStopRef = useRef(false);
   const handledResultRef = useRef(false);
 
   const ui = useMemo(
@@ -639,7 +638,7 @@ export default function Home() {
       listen: tr(
         "🎤 Beszélek Katával",
         "🎤 Talk to Kata",
-        "🎤 Mit Kata sprechen",
+        "🎤 Talk to Kata",
         "🎤 Parla con Kata",
         "🎤 Rozmawiam z Katą",
         "🎤 Говорю з Катою"
@@ -661,7 +660,7 @@ export default function Home() {
         "Говоріть зараз."
       ),
       tapToStop: tr(
-        "Újra nyomja meg a leállításhoz",
+        "Nyomja meg újra a leállításhoz",
         "Press again to stop",
         "Zum Stoppen erneut drücken",
         "Premi di nuovo per fermare",
@@ -669,12 +668,12 @@ export default function Home() {
         "Натисніть ще раз, щоб зупинити"
       ),
       recognitionUnsupported: tr(
-        "A beszédfelismerés ebben a böngészőben nem támogatott. Nyissa meg Chrome-ban.",
-        "Speech recognition is not supported in this browser. Please open it in Chrome.",
-        "Die Spracherkennung wird in diesem Browser nicht unterstützt. Bitte öffnen Sie Chrome.",
-        "Il riconoscimento vocale non è supportato in questo browser. Aprilo in Chrome.",
-        "Rozpoznawanie mowy nie jest obsługiwane w tej przeglądarce. Otwórz ją w Chrome.",
-        "Розпізнавання мовлення не підтримується в цьому браузері. Відкрийте в Chrome."
+        "A beszédfelismerés ebben a böngészőben nem támogatott. Nyissa meg Chrome-ban vagy írja be a kérdését.",
+        "Speech recognition is not supported in this browser. Please open it in Chrome or type your question.",
+        "Die Spracherkennung wird in diesem Browser nicht unterstützt. Bitte öffnen Sie Chrome oder tippen Sie Ihre Frage ein.",
+        "Il riconoscimento vocale non è supportato in questo browser. Aprilo in Chrome oppure scriva la domanda.",
+        "Rozpoznawanie mowy nie jest obsługiwane w tej przeglądarce. Otwórz w Chrome lub wpisz pytanie.",
+        "Розпізнавання мовлення не підтримується в цьому браузері. Відкрийте в Chrome або введіть питання."
       ),
       micDenied: tr(
         "A mikrofon nincs engedélyezve a böngészőben.",
@@ -756,9 +755,28 @@ export default function Home() {
         "Aktualna godzina to:",
         "Точний час:"
       ),
+      typePlaceholder: tr(
+        "Ide írja a kérdését…",
+        "Type your question here…",
+        "Schreiben Sie hier Ihre Frage…",
+        "Scriva qui la sua domanda…",
+        "Wpisz tutaj swoje pytanie…",
+        "Введіть тут своє питання…"
+      ),
+      send: tr("Küldés", "Send", "Senden", "Invia", "Wyślij", "Надіслати"),
+      typedHelp: tr(
+        "Ha a mikrofon nem működik, írja be a kérdését.",
+        "If the microphone does not work, type your question.",
+        "Wenn das Mikrofon nicht funktioniert, schreiben Sie Ihre Frage.",
+        "Se il microfono non funziona, scriva la domanda.",
+        "Jeśli mikrofon nie działa, wpisz pytanie.",
+        "Якщо мікрофон не працює, введіть своє питання."
+      ),
     }),
     []
   );
+
+  const [typedQuestion, setTypedQuestion] = useState("");
 
   const languageLabels = useMemo(
     () => [
@@ -791,9 +809,9 @@ export default function Home() {
     loadVoices();
     window.speechSynthesis.onvoiceschanged = loadVoices;
 
-    const t1 = window.setTimeout(loadVoices, 200);
-    const t2 = window.setTimeout(loadVoices, 800);
-    const t3 = window.setTimeout(loadVoices, 1500);
+    const t1 = window.setTimeout(loadVoices, 300);
+    const t2 = window.setTimeout(loadVoices, 1000);
+    const t3 = window.setTimeout(loadVoices, 2000);
 
     return () => {
       window.clearTimeout(t1);
@@ -826,12 +844,19 @@ export default function Home() {
   const pickBestVoice = (lang: LangCode) => {
     if (!voices.length) return null;
 
-    const exact = voices.find((v) => v.lang.toLowerCase() === lang.toLowerCase());
+    const lowerLang = lang.toLowerCase();
+    const base = lowerLang.split("-")[0];
+
+    const exact = voices.find((v) => v.lang.toLowerCase() === lowerLang);
     if (exact) return exact;
 
-    const base = lang.toLowerCase().split("-")[0];
-    const sameBase = voices.find((v) => v.lang.toLowerCase().startsWith(base));
-    if (sameBase) return sameBase;
+    const baseMatch = voices.find((v) => v.lang.toLowerCase().startsWith(base));
+    if (baseMatch) return baseMatch;
+
+    if (base === "en") {
+      const englishVoice = voices.find((v) => v.lang.toLowerCase().includes("en"));
+      if (englishVoice) return englishVoice;
+    }
 
     return voices[0] || null;
   };
@@ -843,8 +868,7 @@ export default function Home() {
     }
   };
 
-  const stopListeningInternal = (manual = false) => {
-    manualStopRef.current = manual;
+  const stopListeningInternal = () => {
     clearRecognitionTimeout();
 
     if (!recognitionRef.current) {
@@ -880,10 +904,10 @@ export default function Home() {
     const utterance = new SpeechSynthesisUtterance(cleanedText);
 
     utterance.lang = voice?.lang || selectedLanguage;
-    utterance.rate = 0.96;
+    utterance.voice = voice || null;
+    utterance.rate = 0.95;
     utterance.pitch = 1;
     utterance.volume = 1;
-    if (voice) utterance.voice = voice;
 
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
@@ -893,7 +917,9 @@ export default function Home() {
       window.speechSynthesis.cancel();
     } catch {}
 
-    if (speakTimeoutRef.current) window.clearTimeout(speakTimeoutRef.current);
+    if (speakTimeoutRef.current) {
+      window.clearTimeout(speakTimeoutRef.current);
+    }
 
     speakTimeoutRef.current = window.setTimeout(() => {
       try {
@@ -901,7 +927,7 @@ export default function Home() {
       } catch {
         setIsSpeaking(false);
       }
-    }, 100);
+    }, 250);
   };
 
   const setAnswerAndSpeak = (text: string) => {
@@ -963,14 +989,10 @@ export default function Home() {
 
   const detectRelaxCode = (normalizedText: string): string | null => {
     if (
-      containsAny(normalizedText, [
-        "premium",
-        "prémium",
-        "relax premium",
-        "premium relax",
-        "rp",
-        "r p",
-      ].map(normalizeForMatch))
+      containsAny(
+        normalizedText,
+        ["premium", "prémium", "relax premium", "premium relax", "rp", "r p"].map(normalizeForMatch)
+      )
     ) {
       return "premium";
     }
@@ -982,66 +1004,35 @@ export default function Home() {
 
   const getDynamicRouteResponse = (input: string): string | null => {
     const normalized = mapNumberWordsToDigits(input);
-    const isRoomQuery = containsAny(normalized, [
-      "szoba",
-      "room",
-      "zimmer",
-      "camera",
-      "pokoj",
-      "кімната",
-      "hol van",
-      "merre van",
-      "where is",
-      "find room",
-      "wo ist",
-      "dove",
-      "gdzie",
-      "де",
-    ].map(normalizeForMatch));
 
-    const isApartmentQuery = containsAny(normalized, [
-      "apartman",
-      "apartment",
-      "appartamento",
-      "apartament",
-      "апартамент",
-      "a 1",
-      "a 2",
-      "a 3",
-      "a 4",
-      "a 5",
-    ].map(normalizeForMatch));
+    const isRoomQuery = containsAny(
+      normalized,
+      ["szoba", "room", "zimmer", "camera", "pokoj", "кімната", "hol van", "merre van", "where is", "find room", "wo ist", "dove", "gdzie", "де"].map(normalizeForMatch)
+    );
 
-    const isRelaxQuery = containsAny(normalized, [
-      "relax",
-      "r 1",
-      "r 2",
-      "r 3",
-      "r 4",
-      "r p",
-      "premium",
-      "prémium",
-    ].map(normalizeForMatch));
+    const isApartmentQuery = containsAny(
+      normalized,
+      ["apartman", "apartment", "appartamento", "apartament", "апартамент", "a 1", "a 2", "a 3", "a 4", "a 5"].map(normalizeForMatch)
+    );
+
+    const isRelaxQuery = containsAny(
+      normalized,
+      ["relax", "r 1", "r 2", "r 3", "r 4", "r p", "premium", "prémium"].map(normalizeForMatch)
+    );
 
     if (isApartmentQuery) {
       const num = detectApartmentNumber(normalized);
-      if (num && apartmentRoutes[num]) {
-        return getText(apartmentRoutes[num].answer, selectedLanguage);
-      }
+      if (num && apartmentRoutes[num]) return getText(apartmentRoutes[num].answer, selectedLanguage);
     }
 
     if (isRelaxQuery) {
       const code = detectRelaxCode(normalized);
-      if (code && relaxRoutes[code]) {
-        return getText(relaxRoutes[code].answer, selectedLanguage);
-      }
+      if (code && relaxRoutes[code]) return getText(relaxRoutes[code].answer, selectedLanguage);
     }
 
     if (isRoomQuery) {
       const num = detectRoomNumber(normalized);
-      if (num && roomRoutes[num]) {
-        return getText(roomRoutes[num].answer, selectedLanguage);
-      }
+      if (num && roomRoutes[num]) return getText(roomRoutes[num].answer, selectedLanguage);
     }
 
     return null;
@@ -1051,58 +1042,19 @@ export default function Home() {
     const q = normalizeForMatch(input);
 
     const groups: Array<{ patterns: string[]; answer: LocalizedText }> = [
-      {
-        patterns: ["reggeli", "breakfast", "fruhstuck", "colazione", "sniadanie", "сніданок"],
-        answer: faqItems[0].answer,
-      },
-      {
-        patterns: ["wifi", "wi fi", "internet", "wlan", "net"],
-        answer: faqItems[1].answer,
-      },
-      {
-        patterns: ["parkol", "parkolas", "parking", "parken", "parcheggio", "паркування"],
-        answer: faqItems[2].answer,
-      },
-      {
-        patterns: ["wellness", "wellnesz", "spa", "szauna", "sauna"],
-        answer: faqItems[3].answer,
-      },
-      {
-        patterns: ["kijelentkezes", "checkout", "check out", "check-out", "wymeldowanie", "виїзд"],
-        answer: faqItems[4].answer,
-      },
-      {
-        patterns: ["bejelentkezes", "checkin", "check in", "check-in", "zameldowanie", "заселення"],
-        answer: faqItems[5].answer,
-      },
-      {
-        patterns: ["kapu", "gate", "tor", "cancello", "brama", "ворота"],
-        answer: faqItems[6].answer,
-      },
-      {
-        patterns: ["hazirend", "hazi rend", "house rules", "hausordnung", "regole della casa", "zasady domu", "правила"],
-        answer: faqItems[7].answer,
-      },
-      {
-        patterns: ["kisallat", "allat", "kutya", "macska", "pet", "haustier", "animale", "zwierze", "домашня тварина"],
-        answer: faqItems[8].answer,
-      },
-      {
-        patterns: ["szia", "hello", "hi", "jo napot", "jo reggelt", "jo estet", "hallo", "ciao", "dzień dobry", "czesc", "привіт"],
-        answer: extraVoiceItems[0].answer,
-      },
-      {
-        patterns: ["kornyek", "kozelben", "nearby", "around here", "umgebung", "vicinanze", "okolicy", "поруч"],
-        answer: extraVoiceItems[1].answer,
-      },
-      {
-        patterns: ["program", "programok", "what to do", "things to do", "aktivitaten", "attivita", "atrakcje", "розваги"],
-        answer: extraVoiceItems[2].answer,
-      },
-      {
-        patterns: ["balaton", "lake balaton", "plattensee", "lago balaton", "jezioro balaton"],
-        answer: extraVoiceItems[3].answer,
-      },
+      { patterns: ["reggeli", "breakfast", "fruhstuck", "colazione", "sniadanie", "сніданок"], answer: faqItems[0].answer },
+      { patterns: ["wifi", "wi fi", "internet", "wlan", "net"], answer: faqItems[1].answer },
+      { patterns: ["parkol", "parkolas", "parking", "parken", "parcheggio", "паркування"], answer: faqItems[2].answer },
+      { patterns: ["wellness", "wellnesz", "spa", "szauna", "sauna"], answer: faqItems[3].answer },
+      { patterns: ["kijelentkezes", "checkout", "check out", "check-out", "wymeldowanie", "виїзд"], answer: faqItems[4].answer },
+      { patterns: ["bejelentkezes", "checkin", "check in", "check-in", "zameldowanie", "заселення"], answer: faqItems[5].answer },
+      { patterns: ["kapu", "gate", "tor", "cancello", "brama", "ворота"], answer: faqItems[6].answer },
+      { patterns: ["hazirend", "hazi rend", "house rules", "hausordnung", "regole della casa", "zasady domu", "правила"], answer: faqItems[7].answer },
+      { patterns: ["kisallat", "allat", "kutya", "macska", "pet", "haustier", "animale", "zwierze", "домашня тварина"], answer: faqItems[8].answer },
+      { patterns: ["szia", "hello", "hi", "jo napot", "jo reggelt", "jo estet", "hallo", "ciao", "dzień dobry", "czesc", "привіт"], answer: extraVoiceItems[0].answer },
+      { patterns: ["kornyek", "kozelben", "nearby", "around here", "umgebung", "vicinanze", "okolicy", "поруч"], answer: extraVoiceItems[1].answer },
+      { patterns: ["program", "programok", "what to do", "things to do", "aktivitaten", "attivita", "atrakcje", "розваги"], answer: extraVoiceItems[2].answer },
+      { patterns: ["balaton", "lake balaton", "plattensee", "lago balaton", "jezioro balaton"], answer: extraVoiceItems[3].answer },
     ];
 
     for (const group of groups) {
@@ -1158,11 +1110,19 @@ export default function Home() {
     return getText(ui.fallback, selectedLanguage);
   };
 
+  const askQuestion = async (question: string) => {
+    const cleaned = question.trim();
+    if (!cleaned) return;
+    setHeardText(cleaned);
+    const response = await getResponse(cleaned);
+    setAnswerAndSpeak(response);
+  };
+
   const startListening = async () => {
     if (typeof window === "undefined") return;
 
     if (isListening) {
-      stopListeningInternal(true);
+      stopListeningInternal();
       return;
     }
 
@@ -1201,7 +1161,6 @@ export default function Home() {
     } catch {}
 
     clearRecognitionTimeout();
-    manualStopRef.current = false;
     handledResultRef.current = false;
 
     const recognition = new SpeechRecognition();
@@ -1219,8 +1178,8 @@ export default function Home() {
       isStartingRecognitionRef.current = false;
 
       recognitionTimeoutRef.current = window.setTimeout(() => {
-        if (isListening && !handledResultRef.current) {
-          stopListeningInternal(true);
+        if (!handledResultRef.current) {
+          stopListeningInternal();
           setHeardText("");
           setAnswer(getText(ui.noSpeech, selectedLanguage));
         }
@@ -1232,17 +1191,17 @@ export default function Home() {
       clearRecognitionTimeout();
 
       const transcript = event.results?.[0]?.[0]?.transcript?.trim() || "";
-      setHeardText(transcript);
-
       if (!transcript) {
+        setHeardText("");
         setAnswer(getText(ui.noSpeech, selectedLanguage));
-        stopListeningInternal(true);
+        stopListeningInternal();
         return;
       }
 
+      setHeardText(transcript);
       const response = await getResponse(transcript);
       setAnswerAndSpeak(response);
-      stopListeningInternal(true);
+      stopListeningInternal();
     };
 
     recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
@@ -1289,8 +1248,16 @@ export default function Home() {
   };
 
   const handleItemClick = (item: MenuItem) => {
+    setTypedQuestion("");
     setHeardText("");
     setAnswerAndSpeak(getText(item.answer, selectedLanguage));
+  };
+
+  const handleTypedSubmit = async () => {
+    if (!typedQuestion.trim()) return;
+    const q = typedQuestion.trim();
+    setTypedQuestion("");
+    await askQuestion(q);
   };
 
   const sectionWrapperStyle = (background: string): CSSProperties => ({
@@ -1498,6 +1465,56 @@ export default function Home() {
             {lang.label}
           </button>
         ))}
+      </div>
+
+      <div
+        style={{
+          ...sectionWrapperStyle("#fffaf3"),
+          maxWidth: "700px",
+        }}
+      >
+        <div style={{ marginBottom: "10px", color: "#5a4e40", fontWeight: 700 }}>
+          {getText(ui.typedHelp, selectedLanguage)}
+        </div>
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+          <input
+            value={typedQuestion}
+            onChange={(e) => setTypedQuestion(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                void handleTypedSubmit();
+              }
+            }}
+            placeholder={getText(ui.typePlaceholder, selectedLanguage)}
+            style={{
+              flex: 1,
+              minWidth: "240px",
+              padding: "14px 16px",
+              borderRadius: "12px",
+              border: "1px solid #d8cfc2",
+              fontSize: "16px",
+              outline: "none",
+              background: "#fffdf9",
+              color: "#4b4034",
+            }}
+          />
+          <button
+            onClick={() => void handleTypedSubmit()}
+            style={{
+              padding: "14px 18px",
+              borderRadius: "12px",
+              border: "none",
+              background: "#6b7f59",
+              color: "#fff",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: 700,
+            }}
+          >
+            {getText(ui.send, selectedLanguage)}
+          </button>
+        </div>
       </div>
 
       <div style={sectionWrapperStyle("#fcf8f2")}>
