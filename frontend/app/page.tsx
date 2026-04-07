@@ -198,9 +198,74 @@ const relaxRoutes: Record<string, RouteInfo> = {
   "4": { label: tr("Relax 4","Relax 4","Relax 4","Relax 4","Relax 4","Relax 4"), answer: tr("A Relax 4 szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett. Egy másik épülethez ér. Ott találja az R 4 feliratot. A kulcsot a zárban találja.","To find Relax 4, walk towards the back and pass the sauna. You will arrive at another building. There you will find the R 4 sign. The key is in the lock.","Um Relax 4 zu finden, gehen Sie nach hinten und an der Sauna vorbei. Sie kommen zu einem anderen Gebäude. Dort finden Sie die Aufschrift R 4. Der Schlüssel steckt im Schloss.","Per trovare Relax 4, vada verso il retro e passi accanto alla sauna. Arriverà a un altro edificio. Lì troverà l'insegna R 4. La chiave è nella serratura.","Aby znaleźć Relax 4, proszę iść do tyłu i minąć saunę. Dojdzie Pan do drugiego budynku. Tam znajdzie Pan oznaczenie R 4. Klucz jest w zamku.","Щоб знайти Relax 4, пройдіть назад повз сауну. Ви дійдете до іншої будівлі. Там ви знайдете позначення R 4. Ключ у замку.") },
   premium: { label: tr("Relax Prémium","Relax Premium","Relax Premium","Relax Premium","Relax Premium","Relax Premium"), answer: tr("A Relax Prémium szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett egy másik épülethez. Felmegy a lépcsőn. Ott találja az R P feliratot. A kulcsot a zárban találja.","To find Relax Premium, walk towards the back and pass the sauna to another building. Go up the stairs. There you will find the R P sign. The key is in the lock.","Um Relax Premium zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie die Treppe hinauf. Dort finden Sie die Aufschrift R P. Der Schlüssel steckt im Schloss.","Per trovare Relax Premium, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Salga le scale. Lì troverà l'insegna R P. La chiave è nella serratura.","Aby znaleźć Relax Premium, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę wejść po schodach. Tam znajdzie Pan oznaczenie R P. Klucz jest w zamku.","Щоб знайти Relax Premium, пройдіть назад повз сауну до іншої будівлі. Підніміться сходами. Там ви знайдете позначення R P. Ключ у замку.") },
 };
-
+const arrivalInfoItem: MenuItem = {
+  id: "arrival-info",
+  label: tr(
+    "Érkezési info",
+    "Arrival info",
+    "Anreiseinfo",
+    "Info arrivo",
+    "Informacje o przyjeździe",
+    "Інформація про прибуття"
+  ),
+  answer: tr(
+    "Megkérjük vendégeinket, hogy érkezés előtt 5 perccel SMS-ben vagy WhatsAppon jelezzék érkezésüket. A szálláshelyen self check-in áll rendelkezésre. Amennyiben nem boldogulnak, kérjük, vegyék fel a kapcsolatot a recepcióval. Igyekszünk a legegyszerűbb módon segíteni a szoba átvételét. Amennyiben nem fizették ki előre a szobát, lehetőség van utólag fizetési linken keresztül rendezni a szállásdíjat. Ehhez kérjük, kérjék recepciós kollégánk segítségét. Amennyiben reggelit szeretnének kérni, ezt megtehetik online self check-in rendszerünkben vagy recepciós kollégánkon keresztül.",
+    "Please let us know by SMS or WhatsApp 5 minutes before arrival. Self check-in is available at the accommodation. If you have any difficulty, please contact the reception.",
+    "Bitte informieren Sie uns 5 Minuten vor Ihrer Ankunft per SMS oder WhatsApp. Self-Check-in ist verfügbar.",
+    "Si prega di avvisare 5 minuti prima via SMS o WhatsApp. È disponibile il self check-in.",
+    "Prosimy o informację 5 minut przed przyjazdem przez SMS lub WhatsApp.",
+    "Будь ласка, повідомте за 5 хвилин до прибуття через SMS або WhatsApp."
+  ),
+};
 const faqItems: MenuItem[] = [
-  { id: "reggeli", label: tr("Reggeli","Breakfast","Frühstück","Colazione","Śniadanie","Сніданок"), answer: tr("A reggeli minden nap 8:00 és 10:00 között érhető el. A reggeli ára 8 euro per fő per nap. A reggelit általában 4 féle ételválasztékból lehet választani, jellemzően tojásos ételek. A csomag tartalmaz egy pohár narancslevet és egy kávét is.","Breakfast is available every day between 8:00 and 10:00. The price is 8 euro per person per day. Breakfast is served à la carte: usually you can choose from 4 options, typically egg dishes. The package includes a glass of orange juice and a coffee.","Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar. Der Preis beträgt 8 Euro pro Person und Tag. Das Frühstück wird à la carte serviert: in der Regel können Sie aus 4 Optionen wählen, meist Eierspeisen. Im Preis sind ein Glas Orangensaft und ein Kaffee enthalten.","La colazione è disponibile ogni giorno dalle 8:00 alle 10:00. Il prezzo è di 8 euro a persona al giorno. La colazione viene servita à la carte: di solito si può scegliere tra 4 opzioni, generalmente piatti a base di uova. Il pacchetto include un bicchiere di succo d’arancia e un caffè.","Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena wynosi 8 euro za osobę za dzień. Śniadanie serwujemy à la carte: zwykle można wybrać z 4 opcji, najczęściej potraw z jajek. W pakiecie jest sok pomarańczowy i kawa.","Сніданок доступний щодня з 8:00 до 10:00. Вартість — 8 євро з особи на день. Сніданок подаємо à la carte: зазвичай можна обрати з 4 варіантів, переважно страв із яєць. У пакет входить апельсиновий сік і кава.") },
+{
+  id: "reggeli",
+  label: tr("Reggeli", "Breakfast", "Frühstück", "Colazione", "Śniadanie", "Сніданок"),
+  answer: tr(
+    `A reggeli minden nap 8:00 és 10:00 között érhető el.
+
+• Ár: 8 euro / fő / nap
+• Választható ételek: 4 féle (jellemzően tojásos ételek)
+• Tartalmaz:
+- narancslé
+- kávé`,
+    `Breakfast is available every day between 8:00 and 10:00.
+
+• Price: 8 euro per person per day
+• Choice of 4 dishes (typically egg dishes)
+• Includes:
+- orange juice
+- coffee`,
+    `Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar.
+
+• Preis: 8 Euro pro Person pro Tag
+• Auswahl: 4 Gerichte (meist Eierspeisen)
+• Enthält:
+- Orangensaft
+- Kaffee`,
+    `La colazione è disponibile ogni giorno dalle 8:00 alle 10:00.
+
+• Prezzo: 8 euro a persona al giorno
+• Scelta di 4 piatti (di solito a base di uova)
+• Include:
+- succo d’arancia
+- caffè`,
+    `Śniadanie jest dostępne codziennie od 8:00 do 10:00.
+
+• Cena: 8 euro za osobę za dzień
+• Do wyboru 4 dania (najczęściej z jajek)
+• Zawiera:
+- sok pomarańczowy
+- kawa`,
+    `Сніданок доступний щодня з 8:00 до 10:00.
+
+• Вартість: 8 євро з особи на день
+• На вибір 4 страви (переважно з яєць)
+• Включає:
+- апельсиновий сік
+- каву`
+  ),
+},
   { id: "wifi", label: tr("Wifi","Wifi","WLAN","Wifi","Wifi","Wi‑Fi"), answer: tr("A wifi neve SilverGarden. A jelszó balatonlive, kisbetűvel, egybeírva.","The wifi name is SilverGarden. The password is balatonlive in lowercase, written together.","Das WLAN heißt SilverGarden. Das Passwort ist balatonlive, klein geschrieben und zusammen.","Il nome del wifi è SilverGarden. La password è balatonlive, in minuscolo e senza spazi.","Nazwa wifi to SilverGarden. Hasło to balatonlive, małymi literami, bez spacji.","Назва Wi‑Fi — SilverGarden. Пароль — balatonlive, маленькими літерами, без пробілів.") },
   { id: "parking", label: tr("Parkolás-Elektromos töltés","Parking-electric charge","Parken-elektrische Ladung","Parcheggio-carica elettrica","Parking-ładunek elektryczny","Паркування-електричний заряд"), answer: tr("A vendégek számára ingyenes parkoló áll rendelkezésre az épület előtt az utcai parkolóban. Az elektromos autó töltéshez mindenképpen keresse kollégánkat.","Free parking is available for guests in the street parking area in front of the building. For electric car charging, be sure to contact our colleague.","Für Gäste stehen kostenlose Parkplätze vor dem Gebäude auf den Straßenparkplätzen zur Verfügung. Für das Laden von Elektroautos wenden Sie sich bitte an unseren Kollegen.","Per gli ospiti è disponibile un parcheggio gratuito davanti all'edificio, nei posti auto sulla strada. Per la ricarica delle auto elettriche, si prega di contattare il nostro collega.","Dla gości dostępny jest bezpłatny parking przed budynkiem, na miejscach parkingowych przy ulicy. Jeśli interesują Cię kwestie związane z ładowaniem samochodów elektrycznych, koniecznie skontaktuj się z naszym kolegą.","Для гостей доступне безкоштовне паркування перед будівлею на вуличних місцях. Для заряджання електромобіля зверніться до нашого колеги.") },
   { id: "wellness", label: tr("Wellnesz","Wellness","Wellness","Wellness","Wellness","Велнес"), answer: tr("A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő, 3 órára. Megrendeléstől számított 2 órán belül használható. A fürdőmedence ingyenesen használható május 1-től szeptember 30-ig.","The wellness area is available to guests for an extra fee. Sauna use costs 4000 forints per person for 3 hours. It can be used within 2 hours after ordering. The swimming pool is free to use from May 1st to September 30th.","Der Wellnessbereich steht den Gästen gegen Gebühr zur Verfügung. Die Saunanutzung kostet 4000 Forint pro Person für 3 Stunden. Sie kann innerhalb von 2 Stunden nach der Bestellung genutzt werden. Die Nutzung des Schwimmbads ist vom 1. Mai bis zum 30. September kostenlos.","L'area wellness è disponibile per gli ospiti a pagamento. L'uso della sauna costa 4000 fiorini a persona per 3 ore. È utilizzabile entro 2 ore dalla prenotazione. La piscina è gratuita dal 1° maggio al 30 settembre.","Strefa wellness jest dostępna dla gości za dodatkową opłatą. Korzystanie z sauny kosztuje 4000 forintów za osobę na 3 godziny. Można z niej skorzystać w ciągu 2 godzin od zamówienia. Z basenu można korzystać bezpłatnie od 1 maja do 30 września.","Велнес-зона доступна для гостей за додаткову плату. Користування сауною коштує 4000 форинтів з особи за 3 години. Нею можна скористатися протягом 2 годин після замовлення. Басейном можна користуватися безкоштовно з 1 травня по 30 вересня.") },
