@@ -1,0 +1,1260 @@
+{
+  "hotel_nev": "Silver Garden Siófok",
+  "rovid_nev": "Silver Garden",
+  "cim": "8600 Siófok, Deák Ferenc sétány 57.",
+  "google_maps": "https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
+  "weboldal": "https://www.silvergarden.hu",
+  "telefon": "+36 70 408 94 37",
+  "email": "info@silvergarden.hu",
+  "whatsapp": "+36 70 408 9437",
+  "recepcio_24_7": "Igen, 24 órás self check-in elérhető.",
+  "beszelt_nyelvek": ["magyar", "angol"],
+  "stilus": "Bed and breakfast, vakációs szálláshely",
+  "rovid_leiras": "Ideális pihenő környezet, különösen nyári kikapcsolódásra.",
+  "hosszu_leiras": "Nyugodt, igényes, a vendégek igényeihez igazodó szálláshely zöld kerttel és segítőkész személyzettel.",
+  "erkezes_tavozas": {
+    "checkin_ido": "14:00 órától",
+    "checkin_hatarido": "Nincs, self check-in 24 órában",
+    "checkout_ido": "10:00 óráig",
+    "kesoi_checkout": "Díj ellenében, elérhetőség függvényében",
+    "korai_erkezes": "Díj ellenében, elérhetőség függvényében",
+    "csomagmegorzes": "Díjmentesen lehetséges",
+    "okmany_szukseges": "Igen",
+    "kulcs_atadas": "Automatikus, self check-in rendszer",
+    "elveszett_kulcs": "Díjfizetési kötelezettséggel jár"
+  },
+  "foglalas_fizetes": {
+    "foglalasi_modok": ["online", "telefonon"],
+    "fizetesi_modok": ["bankkártya", "utalás", "Revolut", "készpénz"],
+    "szep_kartya": "Igen",
+    "elorefizetes": "Esetenként szükséges",
+    "lemondasi_feltetelek": "Változó, foglalástól függ",
+    "no_show": "Változó",
+    "szamla": "Igen",
+    "ifa": "Igen, 2 EUR per fő per éj",
+    "reggeli_ar": "8 EUR per fő per nap",
+    "potagy": "20 EUR per éj"
+  },
+  "recepció": {
+    "mindig van recepció": ["Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni"],
+    "van recepció": ["Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni"],
+    "éjszakai érkezés": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetnien",
+    "mit csináljak ha megérkeztem": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
+    "vár valaki amikor megérkezem": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
+    "hogy jutok be ha megérkezem": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
+    "ki fogad": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
+    "ifaéjaszaka tudok érkezni": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
+    "hogy jutok be a szállásra": "Működik a self csekin rendszerünk Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
+    "mikor kell érkezni": "Bármikor Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni"
+  },
+  "szobak": {
+    "szobatipusok": ["Classic", "Deluxe", "Family apartman"],
+    "erkely": "Minden szobához tartozik",
+    "panorama": "Kertre néző",
+    "furdoszoba": "Minden szobában",
+    "klima": "Minden szobában",
+    "futes": "Minden szobában",
+    "tv": "Okos TV minden szobában",
+    "hajszarito": "Minden szobában",
+    "kavegep": "Igényelhető",
+    "huto": "Nincs a szobákban, csak közös hűtő van",
+    "takaritas": "Díj ellenében",
+    "torolkozo_csere": "Kérésre",
+    "agynemu_csere": "Kérésre",
+    "dohanyzo_szoba": "Nincs"
+  },
+  "cím": {
+    "cím": "8600 Siófok, Deák Ferenc sétány 57.ető",
+    "szálláshely címe": "8600 Siófok, Deák Ferenc sétány 57.",
+    "hotel címe": "8600 Siófok, Deák Ferenc sétány 57.",
+    "dietamerre találom a hotelt": "8600 Siófok, Deák Ferenc sétány 57.",
+    "konyha": "8600 Siófok, Deák Ferenc sétány 57.",
+    "adress": "8600 Siófok, Deák Ferenc sétány 57."
+  },
+  "etkezes": {
+    "reggeli": "Elérhető",
+    "reggeli_ido": "08:00–10:00",
+    "reggeli_tipus": "À la carte",
+    "dieta": "Gluténmentes és laktózmentes opció felár ellenében",
+    "konyha": "Kültéri konyha elérhető",
+    "kulsos_rendeles": "Lehetséges"
+  },
+  "wellness": {
+    "wellness": "Igen",
+    "wellness_tartalom": ["szauna", "jakuzzi", "medence"],
+    "wellness_ido": "09:00–21:00",
+    "wellness_foglalas": "Előzetes foglalás szükséges",
+    "masszazs": "Elérhető előzetes foglalással"
+  },
+  "parkolas": {
+    "parkolas": "Ingyenes az épület előtt",
+    "parkolo_helyek": "Korlátozott",
+    "ev_tolto": "Elérhető"
+  },
+  "hazirend": {
+    "kisallat": "Behozható",
+    "kisallat_ar": "4000 Ft / éj",
+    "dohanyzas": "Kijelölt helyen",
+    "csendes_idoszak": "21:00–09:00",
+    "latogatok": "Nem engedélyezett"
+  },
+  "wifi": {
+    "wifi": "Igen",
+    "wifi_nev": "Silvergarden",
+    "wifi_jelszo": "Balatonlive"
+  },
+  "segitseg": {
+    "hiba": "Bármilyen hiba esetén kérjük, értesítse a recepciót.",
+    "surgosseg": "+36 70 408 9437",
+    "segelyhivo": "112"
+  },
+  "kornyek": {
+    "strand": "Ezüstpart szabadstrand",
+    "ettermek": ["Valhalla Bistro", "Kiskert Étterem", "Hintaló Étterem", "Calypso Étterem"],
+    "kozel": ["Fordított ház", "éttermek", "boltok"],
+    "bolt": ["Spar", "Lidl"],
+    "vasut": "5 perc séta",
+    "busz": "2 perc séta"
+  },
+  "chatbot_szabalyok": {
+    "mondhat_nem_tudom": true,
+    "iranyithat_recepciohoz": true,
+    "megadhat_telefon": true,
+    "kiadhat_kod": true,
+    "mondhat_arak": true,
+    "stilus_valasz": "Kedves, udvarias, segítőkész"
+  },
+  "faq": [
+    {
+      "id": "checkin",
+      "kerdesek": [
+        "mikor lehet bejelentkezni",
+        "mikor van a check in",
+        "check in mikor van",
+        "checkin mikor van",
+        "hanytol lehet erkezni",
+        "mikor lehet erkezni",
+        "mikor foglalhatom el a szobat",
+        "bejelentkezes mikortol",
+        "erkezes mikortol",
+        "check in",
+        "checkin",
+        "when can i check in",
+        "what time is check in",
+        "check in time",
+        "arrival time"
+      ],
+      "valaszok": {
+        "hu-HU": "Check-in 14:00 órától lehetséges, self check-in 24 órában elérhető.",
+        "en-US": "Check-in is available from 2:00 PM, and self check-in is available 24 hours a day."
+      }
+    },
+    {
+      "id": "checkin_hatarido",
+      "kerdesek": [
+        "meddig lehet bejelentkezni",
+        "van check in hatarido",
+        "keson is lehet erkezni",
+        "ejjel is lehet erkezni",
+        "ejfel utan is lehet check in",
+        "erkezhetek keson",
+        "late check in",
+        "can i arrive late",
+        "can i check in late"
+      ],
+      "valaszok": {
+        "hu-HU": "Nincs check-in határidő, self check-in 24 órában elérhető.",
+        "en-US": "There is no check-in deadline. Self check-in is available 24 hours a day."
+      }
+    },
+    {
+      "id": "checkout",
+      "kerdesek": [
+        "mikor kell kijelentkezni",
+        "mikor van a check out",
+        "checkout mikor van",
+        "check out mikor van",
+        "meddig kell elhagyni a szobat",
+        "meddig lehet maradni",
+        "kijelentkezes mikor",
+        "check out",
+        "checkout",
+        "when is check out",
+        "what time is check out",
+        "checkout time"
+      ],
+      "valaszok": {
+        "hu-HU": "Check-out 10:00 óráig szükséges.",
+        "en-US": "Check-out is required by 10:00 AM."
+      }
+    },
+    {
+      "id": "kesoi_checkout",
+      "kerdesek": [
+        "lehet kesoi checkout",
+        "van kesoi kijelentkezes",
+        "kesobb mehetek el",
+        "maradhatok tovabb",
+        "late checkout",
+        "late check out",
+        "can i check out later"
+      ],
+      "valaszok": {
+        "hu-HU": "Késői check-out díj ellenében, elérhetőség függvényében kérhető.",
+        "en-US": "Late check-out is available for an extra fee, subject to availability."
+      }
+    },
+    {
+      "id": "korai_erkezes",
+      "kerdesek": [
+        "lehet korabban erkezni",
+        "van korai checkin",
+        "korai check in",
+        "korai bejelentkezes",
+        "early check in",
+        "can i check in early"
+      ],
+      "valaszok": {
+        "hu-HU": "Korai érkezés díj ellenében, elérhetőség függvényében lehetséges.",
+        "en-US": "Early check-in is possible for an extra fee, subject to availability."
+      }
+    },
+    {
+      "id": "csomagmegorzes",
+      "kerdesek": [
+        "lehet csomagot tarolni",
+        "van csomagmegorzes",
+        "otthagyhatom a borondot",
+        "borond tarolas",
+        "luggage storage",
+        "can i leave my luggage",
+        "bag storage"
+      ],
+      "valaszok": {
+        "hu-HU": "Csomagmegőrzés díjmentesen lehetséges.",
+        "en-US": "Luggage storage is available free of charge."
+      }
+    },
+    {
+      "id": "okmany",
+      "kerdesek": [
+        "kell okmany",
+        "szukseges szemelyi",
+        "milyen okmany kell",
+        "kell utlevel",
+        "bejelentkezeshez kell okmany",
+        "do i need id",
+        "passport needed",
+        "id card needed"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, bejelentkezéshez okmány szükséges.",
+        "en-US": "Yes, an ID document is required for check-in."
+      }
+    },
+    {
+      "id": "kulcsatadas",
+      "kerdesek": [
+        "hogyan kapjuk meg a kulcsot",
+        "kulcs atadas hogy van",
+        "hogyan mukodik a check in",
+        "self checkin hogy mukodik",
+        "self check in hogy mukodik",
+        "kulcs atvetel",
+        "how do we get the key",
+        "self check in system"
+      ],
+      "valaszok": {
+        "hu-HU": "A kulcsátadás automatikus, self check-in rendszerrel történik.",
+        "en-US": "Key handover is automatic through the self check-in system."
+      }
+    },
+    {
+      "id": "elveszett_kulcs",
+      "kerdesek": [
+        "mi van ha elveszik a kulcs",
+        "elveszett kulcs",
+        "ha elhagyom a kulcsot",
+        "lost key",
+        "what if i lose the key"
+      ],
+      "valaszok": {
+        "hu-HU": "Az elveszett kulcs díjfizetési kötelezettséggel jár.",
+        "en-US": "A lost key will result in an extra charge."
+      }
+    },
+    {
+      "id": "foglalasi_modok",
+      "kerdesek": [
+        "hogyan lehet foglalni",
+        "foglalasi modok",
+        "online lehet foglalni",
+        "telefonon lehet foglalni",
+        "how can i book",
+        "booking options",
+        "can i book by phone"
+      ],
+      "valaszok": {
+        "hu-HU": "Foglalás online és telefonon is lehetséges.",
+        "en-US": "Booking is available online and by phone."
+      }
+    },
+    {
+      "id": "fizetesi_modok",
+      "kerdesek": [
+        "hogyan lehet fizetni",
+        "mivel lehet fizetni",
+        "fizetesi modok",
+        "bankkartyaval lehet fizetni",
+        "utalassal lehet fizetni",
+        "keszpenzzel lehet fizetni",
+        "revoluttal lehet fizetni",
+        "payment methods",
+        "how can i pay",
+        "can i pay by card"
+      ],
+      "valaszok": {
+        "hu-HU": "Fizetési módok: bankkártya, utalás, Revolut és készpénz.",
+        "en-US": "Payment methods: credit card, bank transfer, Revolut, and cash."
+      }
+    },
+    {
+      "id": "szepkartya",
+      "kerdesek": [
+        "elfogadnak szep kartyat",
+        "szep kartya",
+        "lehet szep kartyaval fizetni",
+        "szep",
+        "do you accept szep card",
+        "szep card accepted"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, SZÉP kártyát elfogadunk.",
+        "en-US": "Yes, we accept SZÉP Card."
+      }
+    },
+    {
+      "id": "elorefizetes",
+      "kerdesek": [
+        "kell elore fizetni",
+        "szukseges eloleg",
+        "elorefizetes kell",
+        "advance payment",
+        "prepayment",
+        "do i need to pay in advance"
+      ],
+      "valaszok": {
+        "hu-HU": "Előrefizetés esetenként szükséges.",
+        "en-US": "Prepayment may be required in some cases."
+      }
+    },
+    {
+      "id": "lemondas",
+      "kerdesek": [
+        "mi a lemondasi feltetel",
+        "hogyan lehet lemondani",
+        "lemondas",
+        "ingyenesen lemondhato",
+        "cancellation policy",
+        "can i cancel my booking"
+      ],
+      "valaszok": {
+        "hu-HU": "A lemondási feltételek foglalástól függően változnak.",
+        "en-US": "Cancellation terms vary depending on the booking."
+      }
+    },
+    {
+      "id": "no_show",
+      "kerdesek": [
+        "mi tortenik ha nem megyek",
+        "no show",
+        "ha nem erkezem meg",
+        "what happens if i dont arrive"
+      ],
+      "valaszok": {
+        "hu-HU": "A no-show feltételek foglalástól függően változnak.",
+        "en-US": "No-show conditions vary depending on the booking."
+      }
+    },
+    {
+      "id": "szamla",
+      "kerdesek": [
+        "kapok szamlat",
+        "szamla igenyelheto",
+        "kerhetek szamlat",
+        "invoice",
+        "do you provide invoice",
+        "can i get an invoice"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, számla kérhető.",
+        "en-US": "Yes, an invoice can be provided."
+      }
+    },
+    {
+      "id": "ifa",
+      "kerdesek": [
+        "mennyi az ifa",
+        "idegenforgalmi ado",
+        "turistaado",
+        "tourist tax",
+        "city tax",
+        "local tax"
+      ],
+      "valaszok": {
+        "hu-HU": "Az IFA 2 EUR / fő / éj.",
+        "en-US": "The tourist tax is 2 EUR per person per night."
+      }
+    },
+    {
+      "id": "reggeli",
+      "kerdesek": [
+        "van reggeli",
+        "reggelit lehet kerni",
+        "elerheto reggeli",
+        "breakfast",
+        "is breakfast available",
+        "do you have breakfast"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, reggeli elérhető.",
+        "en-US": "Yes, breakfast is available."
+      }
+    },
+    {
+      "id": "reggeli_ido",
+      "kerdesek": [
+        "mikor van reggeli",
+        "reggeli mikor van",
+        "hanytol van reggeli",
+        "meddig van reggeli",
+        "reggeli idopont",
+        "breakfast time",
+        "when is breakfast",
+        "what time is breakfast"
+      ],
+      "valaszok": {
+        "hu-HU": "A reggeli 08:00–10:00 között érhető el.",
+        "en-US": "Breakfast is available between 8:00 AM and 10:00 AM."
+      }
+    },
+    {
+      "id": "reggeli_tipus",
+      "kerdesek": [
+        "milyen a reggeli",
+        "reggeli tipus",
+        "bufe reggeli van",
+        "a la carte reggeli",
+        "what kind of breakfast",
+        "is breakfast buffet"
+      ],
+      "valaszok": {
+        "hu-HU": "A reggeli à la carte rendszerben érhető el.",
+        "en-US": "Breakfast is served à la carte."
+      }
+    },
+    {
+      "id": "reggeli_ar",
+      "kerdesek": [
+        "mennyi a reggeli",
+        "reggeli ara",
+        "mennyibe kerul a reggeli",
+        "breakfast price",
+        "how much is breakfast"
+      ],
+      "valaszok": {
+        "hu-HU": "A reggeli ára 8 EUR / fő / nap.",
+        "en-US": "Breakfast costs 8 EUR per person per day."
+      }
+    },
+    {
+      "id": "dieta",
+      "kerdesek": [
+        "van glutenmentes",
+        "van laktozmentes",
+        "dietas reggeli",
+        "gluten free breakfast",
+        "lactose free option",
+        "special diet"
+      ],
+      "valaszok": {
+        "hu-HU": "Gluténmentes és laktózmentes opció felár ellenében elérhető.",
+        "en-US": "Gluten-free and lactose-free options are available for an extra charge."
+      }
+    },
+    {
+      "id": "konyha",
+      "kerdesek": [
+        "van kulteri konyha",
+        "van kültéri konyha",
+        "kültéri konyha",
+        "kulteri konyha",
+        "kerti konyha",
+        "szabadteri konyha",
+        "szabadtéri konyha",
+        "lehet kint fozni",
+        "lehet kint főzni",
+        "van konyha kint",
+        "can i cook outside",
+        "outdoor kitchen",
+        "is there a kitchen"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, kültéri konyha elérhető.",
+        "en-US": "Yes, an outdoor kitchen is available."
+      }
+    },
+    {
+      "id": "kulsos_rendeles",
+      "kerdesek": [
+        "lehet kulso etelt rendelni",
+        "lehet kulso ételt rendelni",
+        "rendelhetunk etelt",
+        "rendelhetünk ételt",
+        "food delivery",
+        "can we order food",
+        "outside food allowed"
+      ],
+      "valaszok": {
+        "hu-HU": "Külsős ételrendelés lehetséges.",
+        "en-US": "Outside food delivery is allowed."
+      }
+    },
+    {
+      "id": "szobatipusok",
+      "kerdesek": [
+        "milyen szobak vannak",
+        "szobatipusok",
+        "milyen apartmanok vannak",
+        "room types",
+        "what room types do you have"
+      ],
+      "valaszok": {
+        "hu-HU": "Elérhető szobatípusok: Classic, Deluxe és Family apartman.",
+        "en-US": "Available room types: Classic, Deluxe, and Family Apartment."
+      }
+    },
+    {
+      "id": "erkely",
+      "kerdesek": [
+        "van erkely",
+        "erkelyes szoba",
+        "minden szobahoz tartozik erkely",
+        "balcony",
+        "do rooms have balcony"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, minden szobához tartozik erkély.",
+        "en-US": "Yes, every room has a balcony."
+      }
+    },
+    {
+      "id": "panorama",
+      "kerdesek": [
+        "milyen a kilatas",
+        "panorama",
+        "kertre nez",
+        "kertre néz",
+        "view",
+        "garden view"
+      ],
+      "valaszok": {
+        "hu-HU": "A szobák kertre nézőek.",
+        "en-US": "The rooms have a garden view."
+      }
+    },
+    {
+      "id": "furdoszoba",
+      "kerdesek": [
+        "van sajat furdoszoba",
+        "fürdőszoba a szobában",
+        "furdoszoba a szobaban",
+        "private bathroom",
+        "bathroom in room"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, minden szobához saját fürdőszoba tartozik.",
+        "en-US": "Yes, every room has a private bathroom."
+      }
+    },
+    {
+      "id": "klima",
+      "kerdesek": [
+        "van klima",
+        "legkondi van",
+        "klimatizalt",
+        "air conditioning",
+        "ac",
+        "is there air conditioning"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, minden szobában van klíma.",
+        "en-US": "Yes, all rooms have air conditioning."
+      }
+    },
+    {
+      "id": "futes",
+      "kerdesek": [
+        "van futes",
+        "futheto a szoba",
+        "heating",
+        "is there heating"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, minden szobában van fűtés.",
+        "en-US": "Yes, all rooms have heating."
+      }
+    },
+    {
+      "id": "tv",
+      "kerdesek": [
+        "van tv",
+        "okos tv",
+        "smart tv",
+        "televizió",
+        "television",
+        "van a szobában televizió",
+        "is there tv in the room"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, minden szobában okos TV található.",
+        "en-US": "Yes, every room has a smart TV."
+      }
+    },
+    {
+      "id": "hajszarito",
+      "kerdesek": [
+        "van hajszarito",
+        "hajszarito a szobaban",
+        "hair dryer",
+        "is there a hair dryer"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, minden szobában van hajszárító.",
+        "en-US": "Yes, every room has a hair dryer."
+      }
+    },
+    {
+      "id": "kavegep",
+      "kerdesek": [
+        "van kavegep",
+        "kerheto kavegep",
+        "coffee machine",
+        "can i request coffee machine"
+      ],
+      "valaszok": {
+        "hu-HU": "Kávégép igényelhető.",
+        "en-US": "A coffee machine can be requested."
+      }
+    },
+    {
+      "id": "huto",
+      "kerdesek": [
+        "van huto",
+        "van huto a szobaban",
+        "mini bar van",
+        "fridge",
+        "is there a fridge",
+        "mini fridge"
+      ],
+      "valaszok": {
+        "hu-HU": "A szobákban nincs hűtő, csak közös hűtő áll rendelkezésre.",
+        "en-US": "There is no fridge in the rooms, but a shared fridge is available."
+      }
+    },
+    {
+      "id": "takaritas",
+      "kerdesek": [
+        "van takaritas",
+        "kerheto takaritas",
+        "takaritas mennyibe kerul",
+        "cleaning",
+        "room cleaning",
+        "housekeeping"
+      ],
+      "valaszok": {
+        "hu-HU": "Takarítás díj ellenében kérhető.",
+        "en-US": "Cleaning is available for an extra fee."
+      }
+    },
+    {
+      "id": "torolkozo_csere",
+      "kerdesek": [
+        "torolkozo csere",
+        "kerhetek tiszta torolkozot",
+        "towel change",
+        "can i get clean towels"
+      ],
+      "valaszok": {
+        "hu-HU": "Törölközőcsere kérésre lehetséges.",
+        "en-US": "Towel change is available on request."
+      }
+    },
+    {
+      "id": "agynemu_csere",
+      "kerdesek": [
+        "agynemu csere",
+        "kerhetek tiszta agynemut",
+        "bed linen change",
+        "can i get clean bed linen"
+      ],
+      "valaszok": {
+        "hu-HU": "Ágyneműcsere kérésre lehetséges.",
+        "en-US": "Bed linen change is available on request."
+      }
+    },
+    {
+      "id": "dohanyzo_szoba",
+      "kerdesek": [
+        "van dohanyzo szoba",
+        "dohanyzo szobak",
+        "smoking room",
+        "do you have smoking rooms"
+      ],
+      "valaszok": {
+        "hu-HU": "Nincs dohányzó szoba.",
+        "en-US": "There are no smoking rooms."
+      }
+    },
+    {
+      "id": "wellness",
+      "kerdesek": [
+        "van wellness",
+        "wellness reszleg",
+        "has wellness",
+        "is there wellness"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, wellness elérhető.",
+        "en-US": "Yes, wellness facilities are available."
+      }
+    },
+    {
+      "id": "wellness_tartalom",
+      "kerdesek": [
+        "mi van a wellnessben",
+        "van szauna",
+        "van jakuzzi",
+        "van medence",
+        "wellness tartalma",
+        "sauna",
+        "jacuzzi",
+        "pool"
+      ],
+      "valaszok": {
+        "hu-HU": "A wellness részlegben szauna, jakuzzi és medence található.",
+        "en-US": "The wellness area includes a sauna, jacuzzi, and pool."
+      }
+    },
+    {
+      "id": "wellness_ido",
+      "kerdesek": [
+        "mikor van nyitva a wellness",
+        "wellness nyitvatartas",
+        "medence mikor van nyitva",
+        "wellness hours",
+        "pool opening hours",
+        "sauna opening hours"
+      ],
+      "valaszok": {
+        "hu-HU": "A wellness 09:00–21:00 között érhető el.",
+        "en-US": "The wellness area is open from 9:00 AM to 9:00 PM."
+      }
+    },
+    {
+      "id": "wellness_foglalas",
+      "kerdesek": [
+        "kell foglalni a wellnesst",
+        "wellness foglalas",
+        "elore kell idopont",
+        "do i need to book wellness",
+        "wellness reservation"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, a wellness használatához előzetes foglalás szükséges.",
+        "en-US": "Yes, advance booking is required for wellness use."
+      }
+    },
+    {
+      "id": "masszazs",
+      "kerdesek": [
+        "van masszazs",
+        "masszazs kerheto",
+        "massage",
+        "is massage available"
+      ],
+      "valaszok": {
+        "hu-HU": "Masszázs előzetes foglalással elérhető.",
+        "en-US": "Massage is available with advance booking."
+      }
+    },
+    {
+      "id": "parkolas",
+      "kerdesek": [
+        "van parkolas",
+        "parkoló",
+        "parkolo",
+        "hol lehet parkolni",
+        "ingyenes parkolas",
+        "ingyenes parkolás",
+        "parking",
+        "is there parking",
+        "free parking",
+        "where can i park"
+      ],
+      "valaszok": {
+        "hu-HU": "Parkolás ingyenesen elérhető az épület előtt, a helyek száma korlátozott.",
+        "en-US": "Free parking is available in front of the building, but spaces are limited."
+      }
+    },
+    {
+      "id": "parkolo_helyek",
+      "kerdesek": [
+        "sok parkolohely van",
+        "korlatozott a parkolas",
+        "parkolohelyek szama",
+        "limited parking",
+        "are parking spaces limited"
+      ],
+      "valaszok": {
+        "hu-HU": "A parkolóhelyek száma korlátozott.",
+        "en-US": "The number of parking spaces is limited."
+      }
+    },
+    {
+      "id": "ev_tolto",
+      "kerdesek": [
+        "van elektromos auto tolto",
+        "van elektromos autó töltő",
+        "ev tolto",
+        "elektromos tolto",
+        "electric car charger",
+        "ev charger"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, elektromosautó-töltő elérhető.",
+        "en-US": "Yes, an electric vehicle charger is available."
+      }
+    },
+    {
+      "id": "kisallat",
+      "kerdesek": [
+        "lehet kisallatot hozni",
+        "hozhatok kutyat",
+        "hozhatok macskat",
+        "kisallat behozhato",
+        "allatbarat",
+        "pet friendly",
+        "dog allowed",
+        "cat allowed"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, kisállat behozható.",
+        "en-US": "Yes, pets are allowed."
+      }
+    },
+    {
+      "id": "pet_fee",
+      "kerdesek": [
+        "kisállat díj",
+        "állat díj",
+        "kutya díj",
+        "pet fee",
+        "dog fee",
+        "how much is pet fee"
+      ],
+      "valaszok": {
+        "hu-HU": "A kisállat díja 4000 forint per éj.",
+        "en-US": "The pet fee is 4000 HUF per night."
+      }
+    },
+    {
+      "id": "dohanyzas",
+      "kerdesek": [
+        "lehet dohanyozni",
+        "hol lehet dohanyozni",
+        "dohanyzas",
+        "smoking",
+        "can i smoke"
+      ],
+      "valaszok": {
+        "hu-HU": "Dohányzás csak kijelölt helyen engedélyezett.",
+        "en-US": "Smoking is only allowed in designated areas."
+      }
+    },
+    {
+      "id": "csendes_idoszak",
+      "kerdesek": [
+        "mikor van csendes idoszak",
+        "csendrendelet",
+        "mikor kell csendben lenni",
+        "quiet hours",
+        "noise rules"
+      ],
+      "valaszok": {
+        "hu-HU": "A csendes időszak 21:00–09:00 között van.",
+        "en-US": "Quiet hours are from 9:00 PM to 9:00 AM."
+      }
+    },
+    {
+      "id": "latogatok",
+      "kerdesek": [
+        "johetnek vendegek",
+        "hozhatok latogatot",
+        "latogatok engedelyezettek",
+        "visitors allowed",
+        "can i bring guests"
+      ],
+      "valaszok": {
+        "hu-HU": "Látogatók nem engedélyezettek.",
+        "en-US": "Visitors are not allowed."
+      }
+    },
+    {
+      "id": "wifi",
+      "kerdesek": [
+        "van wifi",
+        "wifi",
+        "wi fi",
+        "internet",
+        "is there wifi",
+        "do you have wifi"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, wifi elérhető.",
+        "en-US": "Yes, Wi-Fi is available."
+      }
+    },
+    {
+      "id": "wifi_jelszo",
+      "kerdesek": [
+        "mi a wifi jelszo",
+        "wifi jelszo",
+        "mi a net jelszo",
+        "what is the wifi",
+        "wifi password",
+        "what is the wifi password"
+      ],
+      "valaszok": {
+        "hu-HU": "A wifi neve: Silvergarden, a jelszó: Balatonlive.",
+        "en-US": "The Wi-Fi name is Silvergarden and the password is Balatonlive."
+      }
+    },
+    {
+      "id": "hiba",
+      "kerdesek": [
+        "mi van ha hiba van",
+        "ha valami nem mukodik",
+        "hibabejelentes",
+        "problem in room",
+        "something is not working"
+      ],
+      "valaszok": {
+        "hu-HU": "Bármilyen hiba esetén kérjük, értesítse a recepciót.",
+        "en-US": "If anything is not working, please inform the reception."
+      }
+    },
+    {
+      "id": "surgosseg",
+      "kerdesek": [
+        "mi a surgossegi szam",
+        "kit hivjak baj eseten",
+        "recepcio telefonszam",
+        "emergency contact",
+        "urgent phone number"
+      ],
+      "valaszok": {
+        "hu-HU": "Sürgős esetben ezen a számon érhető el segítség: +36 70 408 9437.",
+        "en-US": "In urgent cases, you can get help at this number: +36 70 408 9437."
+      }
+    },
+    {
+      "id": "segelyhivo",
+      "kerdesek": [
+        "mi a segelyhivo szam",
+        "mentok szama",
+        "rendorseg szama",
+        "112",
+        "emergency number"
+      ],
+      "valaszok": {
+        "hu-HU": "Az általános segélyhívó szám: 112.",
+        "en-US": "The general emergency number is 112."
+      }
+    },
+    {
+      "id": "strand",
+      "kerdesek": [
+        "melyik strand van kozel",
+        "kozel van strand",
+        "melyik a legkozelebbi strand",
+        "beach nearby",
+        "nearest beach",
+        "free beach"
+      ],
+      "valaszok": {
+        "hu-HU": "A közelben található az Ezüstpart szabadstrand.",
+        "en-US": "The nearby beach is the Ezüstpart free beach."
+      }
+    },
+    {
+      "id": "ettermek",
+      "kerdesek": [
+        "milyen ettermek vannak a kozelben",
+        "hol lehet enni",
+        "etterem a kozelben",
+        "restaurants nearby",
+        "where can we eat",
+        "food nearby"
+      ],
+      "valaszok": {
+        "hu-HU": "A közelben több étterem is található, például Valhalla Bistro, Kiskert Étterem, Hintaló Étterem és Calypso Étterem.",
+        "en-US": "There are several restaurants nearby, such as Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant, and Calypso Restaurant."
+      }
+    },
+    {
+      "id": "boltok",
+      "kerdesek": [
+        "milyen bolt van a kozelben",
+        "hol van spar",
+        "hol van lidl",
+        "bolt a kozelben",
+        "shops nearby",
+        "grocery store nearby"
+      ],
+      "valaszok": {
+        "hu-HU": "A közelben több bolt is található, például Spar és Lidl.",
+        "en-US": "There are several shops nearby, including Spar and Lidl."
+      }
+    },
+    {
+      "id": "kozelben",
+      "kerdesek": [
+        "mi van a kozelben",
+        "latnivalok a kozelben",
+        "mi talalhato a kozelben",
+        "what is nearby",
+        "nearby attractions"
+      ],
+      "valaszok": {
+        "hu-HU": "A közelben éttermek, boltok és a Fordított ház is megtalálható.",
+        "en-US": "Nearby you can find restaurants, shops, and the Upside Down House."
+      }
+    },
+    {
+      "id": "vasut",
+      "kerdesek": [
+        "milyen messze a vasutallomas",
+        "milyen messze a vonat",
+        "vasut kozel van",
+        "train station",
+        "how far is the train station"
+      ],
+      "valaszok": {
+        "hu-HU": "A vasútállomás körülbelül 5 perc sétára található.",
+        "en-US": "The train station is about a 5-minute walk away."
+      }
+    },
+    {
+      "id": "busz",
+      "kerdesek": [
+        "milyen messze a buszmegallo",
+        "busz kozel van",
+        "hol a buszmegallo",
+        "bus stop",
+        "how far is the bus stop"
+      ],
+      "valaszok": {
+        "hu-HU": "A buszmegálló körülbelül 2 perc sétára található.",
+        "en-US": "The bus stop is about a 2-minute walk away."
+      }
+    },
+    {
+      "id": "telefon",
+      "kerdesek": [
+        "mi a telefonszam",
+        "hotel telefonszama",
+        "hogyan erem el onoket",
+        "phone number",
+        "contact number"
+      ],
+      "valaszok": {
+        "hu-HU": "Telefonos elérhetőség: +36 70 408 94 37.",
+        "en-US": "Phone number: +36 70 408 94 37."
+      }
+    },
+    {
+      "id": "email",
+      "kerdesek": [
+        "mi az email cim",
+        "hotel email",
+        "hova irhatok",
+        "email address",
+        "contact email"
+      ],
+      "valaszok": {
+        "hu-HU": "E-mail címünk: info@silvergarden.hu.",
+        "en-US": "Our email address is: info@silvergarden.hu."
+      }
+    },
+    {
+      "id": "whatsapp",
+      "kerdesek": [
+        "van whatsapp",
+        "whatsapp szam",
+        "elerheto whatsappon",
+        "can i contact on whatsapp"
+      ],
+      "valaszok": {
+        "hu-HU": "WhatsApp elérhetőség: +36 70 408 9437.",
+        "en-US": "WhatsApp contact: +36 70 408 9437."
+      }
+    },
+    {
+      "id": "cim",
+      "kerdesek": [
+        "mi a cim",
+        "hol vannak",
+        "pontos cim",
+        "address",
+        "hotel address",
+        "where are you located"
+      ],
+      "valaszok": {
+        "hu-HU": "Cím: 8600 Siófok, Deák Ferenc sétány 57.",
+        "en-US": "Address: 8600 Siófok, Deák Ferenc sétány 57."
+      }
+    },
+    {
+      "id": "google_maps",
+      "kerdesek": [
+        "google maps link",
+        "terkep link",
+        "kuldd a terkepet",
+        "maps",
+        "location link"
+      ],
+      "valaszok": {
+        "hu-HU": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
+        "en-US": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7"
+      }
+    },
+    {
+      "id": "weboldal",
+      "kerdesek": [
+        "mi a weboldal",
+        "hotel honlapja",
+        "weboldal link",
+        "website",
+        "official website"
+      ],
+      "valaszok": {
+        "hu-HU": "Weboldal: https://www.silvergarden.hu",
+        "en-US": "Website: https://www.silvergarden.hu"
+      }
+    },
+    {
+      "id": "beszelt_nyelvek",
+      "kerdesek": [
+        "milyen nyelveken beszelnek",
+        "beszelnek angolul",
+        "beszelnek magyarul",
+        "languages",
+        "do you speak english"
+      ],
+      "valaszok": {
+        "hu-HU": "A szálláshelyen magyarul és angolul beszélünk.",
+        "en-US": "We speak Hungarian and English at the property."
+      }
+    },
+    {
+      "id": "stilus",
+      "kerdesek": [
+        "milyen tipusu szallas",
+        "hotel vagy apartman",
+        "milyen hely ez",
+        "type of accommodation"
+      ],
+      "valaszok": {
+        "hu-HU": "A Silver Garden Siófok egy bed and breakfast, vakációs szálláshely.",
+        "en-US": "Silver Garden Siófok is a bed and breakfast holiday accommodation."
+      }
+    },
+    {
+      "id": "rovid_leiras",
+      "kerdesek": [
+        "milyen a szallas",
+        "rovid leiras",
+        "mit lehet tudni a helyrol",
+        "about the hotel",
+        "tell me about the property"
+      ],
+      "valaszok": {
+        "hu-HU": "A Silver Garden ideális pihenő környezet, különösen nyári kikapcsolódásra.",
+        "en-US": "Silver Garden offers an ideal place to relax, especially for summer holidays."
+      }
+    },
+    {
+      "id": "kerekpar",
+      "kerdesek": [
+        "kerekpar tarolas",
+        "kerékpár tárolás",
+        "bicikli tarolas",
+        "bicikli tárolás",
+        "bringa tarolas",
+        "bringa tárolás",
+        "lehet biciklit tarolni",
+        "lehet biciklit tárolni",
+        "van bicikli tarolo",
+        "van bicikli tároló",
+        "bike storage",
+        "bicycle storage"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, van lehetőség kerékpár tárolásra.",
+        "en-US": "Yes, bicycle storage is available."
+      }
+    },
+    {
+      "id": "potagy",
+      "kerdesek": [
+        "lehet potagyat kerni",
+        "lehet pótágyat kérni",
+        "van potagy",
+        "van pótágy",
+        "extra bed",
+        "can i request extra bed"
+      ],
+      "valaszok": {
+        "hu-HU": "Pótágy kérhető, ára 20 EUR / éj.",
+        "en-US": "An extra bed can be requested for 20 EUR per night."
+      }
+    },
+    {
+      "id": "furdokontos",
+      "kerdesek": [
+        "van fürdőköntös",
+        "fürdőköntös",
+        "van a szobában fürdőköntös",
+        "bathrobe"
+      ],
+      "valaszok": {
+        "hu-HU": "Nincs fürdőköntös a szobákban.",
+        "en-US": "There is no bathrobe in the rooms."
+      }
+    },
+    {
+      "id": "szobafoglalas",
+      "kerdesek": [
+        "tudok itt szobát foglalni",
+        "szobafoglalás",
+        "lehet szobát foglalni",
+        "book a room"
+      ],
+      "valaszok": {
+        "hu-HU": "Nem lehet itt közvetlenül szobát foglalni. Foglalás kizárólag online rendszerben, telefonon vagy e-mailben lehetséges.",
+        "en-US": "You cannot book a room directly here. Booking is only available online, by phone, or by email."
+      }
+    }
+  ]
+}

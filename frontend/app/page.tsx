@@ -2,8 +2,17 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import knowledge from "../data/hotel-knowledge.json";
 
 type LangCode = "hu-HU" | "en-US" | "de-DE" | "it-IT" | "pl-PL" | "uk-UA";
+
+type FAQItem = {
+  id: string;
+  kerdesek: string[];
+  valaszok?: Partial<Record<LangCode, string>>;
+  valasz?: string;
+};
+
 type LocalizedText = Record<LangCode, string>;
 
 type RecognitionAlternative = {
@@ -167,7 +176,9 @@ const mapNumberWordsToDigits = (text: string) => {
     [/\botto\b/g, " 8 "],
     [/\bosiem\b/g, " 8 "],
     [/\bвісім\b/g, " 8 "],
-  ]).replace(/\s+/g, " ").trim();
+  ])
+    .replace(/\s+/g, " ")
+    .trim();
 };
 
 const containsAny = (text: string, patterns: string[]) => patterns.some((p) => text.includes(p));
@@ -198,90 +209,49 @@ const relaxRoutes: Record<string, RouteInfo> = {
   "4": { label: tr("Relax 4","Relax 4","Relax 4","Relax 4","Relax 4","Relax 4"), answer: tr("A Relax 4 szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett. Egy másik épülethez ér. Ott találja az R 4 feliratot. A kulcsot a zárban találja.","To find Relax 4, walk towards the back and pass the sauna. You will arrive at another building. There you will find the R 4 sign. The key is in the lock.","Um Relax 4 zu finden, gehen Sie nach hinten und an der Sauna vorbei. Sie kommen zu einem anderen Gebäude. Dort finden Sie die Aufschrift R 4. Der Schlüssel steckt im Schloss.","Per trovare Relax 4, vada verso il retro e passi accanto alla sauna. Arriverà a un altro edificio. Lì troverà l'insegna R 4. La chiave è nella serratura.","Aby znaleźć Relax 4, proszę iść do tyłu i minąć saunę. Dojdzie Pan do drugiego budynku. Tam znajdzie Pan oznaczenie R 4. Klucz jest w zamku.","Щоб знайти Relax 4, пройдіть назад повз сауну. Ви дійдете до іншої будівлі. Там ви знайдете позначення R 4. Ключ у замку.") },
   premium: { label: tr("Relax Prémium","Relax Premium","Relax Premium","Relax Premium","Relax Premium","Relax Premium"), answer: tr("A Relax Prémium szobát úgy találja meg, hogy elindul hátrafelé, elmegy a szauna mellett egy másik épülethez. Felmegy a lépcsőn. Ott találja az R P feliratot. A kulcsot a zárban találja.","To find Relax Premium, walk towards the back and pass the sauna to another building. Go up the stairs. There you will find the R P sign. The key is in the lock.","Um Relax Premium zu finden, gehen Sie nach hinten und an der Sauna vorbei zu einem anderen Gebäude. Gehen Sie die Treppe hinauf. Dort finden Sie die Aufschrift R P. Der Schlüssel steckt im Schloss.","Per trovare Relax Premium, vada verso il retro e passi accanto alla sauna fino a un altro edificio. Salga le scale. Lì troverà l'insegna R P. La chiave è nella serratura.","Aby znaleźć Relax Premium, proszę iść do tyłu i minąć saunę w kierunku drugiego budynku. Proszę wejść po schodach. Tam znajdzie Pan oznaczenie R P. Klucz jest w zamku.","Щоб знайти Relax Premium, пройдіть назад повз сауну до іншої будівлі. Підніміться сходами. Там ви знайдете позначення R P. Ключ у замку.") },
 };
+
 const arrivalInfoItem: MenuItem = {
   id: "arrival-info",
-  label: tr(
-    "Érkezési info",
-    "Arrival info",
-    "Anreiseinfo",
-    "Info arrivo",
-    "Informacje o przyjeździe",
-    "Інформація про прибуття"
-  ),
+  label: tr("Érkezési info", "Arrival info", "Anreiseinfo", "Info arrivo", "Informacje o przyjeździe", "Інформація про прибуття"),
   answer: tr(
-    "Megkérjük vendégeinket, hogy érkezés előtt 5 perccel SMS-ben vagy WhatsAppon jelezzék érkezésüket. A szálláshelyen self check-in áll rendelkezésre. Amennyiben nem boldogulnak, kérjük, vegyék fel a kapcsolatot a recepcióval. Igyekszünk a legegyszerűbb módon segíteni a szoba átvételét. Amennyiben nem fizették ki előre a szobát, lehetőség van utólag fizetési linken keresztül rendezni a szállásdíjat. Ehhez kérjük, kérjék recepciós kollégánk segítségét. Amennyiben reggelit szeretnének kérni, ezt megtehetik online self check-in rendszerünkben vagy recepciós kollégánkon keresztül.",
-    "Please let us know by SMS or WhatsApp 5 minutes before arrival. Self check-in is available at the accommodation. If you have any difficulty, please contact the reception.",
-    "Bitte informieren Sie uns 5 Minuten vor Ihrer Ankunft per SMS oder WhatsApp. Self-Check-in ist verfügbar.",
-    "Si prega di avvisare 5 minuti prima via SMS o WhatsApp. È disponibile il self check-in.",
-    "Prosimy o informację 5 minut przed przyjazdem przez SMS lub WhatsApp.",
-    "Будь ласка, повідомте за 5 хвилин до прибуття через SMS або WhatsApp."
+    "Megkérjük vendégeinket, hogy érkezés előtt 5 perccel SMS-ben vagy WhatsAppon jelezzék érkezésüket. A szálláshelyen self check-in áll rendelkezésre. Amennyiben nem boldogulnak, kérjük, vegyék fel a kapcsolatot a recepcióval. Amennyiben nem fizették ki előre a szobát, lehetőség van utólag fizetési linken keresztül rendezni a szállásdíjat.",
+    "Please let us know by SMS or WhatsApp 5 minutes before arrival. Self check-in is available. If you have any difficulty, please contact the reception. If the room was not prepaid, payment can be completed later via payment link.",
+    "Bitte informieren Sie uns 5 Minuten vor Ihrer Ankunft per SMS oder WhatsApp. Self-Check-in ist verfügbar. Falls Sie Hilfe benötigen, kontaktieren Sie bitte die Rezeption.",
+    "Si prega di avvisare 5 minuti prima via SMS o WhatsApp. È disponibile il self check-in. Se avete difficoltà, contattate la reception.",
+    "Prosimy o informację 5 minut przed przyjazdem przez SMS lub WhatsApp. Dostępny jest self check-in. W razie problemów prosimy o kontakt z recepcją.",
+    "Будь ласка, повідомте за 5 хвилин до прибуття через SMS або WhatsApp. Доступний self check-in. Якщо виникнуть труднощі, зверніться до рецепції."
   ),
 };
+
 const faqItems: MenuItem[] = [
-{
-  id: "reggeli",
-  label: tr("Reggeli", "Breakfast", "Frühstück", "Colazione", "Śniadanie", "Сніданок"),
-  answer: tr(
-    `A reggeli minden nap 8:00 és 10:00 között érhető el.
-
-• Ár: 8 euro / fő / nap
-• Választható ételek: 4 féle (jellemzően tojásos ételek)
-• Tartalmaz:
-- narancslé
-- kávé`,
-    `Breakfast is available every day between 8:00 and 10:00.
-
-• Price: 8 euro per person per day
-• Choice of 4 dishes (typically egg dishes)
-• Includes:
-- orange juice
-- coffee`,
-    `Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar.
-
-• Preis: 8 Euro pro Person pro Tag
-• Auswahl: 4 Gerichte (meist Eierspeisen)
-• Enthält:
-- Orangensaft
-- Kaffee`,
-    `La colazione è disponibile ogni giorno dalle 8:00 alle 10:00.
-
-• Prezzo: 8 euro a persona al giorno
-• Scelta di 4 piatti (di solito a base di uova)
-• Include:
-- succo d’arancia
-- caffè`,
-    `Śniadanie jest dostępne codziennie od 8:00 do 10:00.
-
-• Cena: 8 euro za osobę za dzień
-• Do wyboru 4 dania (najczęściej z jajek)
-• Zawiera:
-- sok pomarańczowy
-- kawa`,
-    `Сніданок доступний щодня з 8:00 до 10:00.
-
-• Вартість: 8 євро з особи на день
-• На вибір 4 страви (переважно з яєць)
-• Включає:
-- апельсиновий сік
-- каву`
-  ),
-},
+  {
+    id: "reggeli",
+    label: tr("Reggeli", "Breakfast", "Frühstück", "Colazione", "Śniadanie", "Сніданок"),
+    answer: tr(
+      "A reggeli minden nap 8:00 és 10:00 között érhető el. Ár: 8 euro / fő / nap. Választható 4 féle étel, jellemzően tojásos ételek. Tartalmaz narancslevet és kávét.",
+      "Breakfast is available every day between 8:00 and 10:00. Price: 8 euro per person per day. There are 4 dish options, usually egg dishes. Orange juice and coffee are included.",
+      "Das Frühstück ist täglich zwischen 8:00 und 10:00 Uhr verfügbar. Preis: 8 Euro pro Person pro Tag. Es gibt 4 Speisen zur Auswahl, meist Eierspeisen. Orangensaft und Kaffee sind inklusive.",
+      "La colazione è disponibile ogni giorno dalle 8:00 alle 10:00. Prezzo: 8 euro a persona al giorno. Ci sono 4 piatti tra cui scegliere, di solito a base di uova. Include succo d'arancia e caffè.",
+      "Śniadanie jest dostępne codziennie od 8:00 do 10:00. Cena: 8 euro za osobę za dzień. Do wyboru są 4 dania, najczęściej z jajek. W cenie sok pomarańczowy i kawa.",
+      "Сніданок доступний щодня з 8:00 до 10:00. Вартість: 8 євро з особи на день. Є 4 страви на вибір, переважно з яєць. У вартість входять апельсиновий сік і кава."
+    ),
+  },
   { id: "wifi", label: tr("Wifi","Wifi","WLAN","Wifi","Wifi","Wi‑Fi"), answer: tr("A wifi neve SilverGarden. A jelszó balatonlive, kisbetűvel, egybeírva.","The wifi name is SilverGarden. The password is balatonlive in lowercase, written together.","Das WLAN heißt SilverGarden. Das Passwort ist balatonlive, klein geschrieben und zusammen.","Il nome del wifi è SilverGarden. La password è balatonlive, in minuscolo e senza spazi.","Nazwa wifi to SilverGarden. Hasło to balatonlive, małymi literami, bez spacji.","Назва Wi‑Fi — SilverGarden. Пароль — balatonlive, маленькими літерами, без пробілів.") },
   { id: "parking", label: tr("Parkolás-Elektromos töltés","Parking-electric charge","Parken-elektrische Ladung","Parcheggio-carica elettrica","Parking-ładunek elektryczny","Паркування-електричний заряд"), answer: tr("A vendégek számára ingyenes parkoló áll rendelkezésre az épület előtt az utcai parkolóban. Az elektromos autó töltéshez mindenképpen keresse kollégánkat.","Free parking is available for guests in the street parking area in front of the building. For electric car charging, be sure to contact our colleague.","Für Gäste stehen kostenlose Parkplätze vor dem Gebäude auf den Straßenparkplätzen zur Verfügung. Für das Laden von Elektroautos wenden Sie sich bitte an unseren Kollegen.","Per gli ospiti è disponibile un parcheggio gratuito davanti all'edificio, nei posti auto sulla strada. Per la ricarica delle auto elettriche, si prega di contattare il nostro collega.","Dla gości dostępny jest bezpłatny parking przed budynkiem, na miejscach parkingowych przy ulicy. Jeśli interesują Cię kwestie związane z ładowaniem samochodów elektrycznych, koniecznie skontaktuj się z naszym kolegą.","Для гостей доступне безкоштовне паркування перед будівлею на вуличних місцях. Для заряджання електромобіля зверніться до нашого колеги.") },
-  { id: "wellness", label: tr("Wellnesz","Wellness","Wellness","Wellness","Wellness","Велнес"), answer: tr("A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő, 3 órára. Megrendeléstől számított 2 órán belül használható. A fürdőmedence ingyenesen használható május 1-től szeptember 30-ig.","The wellness area is available to guests for an extra fee. Sauna use costs 4000 forints per person for 3 hours. It can be used within 2 hours after ordering. The swimming pool is free to use from May 1st to September 30th.","Der Wellnessbereich steht den Gästen gegen Gebühr zur Verfügung. Die Saunanutzung kostet 4000 Forint pro Person für 3 Stunden. Sie kann innerhalb von 2 Stunden nach der Bestellung genutzt werden. Die Nutzung des Schwimmbads ist vom 1. Mai bis zum 30. September kostenlos.","L'area wellness è disponibile per gli ospiti a pagamento. L'uso della sauna costa 4000 fiorini a persona per 3 ore. È utilizzabile entro 2 ore dalla prenotazione. La piscina è gratuita dal 1° maggio al 30 settembre.","Strefa wellness jest dostępna dla gości za dodatkową opłatą. Korzystanie z sauny kosztuje 4000 forintów za osobę na 3 godziny. Można z niej skorzystać w ciągu 2 godzin od zamówienia. Z basenu można korzystać bezpłatnie od 1 maja do 30 września.","Велнес-зона доступна для гостей за додаткову плату. Користування сауною коштує 4000 форинтів з особи за 3 години. Нею можна скористатися протягом 2 годин після замовлення. Басейном можна користуватися безкоштовно з 1 травня по 30 вересня.") },
+  { id: "wellness", label: tr("Wellnesz","Wellness","Wellness","Wellness","Wellness","Велнес"), answer: tr("A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő, 3 órára. A fürdőmedence ingyenesen használható május 1-től szeptember 30-ig.","The wellness area is available to guests for an extra fee. Sauna use costs 4000 forints per person for 3 hours. The swimming pool is free to use from May 1st to September 30th.","Der Wellnessbereich steht den Gästen gegen Gebühr zur Verfügung. Die Saunanutzung kostet 4000 Forint pro Person für 3 Stunden. Die Nutzung des Schwimmbads ist vom 1. Mai bis zum 30. September kostenlos.","L'area wellness è disponibile per gli ospiti a pagamento. L'uso della sauna costa 4000 fiorini a persona per 3 ore. La piscina è gratuita dal 1° maggio al 30 settembre.","Strefa wellness jest dostępna dla gości za dodatkową opłatą. Korzystanie z sauny kosztuje 4000 forintów za osobę na 3 godziny. Z basenu można korzystać bezpłatnie od 1 maja do 30 września.","Велнес-зона доступна для гостей за додаткову плату. Користування сауною коштує 4000 форинтів з особи за 3 години. Басейном можна користуватися безкоштовно з 1 травня по 30 вересня.") },
   { id: "pool", label: tr("Medence","Pool","Pool","Piscina","Basen","Басейн"), answer: tr("A medence minden nap 9:00 és 21:00 között használható.","The pool can be used every day between 9:00 and 21:00.","Der Pool kann täglich zwischen 9:00 und 21:00 Uhr genutzt werden.","La piscina può essere utilizzata ogni giorno dalle 9:00 alle 21:00.","Z basenu można korzystać codziennie w godzinach od 9:00 do 21:00.","Басейном можна користуватися щодня з 9:00 до 21:00.") },
   { id: "checkout", label: tr("Kijelentkezés","Check-out","Check-out","Check-out","Wymeldowanie","Виїзд"), answer: tr("A kijelentkezés legkésőbb 10:00 óráig lehetséges. Megkérjük vendégeinket, hogy a kulcsot hagyják a szobaajtóban.","Check-out is possible until 10:00 at the latest. Please leave the key in the room door.","Der Check-out ist spätestens bis 10:00 Uhr möglich. Wir bitten unsere Gäste, den Schlüssel in der Zimmertür zu lassen.","Il check-out è possibile al più tardi entro le 10:00. Chiediamo gentilmente agli ospiti di lasciare la chiave nella porta della camera.","Wymeldowanie jest możliwe najpóźniej do godziny 10:00. Prosimy gości o pozostawienie klucza w drzwiach pokoju.","Виїзд можливий не пізніше 10:00. Просимо гостей залишити ключ у дверях номера.") },
   { id: "checkin", label: tr("Bejelentkezés","Check-in","Check-in","Check-in","Zameldowanie","Заселення"), answer: tr("A bejelentkezés 14:00 órától lehetséges.","Check-in is possible from 14:00.","Der Check-in ist ab 14:00 Uhr möglich.","Il check-in è possibile dalle 14:00.","Zameldowanie jest możliwe od godziny 14:00.","Заселення можливе з 14:00.") },
   { id: "gate", label: tr("Kapu","Gate","Tor","Cancello","Brama","Ворота"), answer: tr("A kapu éjszaka nyitva van. Bármikor kulcs nélkül be lehet jutni.","The gate is open at night. You can enter at any time without a key.","Das Tor ist nachts offen. Sie können jederzeit ohne Schlüssel eintreten.","Il cancello è aperto di notte. Si può entrare in qualsiasi momento senza chiave.","Brama jest otwarta w nocy. Można wejść w każdej chwili bez klucza.","Ворота вночі відкриті. Ви можете зайти будь-коли без ключа.") },
-  { id: "rules", label: tr("Házirend","House rules","Hausordnung","Regole della casa","Zasady domu","Правила"), answer: tr("Házirend: Megkérjük vendégeinket, hogy este 21 óra után mellőzzék a hangos tevékenységet, különösen a zenehallgatást. A medence teraszt 21:30 után szigorúan tilos használni, illetve ott összejövetelt tartani. A medence 9:00 és 21:00 között használható. Üveg poharat a kertben használni tilos. A kültéri eszközöket használat után kérjük tisztán tartani. A hulladékot és az ételmaradékot a tárolókonténerbe kérjük kiüríteni.","House rules: We ask our guests to refrain from loud activities after 9:00 PM, especially listening to music. It is strictly forbidden to use the pool terrace after 9:30 PM or to hold gatherings there. The pool can be used between 9:00 AM and 9:00 PM. Glass cups are not allowed in the garden. Please keep outdoor equipment clean after use. Please dispose of waste and food leftovers in the storage container.","Hausordnung: Wir bitten unsere Gäste, nach 21:00 Uhr auf laute Aktivitäten zu verzichten, insbesondere auf Musik. Die Nutzung der Poolterrasse nach 21:30 Uhr sowie Versammlungen dort sind strengstens verboten. Der Pool kann zwischen 9:00 und 21:00 Uhr genutzt werden. Gläser sind im Garten nicht erlaubt. Bitte halten Sie die Außengeräte nach Gebrauch sauber. Bitte entsorgen Sie Abfall und Speisereste im Container.","Regole della casa: Chiediamo gentilmente ai nostri ospiti di evitare attività rumorose dopo le 21:00, in particolare la musica. È severamente vietato utilizzare la terrazza della piscina dopo le 21:30 o organizzare raduni al suo interno. La piscina può essere utilizzata dalle 9:00 alle 21:00. È vietato usare bicchieri di vetro in giardino. Si prega di mantenere pulite le attrezzature esterne dopo l’uso. Si prega di gettare rifiuti e avanzi nel contenitore.","Zasady domu: Prosimy naszych gości o powstrzymanie się od głośnych zachowań po godzinie 21:00, szczególnie od słuchania muzyki. Korzystanie z tarasu basenowego po godzinie 21:30 oraz organizowanie tam zgromadzeń jest surowo zabronione. Z basenu można korzystać w godzinach 9:00-21:00. Szklane kubki są zabronione w ogrodzie. Prosimy o utrzymanie sprzętu zewnętrznego w czystości po użyciu. Odpady i resztki jedzenia prosimy wyrzucać do pojemnika.","Правила проживання: Просимо наших гостей утримуватися від гучних заходів після 21:00, особливо від музики. Суворо заборонено користуватися терасою біля басейну після 21:30 або проводити там зібрання. Басейном можна користуватися з 9:00 до 21:00. Скляний посуд у саду заборонений. Будь ласка, тримайте в чистоті вуличне обладнання після використання. Сміття та залишки їжі викидайте в контейнер.") },
+  { id: "rules", label: tr("Házirend","House rules","Hausordnung","Regole della casa","Zasady domu","Правила"), answer: tr("Házirend: este 21 óra után mellőzzék a hangos tevékenységet. A medence teraszt 21:30 után szigorúan tilos használni. A medence 9:00 és 21:00 között használható. Üveg poharat a kertben használni tilos.","House rules: please avoid loud activities after 9 PM. The pool terrace must not be used after 9:30 PM. The pool can be used between 9 AM and 9 PM. Glass cups are not allowed in the garden.","Hausordnung: Bitte vermeiden Sie laute Aktivitäten nach 21:00 Uhr. Die Poolterrasse darf nach 21:30 Uhr nicht benutzt werden. Der Pool kann zwischen 9:00 und 21:00 Uhr genutzt werden. Gläser sind im Garten nicht erlaubt.","Regole della casa: evitare attività rumorose dopo le 21:00. La terrazza della piscina non può essere utilizzata dopo le 21:30. La piscina è utilizzabile dalle 9:00 alle 21:00. I bicchieri di vetro non sono ammessi in giardino.","Zasady domu: prosimy unikać hałasu po 21:00. Tarasu przy basenie nie wolno używać po 21:30. Z basenu można korzystać od 9:00 do 21:00. Szklane kubki w ogrodzie są zabronione.","Правила проживання: після 21:00 просимо уникати гучних занять. Терасою біля басейну не можна користуватися після 21:30. Басейн працює з 9:00 до 21:00. Скляний посуд у саду заборонений.") },
   { id: "pet", label: tr("Kisállat","Pet","Haustier","Animale domestico","Zwierzę domowe","Домашня тварина"), answer: tr("Kisállat felár ellenében, előzetes bejelentéssel behozható. Ár: 10 euro per éj. Nem bejelentett kisállat után extraköltséget számítunk fel.","Pets can be brought with prior notice for an extra fee. Price: 10 euro per night. Extra charges apply for undeclared pets.","Haustiere können nach vorheriger Anmeldung gegen Aufpreis mitgebracht werden. Preis: 10 Euro pro Nacht. Für nicht angemeldete Haustiere wird ein Aufpreis berechnet.","Gli animali domestici possono essere portati con preavviso e con supplemento. Prezzo: 10 euro a notte. Per animali non dichiarati verrà addebitato un costo extra.","Zwierzęta domowe można przywieźć po wcześniejszym zgłoszeniu za dodatkową opłatą. Cena: 10 euro za noc. Za niezgłoszone zwierzęta naliczana jest dodatkowa opłata.","Домашніх тварин можна привозити після попереднього повідомлення за додаткову плату. Ціна: 10 євро за ніч. За незаявлених тварин стягується додаткова плата.") },
 ];
 
 const extraVoiceItems: MenuItem[] = [
   { id: "greeting", label: tr("Köszönés","Greeting","Begrüßung","Saluto","Powitanie","Вітання"), answer: tr("Szia! Kata vagyok, a Silver Garden virtuális recepciósa. Miben segíthetek?","Hello! I'm Kata, the Silver Garden virtual receptionist. How can I help?","Hallo! Ich bin Kata, die virtuelle Rezeptionistin von Silver Garden. Wie kann ich helfen?","Ciao! Sono Kata, la receptionist virtuale di Silver Garden. Come posso aiutarti?","Cześć! Jestem Kata, wirtualna recepcjonistka Silver Garden. W czym mogę pomóc?","Привіт! Я Ката, віртуальна адміністраторка Silver Garden. Чим можу допомогти?") },
   { id: "nearby", label: tr("Környék","Nearby","Umgebung","Dintorni","Okolica","Поруч"), answer: tr("A környéken ajánljuk a Valhalla Bistrót, a Kiskert Éttermet és a Silver Éttermet. Bevásárlás: a PAR üzlet körülbelül 100 méterre található, a Lidl pedig körülbelül 8 perc sétára van. A gyógyszertár a Lidl mellett található. A strandot a parkoló bal oldalánál induló levezető úton körülbelül 2 perc alatt éri el.","Nearby we recommend Valhalla Bistro, Kiskert Restaurant and Silver Restaurant. For shopping, PAR store is about 100 meters away and Lidl is about 8 minutes away on foot. The pharmacy is next to Lidl. The beach can be reached in about 2 minutes via the path on the left side of the parking area.","In der Nähe empfehlen wir das Valhalla Bistro, das Kiskert Restaurant und das Silver Restaurant. Einkaufsmöglichkeiten: Das PAR-Geschäft ist etwa 100 Meter entfernt und Lidl etwa 8 Minuten zu Fuß. Die Apotheke befindet sich neben Lidl. Den Strand erreichen Sie in etwa 2 Minuten über den Weg links vom Parkplatz.","Nei dintorni consigliamo Valhalla Bistro, Kiskert Restaurant e Silver Restaurant. Per fare la spesa, il negozio PAR è a circa 100 metri e Lidl a circa 8 minuti a piedi. La farmacia si trova accanto al Lidl. La spiaggia è raggiungibile in circa 2 minuti tramite il sentiero a sinistra del parcheggio.","W pobliżu polecamy Valhalla Bistro, restaurację Kiskert oraz Silver Restaurant. Sklep PAR znajduje się około 100 metrów stąd, a Lidl około 8 minut spacerem. Apteka znajduje się obok Lidla. Na plażę dojdziesz w około 2 minuty ścieżką po lewej stronie parkingu.","Поруч рекомендуємо Valhalla Bistro, ресторан Kiskert і Silver Restaurant. Магазин PAR знаходиться приблизно за 100 метрів, а Lidl — за 8 хвилин пішки. Аптека розташована поруч із Lidl. До пляжу можна дійти приблизно за 2 хвилини доріжкою ліворуч від парковки.") },
-  { id: "programs", label: tr("Programlehetőségek","Programs","Programme","Attività","Atrakcje","Розваги"), answer: tr("Programokhoz javaslom a Balaton-parti sétát, strandot, hajózást, kilátókat és a siófoki esti programokat. Mondja meg, hogy családdal vagy párban van, és nappali vagy esti programot keres.","For things to do, I suggest a lakeside walk, beach, boat trips, viewpoints, and evening programs in Siófok. Tell me if you're here with family or as a couple, and whether you want daytime or evening ideas.","Für Aktivitäten empfehle ich einen Spaziergang am Balaton, Strand, Schifffahrt, Aussichtspunkte und Abendprogramme in Siófok. Sagen Sie mir bitte, ob Sie mit Familie oder als Paar da sind und ob Sie tagsüber oder abends etwas suchen.","Per le attività consiglio una passeggiata sul lago, la spiaggia, gite in barca, punti panoramici e programmi serali a Siófok. Mi dica se è in famiglia o in coppia e se cerca idee per il giorno o per la sera.","Jeśli chodzi o atrakcje, polecam spacer nad Balatonem, plażę, rejsy statkiem, punkty widokowe i wieczorne wyjścia w Siófok. Powiedz, czy jesteś z rodziną czy w parze i czy szukasz czegoś na dzień czy na wieczór.","Щодо розваг, раджу прогулянку набережною Балатону, пляж, прогулянки на кораблику, оглядові точки та вечірні програми в Шіофоку. Скажіть, ви з родиною чи парою, і шукаєте ідеї на день чи на вечір.") },
-  { id: "balaton", label: tr("Balaton","Lake Balaton","Balaton","Balaton","Balaton","Балатон"), answer: tr("A Balaton Magyarország legnagyobb tava. Siófokon népszerű a szabadstrand és a kikötő. Ha megmondja, melyik napszakban menne, ajánlok nyugodtabb vagy nyüzsgőbb partszakaszt.","Lake Balaton is Hungary's largest lake. In Siófok, the free beach and the harbour are popular. Tell me what time of day you plan to go, and I can suggest a calmer or busier area.","Der Balaton ist der größte See Ungarns. In Siófok sind der freie Strand und der Hafen besonders beliebt. Wenn Sie mir sagen, zu welcher Tageszeit Sie gehen möchten, empfehle ich einen ruhigeren oder belebteren Abschnitt.","Il Balaton è il lago più grande dell’Ungheria. A Siófok sono molto popolari la spiaggia libera e il porto. Se mi dice a che ora vorrebbe andarci, posso consigliare una zona più tranquilla o più vivace.","Balaton to największe jezioro na Węgrzech. W Siófok popularne są plaża bezpłatna i port. Jeśli powiesz, o jakiej porze chcesz tam iść, polecę spokojniejsze albo bardziej żywe miejsce.","Балатон — найбільше озеро Угорщини. У Шіофоку популярні безкоштовний пляж і порт. Якщо скажете, у який час дня хочете піти, я пораджу тихіше або більш жваве місце.") },
+  { id: "programs", label: tr("Programlehetőségek","Programs","Programme","Attività","Atrakcje","Розваги"), answer: tr("Programokhoz javaslom a Balaton-parti sétát, strandot, hajózást, kilátókat és a siófoki esti programokat.","For things to do, I suggest a lakeside walk, beach, boat trips, viewpoints, and evening programs in Siófok.","Für Aktivitäten empfehle ich einen Spaziergang am Balaton, Strand, Schifffahrt, Aussichtspunkte und Abendprogramme in Siófok.","Per le attività consiglio una passeggiata sul lago, la spiaggia, gite in barca, punti panoramici e programmi serali a Siófok.","Jeśli chodzi o atrakcje, polecam spacer nad Balatonem, plażę, rejsy statkiem, punkty widokowe i wieczorne wyjścia w Siófok.","Щодо розваг, раджу прогулянку набережною Балатону, пляж, прогулянки на кораблику, оглядові точки та вечірні програми в Шіофоку.") },
+  { id: "balaton", label: tr("Balaton","Lake Balaton","Balaton","Balaton","Balaton","Балатон"), answer: tr("A Balaton Magyarország legnagyobb tava. Siófokon népszerű a szabadstrand és a kikötő.","Lake Balaton is Hungary's largest lake. In Siófok, the free beach and the harbour are popular.","Der Balaton ist der größte See Ungarns. In Siófok sind der freie Strand und der Hafen besonders beliebt.","Il Balaton è il lago più grande dell’Ungheria. A Siófok sono molto popolari la spiaggia libera e il porto.","Balaton to największe jezioro na Węgrzech. W Siófok popularne są plaża bezpłatna i port.","Балатон — найбільше озеро Угорщини. У Шіофоку популярні безкоштовний пляж і порт.") },
 ];
 
 const flattenRouteItems = (routes: Record<string | number, RouteInfo>, prefix: string) =>
@@ -291,22 +261,98 @@ const flattenRouteItems = (routes: Record<string | number, RouteInfo>, prefix: s
     answer: value.answer,
   }));
 
-const phraseMatches = (q: string, phrases: string[]) => phrases.some((p) => q.includes(normalizeForMatch(p)));
+const phraseMatches = (q: string, phrases: string[]) =>
+  phrases.some((p) => q.includes(normalizeForMatch(p)));
 
-async function askServerAI(question: string, language: LangCode): Promise<string | null> {
-  try {
-    const response = await fetch("/api/ai", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question, language }),
-    });
-    if (!response.ok) return null;
-    const data = await response.json();
-    const answer = typeof data?.answer === "string" ? data.answer.trim() : "";
-    return answer || null;
-  } catch {
-    return null;
+function getSimpleAnswer(userMessage: string, selectedLanguage: LangCode): string | null {
+  const question = normalizeForMatch(userMessage);
+  const data = knowledge as any;
+
+  // CÍM
+  if (
+    question.includes("cim") ||
+    question.includes("mi a hotel cime") ||
+    question.includes("hotel cime") ||
+    question.includes("mi a cime") ||
+    question.includes("hol van a hotel") ||
+    question.includes("address")
+  ) {
+    const address = data?.cim ?? "8600 Siófok, Deák Ferenc sétány 57.";
+    return selectedLanguage === "en-US" ? `Address: ${address}.` : `Cím: ${address}.`;
   }
+
+  // EMAIL
+  if (question.includes("email") || question.includes("e-mail")) {
+    const email = data?.email ?? CONTACT_EMAIL;
+    return `Email: ${email}.`;
+  }
+
+  // TELEFON
+  if (question.includes("telefon") || question.includes("phone")) {
+    const phone = data?.telefon ?? CONTACT_PHONE_DISPLAY;
+    return selectedLanguage === "en-US" ? `Phone number: ${phone}.` : `Telefonszám: ${phone}.`;
+  }
+
+  // WIFI
+  if (question.includes("wifi") || question.includes("wi fi")) {
+    const wifiName = data?.wifi?.wifi_nev ?? "SilverGarden";
+    const wifiPass = data?.wifi?.wifi_jelszo ?? "balatonlive";
+    return selectedLanguage === "en-US"
+      ? `The Wi-Fi name is ${wifiName}, and the password is ${wifiPass}.`
+      : `Wifi neve: ${wifiName}, jelszó: ${wifiPass}.`;
+  }
+
+  // PARKOLÁS
+  if (question.includes("parkol")) {
+    const parking = data?.parkolas?.parkolas ?? "Ingyenes parkolás az utcán.";
+    const places = data?.parkolas?.parkolo_helyek ?? "";
+    return selectedLanguage === "en-US"
+      ? `Parking: ${parking}${places ? ` Spaces: ${places}.` : ""}`
+      : `Parkolás: ${parking}${places ? ` Helyek: ${places}.` : ""}`;
+  }
+
+  // REGGELI
+  if (question.includes("reggeli")) {
+    const breakfast = data?.etkezes?.reggeli ?? "Elérhető";
+    const breakfastTime = data?.etkezes?.reggeli_ido ?? "8:00-10:00";
+    const breakfastType = data?.etkezes?.reggeli_tipus ?? "svédasztalos / választék";
+    const breakfastPrice = data?.foglalas_fizetes?.reggeli_ar ?? "8 euro";
+    return selectedLanguage === "en-US"
+      ? `Breakfast: ${breakfast}, time: ${breakfastTime}, type: ${breakfastType}, price: ${breakfastPrice}.`
+      : `Reggeli: ${breakfast}, idő: ${breakfastTime}, típus: ${breakfastType}, ár: ${breakfastPrice}.`;
+  }
+
+  // HŰTŐ
+  if (question.includes("huto") || question.includes("hűtő") || question.includes("fridge")) {
+    return selectedLanguage === "en-US"
+      ? "There is no fridge in the rooms, only a shared fridge is available."
+      : "A szobákban nincs hűtő, csak közös hűtő áll rendelkezésre.";
+  }
+
+  // IFA
+  if (question.includes("ifa") || question.includes("idegenforgalmi ado")) {
+    const ifa = data?.foglalas_fizetes?.ifa;
+    if (ifa) {
+      return selectedLanguage === "en-US" ? `Tourism tax: ${ifa}.` : `IFA: ${ifa}.`;
+    }
+  }
+
+  // FAQ - EZ MARADJON A VÉGÉN
+  if (data.faq) {
+    for (const item of data.faq as FAQItem[]) {
+      for (const q of item.kerdesek ?? []) {
+        const normalizedQ = normalizeForMatch(q);
+
+        if (question.includes(normalizedQ)) {
+          if (item.valaszok?.[selectedLanguage]) return item.valaszok[selectedLanguage] ?? null;
+          if (item.valaszok?.["hu-HU"]) return item.valaszok["hu-HU"] ?? null;
+          if (typeof item.valasz === "string") return item.valasz;
+        }
+      }
+    }
+  }
+
+  return null;
 }
 
 export default function Home() {
@@ -328,49 +374,55 @@ export default function Home() {
   const handledResultRef = useRef(false);
   const recognitionSessionRef = useRef(0);
 
-  const ui = useMemo(() => ({
-    welcome: tr("Kérdezzen bátran!","Please feel free to ask!","Fragen Sie gern!","Chieda pure!","Proszę pytać śmiało!","Будь ласка, запитуйте!"),
-    subtitle: tr("Kata – virtuális recepciós","Kata – virtual receptionist","Kata – virtuelle Rezeptionistin","Kata – receptionist virtuale","Kata – wirtualna recepcjonistka","Ката – віртуальна адміністраторка"),
-    chooseLang: tr("Válasszon nyelvet vagy kérdezzen bátran","Choose a language or ask freely","Wählen Sie eine Sprache oder fragen Sie einfach","Scelga una lingua oppure chieda pure","Wybierz język lub zadaj pytanie","Оберіть мову або просто запитайте"),
-    rooms: tr("Silver Garden Szobák","Silver Garden Rooms","Silver Garden Zimmer","Silver Garden Camere","Silver Garden Pokoje","Silver Garden Кімнати"),
-    apartments: tr("Silver Garden Apartmanok","Silver Garden Apartments","Silver Garden Apartments","Silver Garden Appartamenti","Silver Garden apartamenty","Silver Garden Апартаменти"),
-    relax: tr("Silver Relax Szobák","Silver Relax Rooms","Silver Relax Zimmer","Silver Relax Stanze","Silver Relax Pokoje","Silver Relax Kімнати"),
-    heard: tr("Felismert beszéd:","Recognized speech:","Erkannte Sprache:","Testo riconosciuto:","Rozpoznana mowa:","Розпізнане мовлення:"),
-    reply: tr("Kata válasza:","Kata's answer:","Katas Antwort:","Risposta di Kata:","Odpowiedź Katy:","Відповідь Кати:"),
-    askReception: tr("💬 WhatsApp recepció","💬 WhatsApp reception","💬 WhatsApp Rezeption","💬 Reception WhatsApp","💬 Recepcja WhatsApp","💬 WhatsApp рецепція"),
-    contactButton: tr("Kapcsolat","Contact","Kontakt","Contatto","Kontakt","Контакт"),
-    emergencyPhone: tr("🚨 Sürgősségi telefon","🚨 Emergency phone","🚨 Notruftelefon","🚨 Telefono di emergenza","🚨 Telefon alarmowy","🚨 Екстрений телефон"),
-    listen: tr("🎤 Beszélek Katával","🎤 Talk to Kata","🎤 Talk to Kata","🎤 Parla con Kata","🎤 Rozmawiam z Katą","🎤 Говорю з Катою"),
-    listening: tr("🎤 Hallgatom...","🎤 Listening...","🎤 Ich höre zu...","🎤 Ascolto...","🎤 Słucham...","🎤 Слухаю..."),
-    speakNow: tr("Beszéljen most.","Speak now.","Sprechen Sie jetzt.","Parli adesso.","Proszę mówić teraz.","Говоріть зараз."),
-    tapToStop: tr("Nyomja meg újra a leállításhoz","Press again to stop","Zum Stoppen erneut drücken","Premi di nuovo per fermare","Naciśnij ponownie, aby zatrzymać","Натисніть ще раз, щоб зупинити"),
-    recognitionUnsupported: tr("A beszédfelismerés ebben a böngészőben nem támogatott. Nyissa meg Chrome-ban vagy írja be a kérdését.","Speech recognition is not supported in this browser. Please open it in Chrome or type your question.","Die Spracherkennung wird in diesem Browser nicht unterstützt. Bitte öffnen Sie Chrome oder tippen Sie Ihre Frage ein.","Il riconoscimento vocale non è supportato in questo browser. Aprilo in Chrome oppure scriva la domanda.","Rozpoznawanie mowy nie jest obsługiwane w tej przeglądarce. Otwórz w Chrome lub wpisz pytanie.","Розпізнавання мовлення не підтримується в цьому браузері. Відкрийте в Chrome або введіть питання."),
-    micDenied: tr("A mikrofon nincs engedélyezve a böngészőben.","The microphone is not enabled in the browser.","Das Mikrofon ist im Browser nicht aktiviert.","Il microfono non è abilitato nel browser.","Mikrofon nie jest włączony w przeglądarce.","Мікрофон не дозволено в браузері."),
-    micUnavailable: tr("A mikrofon nem érhető el ezen az eszközön vagy böngészőben.","The microphone is not available on this device or browser.","Das Mikrofon ist auf diesem Gerät oder in diesem Browser nicht verfügbar.","Il microfono non è disponibile su questo dispositivo o browser.","Mikrofon nie jest dostępny na tym urządzeniu lub w tej przeglądarce.","Мікрофон недоступний на цьому пристрої або в браузері."),
-    speechUnsupported: tr("A hangos felolvasás nem támogatott ebben a böngészőben.","Speech synthesis is not supported in this browser.","Die Sprachausgabe wird in diesem Browser nicht unterstützt.","La sintesi vocale non è supportata in questo browser.","Synteza mowy nie jest obsługiwana w tej przeglądarce.","Синтез мовлення не підтримується в цьому браузері."),
-    recognitionFailed: tr("Beszédfelismerési hiba történt.","A speech recognition error occurred.","Bei der Spracherkennung ist ein Fehler aufgetreten.","Si è verificato un errore nel riconoscimento vocale.","Wystąpił błąd rozpoznawania mowy.","Сталася помилка розпізнавання мовлення."),
-    noSpeech: tr("Nem hallottam tisztán. Kérem, próbálja újra vagy írja be a kérdését.","I could not hear clearly. Please try again or type your question.","Ich konnte es nicht klar hören. Bitte versuchen Sie es erneut oder schreiben Sie Ihre Frage.","Non ho sentito chiaramente. Riprovi oppure scriva la domanda.","Nie usłyszałam wyraźnie. Proszę spróbować ponownie lub wpisać pytanie.","Я не почула чітко. Будь ласка, спробуйте ще раз або введіть питання."),
-    fallback: tr("Ebben egy recepciós kolléga fog segíteni. Megnyitom a WhatsApp kapcsolatot.","A receptionist colleague will help with this. I am opening the WhatsApp contact.","Dabei hilft ein Rezeptionskollege. Ich öffne den WhatsApp-Kontakt.","La aiuterà un collega della reception. Apro il contatto WhatsApp.","W tej sprawie pomoże pracownik recepcji. Otwieram kontakt WhatsApp.","У цьому допоможе працівник рецепції. Я відкриваю контакт WhatsApp."),
-    pressToTalk: tr("Nyomja meg a beszélgetéshez","Press to start talking","Zum Sprechen drücken","Premi per parlare","Naciśnij, aby rozmawiać","Натисніть, щоб говорити"),
-    weatherUnavailable: tr("Most nem tudok időjárást lekérdezni. Kérem, próbálja később.","I can't fetch the weather right now. Please try again later.","Ich kann das Wetter im Moment nicht abrufen. Bitte versuchen Sie es später erneut.","Al momento non riesco a recuperare il meteo. Riprovi più tardi.","Nie mogę teraz pobrać pogody. Proszę spróbować później.","Зараз я не можу отримати погоду. Спробуйте пізніше."),
-    timeNow: tr("A pontos idő:","The current time is:","Die aktuelle Uhrzeit ist:","L'ora esatta è:","Aktualna godzina to:","Точний час:"),
-    typePlaceholder: tr("Ide írja a kérdését…","Type your question here…","Schreiben Sie hier Ihre Frage…","Scriva qui la sua domanda…","Wpisz tutaj swoje pytanie…","Введіть тут своє питання…"),
-    send: tr("Küldés","Send","Senden","Invia","Wyślij","Надіслати"),
-    typedHelp: tr("Ha a mikrofon nem működik, írja be a kérdését.","If the microphone does not work, type your question.","Wenn das Mikrofon nicht funktioniert, schreiben Sie Ihre Frage.","Se il microfono non funziona, scriva la domanda.","Jeśli mikrofon nie działa, wpisz pytanie.","Якщо мікрофон не працює, введіть своє питання."),
-    receptionCardTitle: tr("Recepciós segítség","Reception help","Hilfe von der Rezeption","Aiuto reception","Pomoc recepcji","Допомога рецепції"),
-    receptionCardText: tr("A rendszer nem talált biztos választ. A WhatsApp gombbal közvetlenül írhat a recepciós kollégának ezen a számon: +36 70 408 9437.","The system did not find a reliable answer. Use the WhatsApp button to message the receptionist directly at +36 70 408 9437.","Das System hat keine sichere Antwort gefunden. Mit der WhatsApp-Taste können Sie direkt dem Rezeptionskollegen unter +36 70 408 9437 schreiben.","Il sistema non ha trovato una risposta sicura. Con il pulsante WhatsApp può scrivere direttamente al collega della reception al numero +36 70 408 9437.","System nie znalazł pewnej odpowiedzi. Przyciskiem WhatsApp możesz napisać bezpośrednio do recepcji pod numer +36 70 408 9437.","Система не знайшла надійної відповіді. Кнопкою WhatsApp можна написати працівнику рецепції напряму на номер +36 70 408 9437."),
-    contactTitle: tr("Kapcsolat","Contact","Kontakt","Contatto","Kontakt","Контакт"),
-    contactSubtext: tr("Silver Garden","Silver Garden","Silver Garden","Silver Garden","Silver Garden","Silver Garden"),
-  }), []);
+  const ui = useMemo(
+    () => ({
+      welcome: tr("Kérdezzen bátran!","Please feel free to ask!","Fragen Sie gern!","Chieda pure!","Proszę pytać śmiało!","Будь ласка, запитуйте!"),
+      subtitle: tr("Kata – virtuális recepciós","Kata – virtual receptionist","Kata – virtuelle Rezeptionistin","Kata – receptionist virtuale","Kata – wirtualna recepcjonistka","Ката – віртуальна адміністраторка"),
+      chooseLang: tr("Válasszon nyelvet vagy kérdezzen bátran","Choose a language or ask freely","Wählen Sie eine Sprache oder fragen Sie einfach","Scelga una lingua oppure chieda pure","Wybierz język lub zadaj pytanie","Оберіть мову або просто запитайте"),
+      rooms: tr("Silver Garden Szobák","Silver Garden Rooms","Silver Garden Zimmer","Silver Garden Camere","Silver Garden Pokoje","Silver Garden Кімнати"),
+      apartments: tr("Silver Garden Apartmanok","Silver Garden Apartments","Silver Garden Apartments","Silver Garden Appartamenti","Silver Garden apartamenty","Silver Garden Апартаменти"),
+      relax: tr("Silver Relax Szobák","Silver Relax Rooms","Silver Relax Zimmer","Silver Relax Stanze","Silver Relax Pokoje","Silver Relax Kімнати"),
+      heard: tr("Felismert beszéd:","Recognized speech:","Erkannte Sprache:","Testo riconosciuto:","Rozpoznana mowa:","Розпізнане мовлення:"),
+      reply: tr("Kata válasza:","Kata's answer:","Katas Antwort:","Risposta di Kata:","Odpowiedź Katy:","Відповідь Кати:"),
+      askReception: tr("💬 WhatsApp recepció","💬 WhatsApp reception","💬 WhatsApp Rezeption","💬 Reception WhatsApp","💬 Recepcja WhatsApp","💬 WhatsApp рецепція"),
+      contactButton: tr("Kapcsolat","Contact","Kontakt","Contatto","Kontakt","Контакт"),
+      emergencyPhone: tr("🚨 Sürgősségi telefon","🚨 Emergency phone","🚨 Notruftelefon","🚨 Telefono di emergenza","🚨 Telefon alarmowy","🚨 Екстрений телефон"),
+      listen: tr("🎤 Beszélek Katával","🎤 Talk to Kata","🎤 Talk to Kata","🎤 Parla con Kata","🎤 Rozmawiam z Katą","🎤 Говорю з Катою"),
+      listening: tr("🎤 Hallgatom...","🎤 Listening...","🎤 Ich höre zu...","🎤 Ascolto...","🎤 Słucham...","🎤 Слухаю..."),
+      speakNow: tr("Beszéljen most.","Speak now.","Sprechen Sie jetzt.","Parli adesso.","Proszę mówić teraz.","Говоріть зараз."),
+      tapToStop: tr("Nyomja meg újra a leállításhoz","Press again to stop","Zum Stoppen erneut drücken","Premi di nuovo per fermare","Naciśnij ponownie, aby zatrzymać","Натисніть ще раз, щоб зупинити"),
+      recognitionUnsupported: tr("A beszédfelismerés ebben a böngészőben nem támogatott. Nyissa meg Chrome-ban vagy írja be a kérdését.","Speech recognition is not supported in this browser. Please open it in Chrome or type your question.","Die Spracherkennung wird in diesem Browser nicht unterstützt. Bitte öffnen Sie Chrome oder tippen Sie Ihre Frage ein.","Il riconoscimento vocale non è supportato in questo browser. Aprilo in Chrome oppure scriva la domanda.","Rozpoznawanie mowy nie jest obsługiwane w tej przeglądarce. Otwórz w Chrome lub wpisz pytanie.","Розпізнавання мовлення не підтримується в цьому браузері. Відкрийте в Chrome або введіть питання."),
+      micDenied: tr("A mikrofon nincs engedélyezve a böngészőben.","The microphone is not enabled in the browser.","Das Mikrofon ist im Browser nicht aktiviert.","Il microfono non è abilitato nel browser.","Mikrofon nie jest włączony w przeglądarce.","Мікрофон не дозволено в браузері."),
+      micUnavailable: tr("A mikrofon nem érhető el ezen az eszközön vagy böngészőben.","The microphone is not available on this device or browser.","Das Mikrofon ist auf diesem Gerät oder in diesem Browser nicht verfügbar.","Il microfono non è disponibile su questo dispositivo o browser.","Mikrofon nie jest dostępny na tym urządzeniu lub w tej przeglądarce.","Мікрофон недоступний на цьому пристрої або в браузері."),
+      speechUnsupported: tr("A hangos felolvasás nem támogatott ebben a böngészőben.","Speech synthesis is not supported in this browser.","Die Sprachausgabe wird in diesem Browser nicht unterstützt.","La sintesi vocale non è supportata in questo browser.","Synteza mowy nie jest obsługiwana w tej przeglądarce.","Синтез мовлення не підтримується в цьому браузері."),
+      recognitionFailed: tr("Beszédfelismerési hiba történt.","A speech recognition error occurred.","Bei der Spracherkennung ist ein Fehler aufgetreten.","Si è verificato un errore nel riconoscimento vocale.","Wystąpił błąd rozpoznawania mowy.","Сталася помилка розпізнавання мовлення."),
+      noSpeech: tr("Nem hallottam tisztán. Kérem, próbálja újra vagy írja be a kérdését.","I could not hear clearly. Please try again or type your question.","Ich konnte es nicht klar hören. Bitte versuchen Sie es erneut oder schreiben Sie Ihre Frage.","Non ho sentito chiaramente. Riprovi oppure scriva la domanda.","Nie usłyszałam wyraźnie. Proszę spróbować ponownie lub wpisać pytanie.","Я не почула чітко. Будь ласка, спробуйте ще раз або введіть питання."),
+      fallback: tr("Erre most nincs információm a tudásbázisban.","I do not have this information in my knowledge base right now.","Dazu habe ich momentan keine Information in meiner Wissensdatenbank.","Al momento non ho questa informazione nella mia base di conoscenza.","Nie mam teraz tej informacji w bazie wiedzy.","Зараз я не маю цієї інформації у своїй базі знань."),
+      pressToTalk: tr("Nyomja meg a beszélgetéshez","Press to start talking","Zum Sprechen drücken","Premi per parlare","Naciśnij, aby rozmawiać","Натисніть, щоб говорити"),
+      weatherUnavailable: tr("Most nem tudok időjárást lekérdezni. Kérem, próbálja később.","I can't fetch the weather right now. Please try again later.","Ich kann das Wetter im Moment nicht abrufen. Bitte versuchen Sie es später erneut.","Al momento non riesco a recuperare il meteo. Riprovi più tardi.","Nie mogę teraz pobrać pogody. Proszę spróbować później.","Зараз я не можу отримати погоду. Спробуйте пізніше."),
+      timeNow: tr("A pontos idő:","The current time is:","Die aktuelle Uhrzeit ist:","L'ora esatta è:","Aktualna godzina to:","Точний час:"),
+      typePlaceholder: tr("Ide írja a kérdését…","Type your question here…","Schreiben Sie hier Ihre Frage…","Scriva qui la sua domanda…","Wpisz tutaj swoje pytanie…","Введіть тут своє питання…"),
+      send: tr("Küldés","Send","Senden","Invia","Wyślij","Надіслати"),
+      typedHelp: tr("Ha a mikrofon nem működik, írja be a kérdését.","If the microphone does not work, type your question.","Wenn das Mikrofon nicht funktioniert, schreiben Sie Ihre Frage.","Se il microfono non funziona, scriva la domanda.","Jeśli mikrofon nie działa, wpisz pytanie.","Якщо мікрофон не працює, введіть своє питання."),
+      receptionCardTitle: tr("Recepciós segítség","Reception help","Hilfe von der Rezeption","Aiuto reception","Pomoc recepcji","Допомога рецепції"),
+      receptionCardText: tr("A rendszer nem talált biztos választ. A WhatsApp gombbal közvetlenül írhat a recepciós kollégának ezen a számon: +36 70 408 9437.","The system did not find a reliable answer. Use the WhatsApp button to message the receptionist directly at +36 70 408 9437.","Das System hat keine sichere Antwort gefunden. Mit der WhatsApp-Taste können Sie direkt dem Rezeptionskollegen unter +36 70 408 9437 schreiben.","Il sistema non ha trovato una risposta sicura. Con il pulsante WhatsApp può scrivere direttamente al collega della reception al numero +36 70 408 9437.","System nie znalazł pewnej odpowiedzi. Przyciskiem WhatsApp możesz napisać bezpośrednio do recepcji pod numer +36 70 408 9437.","Система не знайшла надійної відповіді. Кнопкою WhatsApp можна написати працівнику рецепції напряму на номер +36 70 408 9437."),
+      contactTitle: tr("Kapcsolat","Contact","Kontakt","Contatto","Kontakt","Контакт"),
+      contactSubtext: tr("Silver Garden","Silver Garden","Silver Garden","Silver Garden","Silver Garden","Silver Garden"),
+    }),
+    []
+  );
 
-  const languageLabels = useMemo(() => [
-    { code: "hu-HU" as LangCode, label: "🇭🇺 Magyar" },
-    { code: "en-US" as LangCode, label: "🇬🇧 English" },
-    { code: "de-DE" as LangCode, label: "🇩🇪 Deutsch" },
-    { code: "it-IT" as LangCode, label: "🇮🇹 Italiano" },
-    { code: "pl-PL" as LangCode, label: "🇵🇱 Polski" },
-    { code: "uk-UA" as LangCode, label: "🇺🇦 Українська" },
-  ], []);
+  const languageLabels = useMemo(
+    () => [
+      { code: "hu-HU" as LangCode, label: "🇭🇺 Magyar" },
+      { code: "en-US" as LangCode, label: "🇬🇧 English" },
+      { code: "de-DE" as LangCode, label: "🇩🇪 Deutsch" },
+      { code: "it-IT" as LangCode, label: "🇮🇹 Italiano" },
+      { code: "pl-PL" as LangCode, label: "🇵🇱 Polski" },
+      { code: "uk-UA" as LangCode, label: "🇺🇦 Українська" },
+    ],
+    []
+  );
 
   const roomItems = useMemo(() => flattenRouteItems(roomRoutes, "room"), []);
   const apartmentItems = useMemo(() => flattenRouteItems(apartmentRoutes, "apartment"), []);
@@ -423,11 +475,30 @@ export default function Home() {
     if (!voices.length) return null;
     const lowerLang = lang.toLowerCase();
     const base = lowerLang.split("-")[0];
-    const exact = voices.find((v) => v.lang.toLowerCase() === lowerLang);
-    if (exact) return exact;
-    const baseMatch = voices.find((v) => v.lang.toLowerCase().startsWith(base));
-    if (baseMatch) return baseMatch;
-    return voices[0] || null;
+
+    const priority: Record<string, string[]> = {
+      hu: ["hu-HU", "hu"],
+      en: ["en-US", "en-GB", "en"],
+      de: ["de-DE", "de"],
+      it: ["it-IT", "it"],
+      pl: ["pl-PL", "pl"],
+      uk: ["uk-UA", "uk"],
+    };
+
+    const preferred = priority[base] || [lowerLang, base];
+
+    for (const code of preferred) {
+      const exact = voices.find((v) => v.lang.toLowerCase() === code.toLowerCase());
+      if (exact) return exact;
+    }
+
+    for (const code of preferred) {
+      const starts = voices.find((v) => v.lang.toLowerCase().startsWith(code.toLowerCase()));
+      if (starts) return starts;
+    }
+
+    const sameBase = voices.find((v) => v.lang.toLowerCase().startsWith(base));
+    return sameBase ?? null;
   };
 
   const openReceptionWhatsApp = (question?: string) => {
@@ -443,47 +514,31 @@ export default function Home() {
     }
   };
 
-  const hardResetRecognition = () => {
+  const forceStopRecognition = () => {
     clearRecognitionTimeout();
-    recognitionSessionRef.current += 1;
+
     try {
       if (recognitionRef.current) {
         recognitionRef.current.onstart = null;
         recognitionRef.current.onresult = null;
         recognitionRef.current.onerror = null;
         recognitionRef.current.onend = null;
-        recognitionRef.current.abort?.();
-        recognitionRef.current.stop();
       }
     } catch {}
+
+    try {
+      recognitionRef.current?.abort?.();
+    } catch {}
+
+    try {
+      recognitionRef.current?.stop();
+    } catch {}
+
     recognitionRef.current = null;
     isStartingRecognitionRef.current = false;
     isStoppingRecognitionRef.current = false;
+    handledResultRef.current = false;
     setIsListening(false);
-  };
-
-  const stopListeningInternal = () => {
-    clearRecognitionTimeout();
-    if (!recognitionRef.current) {
-      setIsListening(false);
-      return;
-    }
-    if (isStoppingRecognitionRef.current) return;
-    isStoppingRecognitionRef.current = true;
-    const currentSession = recognitionSessionRef.current;
-    try {
-      recognitionRef.current.stop();
-      window.setTimeout(() => {
-        if (recognitionSessionRef.current === currentSession && isListening) {
-          try { recognitionRef.current?.abort?.(); } catch {}
-        }
-      }, 250);
-    } catch {
-      try { recognitionRef.current.abort?.(); } catch {}
-    }
-    window.setTimeout(() => {
-      if (recognitionSessionRef.current === currentSession) hardResetRecognition();
-    }, 900);
   };
 
   const speak = (text: string) => {
@@ -497,8 +552,8 @@ export default function Home() {
     const utterance = new SpeechSynthesisUtterance(cleanedText);
 
     utterance.lang = voice?.lang || selectedLanguage;
-    utterance.voice = voice || null;
-    utterance.rate = 0.85;
+    utterance.voice = voice ?? null;
+    utterance.rate = selectedLanguage === "en-US" ? 0.95 : 0.9;
     utterance.pitch = 1;
     utterance.volume = 1;
 
@@ -506,22 +561,28 @@ export default function Home() {
     utterance.onend = () => setIsSpeaking(false);
     utterance.onerror = () => setIsSpeaking(false);
 
-    try { window.speechSynthesis.cancel(); } catch {}
+    try {
+      window.speechSynthesis.cancel();
+    } catch {}
 
-    if (speakTimeoutRef.current) window.clearTimeout(speakTimeoutRef.current);
+    if (speakTimeoutRef.current) {
+      window.clearTimeout(speakTimeoutRef.current);
+    }
 
     speakTimeoutRef.current = window.setTimeout(() => {
-      try { window.speechSynthesis.speak(utterance); } catch { setIsSpeaking(false); }
-    }, 200);
+      try {
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      } catch {
+        setIsSpeaking(false);
+      }
+    }, 120);
   };
 
-  const setAnswerAndSpeak = (text: string, options?: { receptionistHelp?: boolean; sourceQuestion?: string }) => {
+  const setAnswerAndSpeak = (text: string, options?: { receptionistHelp?: boolean }) => {
     setAnswer(text);
     setShowReceptionHelp(Boolean(options?.receptionistHelp));
     speak(text);
-    if (options?.receptionistHelp) {
-      window.setTimeout(() => openReceptionWhatsApp(options.sourceQuestion), 250);
-    }
   };
 
   const getCurrentTimeText = (lang: LangCode) => {
@@ -582,6 +643,7 @@ export default function Home() {
     const isRoomQuery = containsAny(normalized, ["szoba","room","zimmer","camera","pokoj","кімната","hol van","merre van","where is","find room","wo ist","dove","gdzie","де"].map(normalizeForMatch));
     const isApartmentQuery = containsAny(normalized, ["apartman","apartment","appartamento","apartament","апартамент","a 1","a 2","a 3","a 4","a 5"].map(normalizeForMatch));
     const isRelaxQuery = containsAny(normalized, ["relax","r 1","r 2","r 3","r 4","r p","premium","prémium"].map(normalizeForMatch));
+
     if (isApartmentQuery) {
       const num = detectApartmentNumber(normalized);
       if (num && apartmentRoutes[num]) return getText(apartmentRoutes[num].answer, selectedLanguage);
@@ -640,6 +702,7 @@ export default function Home() {
       { patterns: ["kornyek", "kozelben", "nearby", "around here", "umgebung", "vicinanze", "okolicy", "поруч"], answer: extraVoiceItems[1].answer },
       { patterns: ["program", "programok", "what to do", "things to do", "aktivitaten", "attivita", "atrakcje", "розваги"], answer: extraVoiceItems[2].answer },
       { patterns: ["balaton", "lake balaton", "plattensee", "lago balaton", "jezioro balaton"], answer: extraVoiceItems[3].answer },
+      { patterns: ["erkezesi info", "arrival info", "anreiseinfo"], answer: arrivalInfoItem.answer },
     ];
     for (const group of groups) {
       if (group.patterns.some((p) => q.includes(normalizeForMatch(p)))) return getText(group.answer, selectedLanguage);
@@ -651,22 +714,26 @@ export default function Home() {
     const q = normalizeForMatch(input);
 
     const timeTriggers = ["mennyi az ido","pontos ido","what time is it","time now","uhrzeit","wie spat","che ore sono","ktora godzina","котра година","точний час"].map(normalizeForMatch);
-    if (timeTriggers.some((t) => q.includes(t))) return { text: getCurrentTimeText(selectedLanguage), receptionistHelp: false };
+    if (timeTriggers.some((t) => q.includes(t))) {
+      return { text: getCurrentTimeText(selectedLanguage), receptionistHelp: false };
+    }
 
     const weatherTriggers = ["idojaras","milyen az ido","weather","forecast","wetter","meteo","pogoda","погода"].map(normalizeForMatch);
-    if (weatherTriggers.some((t) => q.includes(t))) return { text: await getWeatherText(selectedLanguage), receptionistHelp: false };
+    if (weatherTriggers.some((t) => q.includes(t))) {
+      return { text: await getWeatherText(selectedLanguage), receptionistHelp: false };
+    }
 
     const dynamicRouteResponse = getDynamicRouteResponse(input);
     if (dynamicRouteResponse) return { text: dynamicRouteResponse, receptionistHelp: false };
+
+    const jsonAnswer = getSimpleAnswer(input, selectedLanguage);
+    if (jsonAnswer) return { text: jsonAnswer, receptionistHelp: false };
 
     const smartLocalResponse = getSmartLocalResponse(input);
     if (smartLocalResponse) return { text: smartLocalResponse, receptionistHelp: false };
 
     const faqResponse = getFaqResponse(input);
     if (faqResponse) return { text: faqResponse, receptionistHelp: false };
-
-    const aiAnswer = await askServerAI(input, selectedLanguage);
-    if (aiAnswer) return { text: aiAnswer, receptionistHelp: false };
 
     return { text: getText(ui.fallback, selectedLanguage), receptionistHelp: true };
   };
@@ -676,19 +743,16 @@ export default function Home() {
     if (!cleaned) return;
     setHeardText(cleaned);
     const response = await getResponse(cleaned);
-    setAnswerAndSpeak(response.text, {
-      receptionistHelp: response.receptionistHelp,
-      sourceQuestion: cleaned,
-    });
+    setAnswerAndSpeak(response.text, { receptionistHelp: response.receptionistHelp });
   };
 
-  const getRecognitionLang = () => selectedLanguage === "hu-HU" ? "hu-HU" : selectedLanguage;
+  const getRecognitionLang = () => (selectedLanguage === "hu-HU" ? "hu-HU" : selectedLanguage);
 
   const startListening = async () => {
     if (typeof window === "undefined") return;
 
     if (isListening) {
-      stopListeningInternal();
+      forceStopRecognition();
       return;
     }
 
@@ -708,9 +772,10 @@ export default function Home() {
       return;
     }
 
-    try { window.speechSynthesis?.cancel(); } catch {}
+    try {
+      window.speechSynthesis?.cancel();
+    } catch {}
 
-    hardResetRecognition();
     handledResultRef.current = false;
     recognitionSessionRef.current += 1;
     const sessionId = recognitionSessionRef.current;
@@ -740,11 +805,11 @@ export default function Home() {
       recognitionTimeoutRef.current = window.setTimeout(() => {
         if (recognitionSessionRef.current !== sessionId) return;
         if (!handledResultRef.current) {
-          stopListeningInternal();
+          forceStopRecognition();
           setHeardText("");
           setAnswer(getText(ui.noSpeech, selectedLanguage));
         }
-      }, 7000);
+      }, 10000);
     };
 
     recognition.onresult = async (event: SpeechRecognitionEventLike) => {
@@ -756,26 +821,22 @@ export default function Home() {
       if (!transcript) {
         setHeardText("");
         setAnswer(getText(ui.noSpeech, selectedLanguage));
-        stopListeningInternal();
+        forceStopRecognition();
         return;
       }
 
       setHeardText(transcript);
       const response = await getResponse(transcript);
-      setAnswerAndSpeak(response.text, {
-        receptionistHelp: response.receptionistHelp,
-        sourceQuestion: transcript,
-      });
-      stopListeningInternal();
+      setAnswerAndSpeak(response.text, { receptionistHelp: response.receptionistHelp });
+      forceStopRecognition();
     };
 
     recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
       if (recognitionSessionRef.current !== sessionId) return;
-      clearRecognitionTimeout();
-      setIsListening(false);
+      forceStopRecognition();
       isStartingRecognitionRef.current = false;
 
-      if (event.error === "no-speech") {
+      if (event.error === "no-speech" || event.error === "aborted") {
         setHeardText("");
         setAnswer(getText(ui.noSpeech, selectedLanguage));
         return;
@@ -790,6 +851,7 @@ export default function Home() {
         setAnswer(getText(ui.micUnavailable, selectedLanguage));
         return;
       }
+
       setHeardText("");
       setAnswer(getText(ui.recognitionFailed, selectedLanguage));
     };
@@ -809,7 +871,7 @@ export default function Home() {
       setIsListening(false);
       isStartingRecognitionRef.current = false;
       setAnswer(getText(ui.recognitionFailed, selectedLanguage));
-      hardResetRecognition();
+      forceStopRecognition();
     }
   };
 
@@ -1024,14 +1086,7 @@ export default function Home() {
             {getText(ui.chooseLang, selectedLanguage)}
           </p>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              marginBottom: "16px",
-              flexWrap: "wrap",
-            }}
-          >
+          <div style={{ display: "flex", gap: "10px", marginBottom: "16px", flexWrap: "wrap" }}>
             {languageLabels.map((lang) => (
               <button
                 key={lang.code}
@@ -1187,7 +1242,7 @@ export default function Home() {
 
       <div style={sectionWrapperStyle("#f6efe5")}>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
-          {faqItems.map((item) => (
+          {[arrivalInfoItem, ...faqItems].map((item) => (
             <button key={item.id} onClick={() => handleItemClick(item)} style={menuButtonStyle}>
               {getText(item.label, selectedLanguage)}
             </button>
