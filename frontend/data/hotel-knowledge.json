@@ -1,120 +1,973 @@
 {
   "hotel_nev": "Silver Garden Siófok",
   "rovid_nev": "Silver Garden",
-  "cim": "8600 Siófok, Deák Ferenc sétány 57.",
+  "cim": "8600 Siófok, Deák Ferenc sétány 57",
   "google_maps": "https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
   "weboldal": "https://www.silvergarden.hu",
   "telefon": "+36 70 408 94 37",
   "email": "info@silvergarden.hu",
   "whatsapp": "+36 70 408 9437",
-  "recepcio_24_7": "Igen, 24 órás self check-in elérhető.",
-  "beszelt_nyelvek": ["magyar", "angol"],
-  "stilus": "Bed and breakfast, vakációs szálláshely",
-  "rovid_leiras": "Ideális pihenő környezet, különösen nyári kikapcsolódásra.",
-  "hosszu_leiras": "Nyugodt, igényes, a vendégek igényeihez igazodó szálláshely zöld kerttel és segítőkész személyzettel.",
+  "recepcio_24_7": {
+    "hu-HU": "Igen, 24 órás self check-in elérhető.",
+    "en-US": "Yes, self check-in is available 24 hours a day.",
+    "de-DE": "Ja, ein Self-Check-in ist rund um die Uhr verfügbar.",
+    "it-IT": "Sì, il self check-in è disponibile 24 ore su 24.",
+    "pl-PL": "Tak, samodzielne zameldowanie jest dostępne przez całą dobę.",
+    "uk-UA": "Так, самостійне заселення доступне цілодобово."
+  },
+  "beszelt_nyelvek": {
+    "hu-HU": [
+      "magyar",
+      "angol"
+    ],
+    "en-US": [
+      "Hungarian",
+      "English"
+    ],
+    "de-DE": [
+      "Ungarisch",
+      "Englisch"
+    ],
+    "it-IT": [
+      "ungherese",
+      "inglese"
+    ],
+    "pl-PL": [
+      "węgierski",
+      "angielski"
+    ],
+    "uk-UA": [
+      "угорська",
+      "англійська"
+    ]
+  },
+  "stilus": {
+    "hu-HU": "Bed and breakfast, vakációs szálláshely",
+    "en-US": "Bed and breakfast holiday accommodation",
+    "de-DE": "Bed-and-Breakfast-Ferienunterkunft",
+    "it-IT": "Struttura ricettiva bed and breakfast per vacanze",
+    "pl-PL": "Obiekt typu bed and breakfast na wakacyjny pobyt",
+    "uk-UA": "Готель типу bed and breakfast для відпочинку"
+  },
+  "rovid_leiras": {
+    "hu-HU": "Ideális pihenő környezet, különösen nyári kikapcsolódásra.",
+    "en-US": "An ideal place to relax, especially for summer holidays.",
+    "de-DE": "Eine ideale Umgebung zum Entspannen, besonders für den Sommerurlaub.",
+    "it-IT": "Un ambiente ideale per rilassarsi, soprattutto per una vacanza estiva.",
+    "pl-PL": "Idealne miejsce do wypoczynku, szczególnie na letni urlop.",
+    "uk-UA": "Ідеальне місце для відпочинку, особливо влітку."
+  },
+  "hosszu_leiras": {
+    "hu-HU": "Nyugodt, igényes, a vendégek igényeihez igazodó szálláshely zöld kerttel és segítőkész személyzettel.",
+    "en-US": "A peaceful and well-kept accommodation with a green garden and helpful staff, tailored to guests' needs.",
+    "de-DE": "Eine ruhige und gepflegte Unterkunft mit grünem Garten und hilfsbereitem Personal, abgestimmt auf die Bedürfnisse der Gäste.",
+    "it-IT": "Una struttura tranquilla e curata con giardino verde e personale disponibile, pensata per le esigenze degli ospiti.",
+    "pl-PL": "Spokojny i zadbany obiekt z zielonym ogrodem i pomocnym personelem, dostosowany do potrzeb gości.",
+    "uk-UA": "Спокійне й доглянуте помешкання із зеленим садом та привітним персоналом, пристосоване до потреб гостей."
+  },
   "erkezes_tavozas": {
-    "checkin_ido": "14:00 órától",
-    "checkin_hatarido": "Nincs, self check-in 24 órában",
-    "checkout_ido": "10:00 óráig",
-    "kesoi_checkout": "Díj ellenében, elérhetőség függvényében",
-    "korai_erkezes": "Díj ellenében, elérhetőség függvényében",
-    "csomagmegorzes": "Díjmentesen lehetséges",
-    "okmany_szukseges": "Igen",
-    "kulcs_atadas": "Automatikus, self check-in rendszer",
-    "elveszett_kulcs": "Díjfizetési kötelezettséggel jár"
+    "checkin_ido": {
+      "hu-HU": "14:00 órától",
+      "en-US": "From 2:00 PM",
+      "de-DE": "Ab 14:00 Uhr",
+      "it-IT": "Dalle 14:00",
+      "pl-PL": "Od 14:00",
+      "uk-UA": "З 14:00"
+    },
+    "checkin_hatarido": {
+      "hu-HU": "Nincs, self check-in 24 órában",
+      "en-US": "There is no deadline, self check-in is available 24 hours a day.",
+      "de-DE": "Es gibt keine Frist, der Self-Check-in ist 24 Stunden verfügbar.",
+      "it-IT": "Non c'è un orario limite, il self check-in è disponibile 24 ore su 24.",
+      "pl-PL": "Nie ma ograniczenia godzinowego, samodzielne zameldowanie jest dostępne przez całą dobę.",
+      "uk-UA": "Кінцевого часу немає, самостійне заселення доступне цілодобово."
+    },
+    "checkout_ido": {
+      "hu-HU": "10:00 óráig",
+      "en-US": "Until 10:00 AM",
+      "de-DE": "Bis 10:00 Uhr",
+      "it-IT": "Entro le 10:00",
+      "pl-PL": "Do 10:00",
+      "uk-UA": "До 10:00"
+    },
+    "kesoi_checkout": {
+      "hu-HU": "Díj ellenében, elérhetőség függvényében",
+      "en-US": "For an extra fee, subject to availability.",
+      "de-DE": "Gegen Aufpreis, je nach Verfügbarkeit.",
+      "it-IT": "A pagamento, in base alla disponibilità.",
+      "pl-PL": "Za dodatkową opłatą, w zależności od dostępności.",
+      "uk-UA": "За додаткову плату, за наявності вільних місць."
+    },
+    "korai_erkezes": {
+      "hu-HU": "Díj ellenében, elérhetőség függvényében",
+      "en-US": "For an extra fee, subject to availability.",
+      "de-DE": "Gegen Aufpreis, je nach Verfügbarkeit.",
+      "it-IT": "A pagamento, in base alla disponibilità.",
+      "pl-PL": "Za dodatkową opłatą, w zależności od dostępności.",
+      "uk-UA": "За додаткову плату, за наявності вільних місць."
+    },
+    "csomagmegorzes": {
+      "hu-HU": "Díjmentesen lehetséges",
+      "en-US": "Available free of charge",
+      "de-DE": "Kostenlos möglich",
+      "it-IT": "Disponibile gratuitamente",
+      "pl-PL": "Dostępne bezpłatnie",
+      "uk-UA": "Доступно безкоштовно"
+    },
+    "okmany_szukseges": {
+      "hu-HU": "Igen",
+      "en-US": "Yes",
+      "de-DE": "Ja",
+      "it-IT": "Sì",
+      "pl-PL": "Tak",
+      "uk-UA": "Так"
+    },
+    "kulcs_atadas": {
+      "hu-HU": "Automatikus, self check-in rendszer",
+      "en-US": "Automatic, through the self check-in system",
+      "de-DE": "Automatisch, über das Self-Check-in-System",
+      "it-IT": "Automatica, tramite il sistema di self check-in",
+      "pl-PL": "Automatyczne, przez system samodzielnego zameldowania",
+      "uk-UA": "Автоматична, через систему самостійного заселення"
+    },
+    "elveszett_kulcs": {
+      "hu-HU": "Díjfizetési kötelezettséggel jár",
+      "en-US": "An extra charge applies",
+      "de-DE": "Es fällt eine Gebühr an",
+      "it-IT": "Comporta un costo aggiuntivo",
+      "pl-PL": "Obowiązuje dodatkowa opłata",
+      "uk-UA": "Стягується додаткова плата"
+    }
   },
   "foglalas_fizetes": {
-    "foglalasi_modok": ["online", "telefonon"],
-    "fizetesi_modok": ["bankkártya", "utalás", "Revolut", "készpénz"],
-    "szep_kartya": "Igen",
-    "elorefizetes": "Esetenként szükséges",
-    "lemondasi_feltetelek": "Változó, foglalástól függ",
-    "no_show": "Változó",
-    "szamla": "Igen",
-    "ifa": "Igen, 2 EUR per fő per éj",
-    "reggeli_ar": "8 EUR per fő per nap",
-    "potagy": "20 EUR per éj"
+    "foglalasi_modok": {
+      "hu-HU": [
+        "online",
+        "telefonon"
+      ],
+      "en-US": [
+        "online",
+        "by phone"
+      ],
+      "de-DE": [
+        "online",
+        "telefonisch"
+      ],
+      "it-IT": [
+        "online",
+        "telefonicamente"
+      ],
+      "pl-PL": [
+        "online",
+        "telefonicznie"
+      ],
+      "uk-UA": [
+        "онлайн",
+        "телефоном"
+      ]
+    },
+    "fizetesi_modok": {
+      "hu-HU": [
+        "bankkártya",
+        "utalás",
+        "Revolut",
+        "készpénz"
+      ],
+      "en-US": [
+        "credit card",
+        "bank transfer",
+        "Revolut",
+        "cash"
+      ],
+      "de-DE": [
+        "Bankkarte",
+        "Überweisung",
+        "Revolut",
+        "Bargeld"
+      ],
+      "it-IT": [
+        "carta bancaria",
+        "bonifico",
+        "Revolut",
+        "contanti"
+      ],
+      "pl-PL": [
+        "karta bankowa",
+        "przelew",
+        "Revolut",
+        "gotówka"
+      ],
+      "uk-UA": [
+        "банківська картка",
+        "переказ",
+        "Revolut",
+        "готівка"
+      ]
+    },
+    "szep_kartya": {
+      "hu-HU": "Igen",
+      "en-US": "Yes",
+      "de-DE": "Ja",
+      "it-IT": "Sì",
+      "pl-PL": "Tak",
+      "uk-UA": "Так"
+    },
+    "elorefizetes": {
+      "hu-HU": "Esetenként szükséges",
+      "en-US": "May be required in some cases",
+      "de-DE": "Kann in manchen Fällen erforderlich sein",
+      "it-IT": "Potrebbe essere richiesto in alcuni casi",
+      "pl-PL": "W niektórych przypadkach może być wymagana",
+      "uk-UA": "У деяких випадках може знадобитися"
+    },
+    "lemondasi_feltetelek": {
+      "hu-HU": "Változó, foglalástól függ",
+      "en-US": "Varies depending on the booking",
+      "de-DE": "Variiert je nach Buchung",
+      "it-IT": "Variabile, dipende dalla prenotazione",
+      "pl-PL": "Różni się w zależności od rezerwacji",
+      "uk-UA": "Залежить від бронювання"
+    },
+    "no_show": {
+      "hu-HU": "Változó",
+      "en-US": "Varies",
+      "de-DE": "Variiert",
+      "it-IT": "Variabile",
+      "pl-PL": "Różne",
+      "uk-UA": "Залежить від умов"
+    },
+    "szamla": {
+      "hu-HU": "Igen",
+      "en-US": "Yes",
+      "de-DE": "Ja",
+      "it-IT": "Sì",
+      "pl-PL": "Tak",
+      "uk-UA": "Так"
+    },
+    "ifa": {
+      "hu-HU": "Igen, 2 EUR per fő per éj",
+      "en-US": "Yes, 2 EUR per person per night",
+      "de-DE": "Ja, 2 EUR pro Person und Nacht",
+      "it-IT": "Sì, 2 EUR a persona per notte",
+      "pl-PL": "Tak, 2 EUR za osobę za noc",
+      "uk-UA": "Так, 2 EUR з особи за ніч"
+    },
+    "reggeli_ar": {
+      "hu-HU": "8 EUR per fő per nap",
+      "en-US": "8 EUR per person per day",
+      "de-DE": "8 EUR pro Person und Tag",
+      "it-IT": "8 EUR a persona al giorno",
+      "pl-PL": "8 EUR za osobę dziennie",
+      "uk-UA": "8 EUR з особи на день"
+    },
+    "potagy": {
+      "hu-HU": "20 EUR per éj",
+      "en-US": "20 EUR per night",
+      "de-DE": "20 EUR pro Nacht",
+      "it-IT": "20 EUR a notte",
+      "pl-PL": "20 EUR za noc",
+      "uk-UA": "20 EUR за ніч"
+    }
   },
-  "recepció": {
-    "mindig van recepció": ["Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni"],
-    "van recepció": ["Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni"],
-    "éjszakai érkezés": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetnien",
-    "mit csináljak ha megérkeztem": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
-    "vár valaki amikor megérkezem": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
-    "hogy jutok be ha megérkezem": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
-    "ki fogad": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
-    "ifaéjaszaka tudok érkezni": "Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
-    "hogy jutok be a szállásra": "Működik a self csekin rendszerünk Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni",
-    "mikor kell érkezni": "Bármikor Minden időben kérjük smsben értesitsen minket 5 perccel az érkezés elött. Telefonszám: +36704089437  Mindig van elérhető recepciós azonban éjszakai érkezésnél telefonon tud segíteni, ebben az esteben csak bankkártyával lehet fizetni"
+  "rendezveny": {
+    "rendezveny_tarthato": {
+      "hu-HU": "Rendezvény tartható egyedi árajánlatkérés alapján.",
+      "en-US": "Events can be organized based on an individual quote request.",
+      "de-DE": "Veranstaltungen können auf Basis eines individuellen Angebots organisiert werden.",
+      "it-IT": "È possibile organizzare eventi su richiesta di preventivo personalizzato.",
+      "pl-PL": "Organizacja wydarzeń jest możliwa po indywidualnej wycenie.",
+      "uk-UA": "Проведення заходів можливе за індивідуальним запитом на ціну."
+    },
+    "legenybucsu_tarthato": {
+      "hu-HU": "Legénybúcsú tartható egyedi árajánlatkérés alapján.",
+      "en-US": "Bachelor parties can be organized based on an individual quote request.",
+      "de-DE": "Junggesellenabschiede können auf Basis eines individuellen Angebots organisiert werden.",
+      "it-IT": "Gli addii al celibato possono essere organizzati su richiesta di preventivo personalizzato.",
+      "pl-PL": "Wieczory kawalerskie mogą być organizowane po indywidualnej wycenie.",
+      "uk-UA": "Парубочі вечірки можливі за індивідуальним запитом на ціну."
+    },
+    "leanybucsu_tarthato": {
+      "hu-HU": "Leánybúcsú tartható egyedi árajánlatkérés alapján.",
+      "en-US": "Bachelorette parties can be organized based on an individual quote request.",
+      "de-DE": "Junggesellinnenabschiede können auf Basis eines individuellen Angebots organisiert werden.",
+      "it-IT": "Gli addii al nubilato possono essere organizzati su richiesta di preventivo personalizzato.",
+      "pl-PL": "Wieczory panieńskie mogą być organizowane po indywidualnej wycenie.",
+      "uk-UA": "Дівич-вечори можливі за індивідуальним запитом на ціну."
+    },
+    "szuletesnap_tarthato": {
+      "hu-HU": "Rendezvény tartható egyedi árajánlatkérés alapján.",
+      "en-US": "Events can be organized based on an individual quote request.",
+      "de-DE": "Veranstaltungen können auf Basis eines individuellen Angebots organisiert werden.",
+      "it-IT": "È possibile organizzare eventi su richiesta di preventivo personalizzato.",
+      "pl-PL": "Organizacja wydarzeń jest możliwa po indywidualnej wycenie.",
+      "uk-UA": "Проведення заходів можливе за індивідуальним запитом на ціну."
+    },
+    "tudok_rendezvenyt_tartani": {
+      "hu-HU": "Rendezvény tartható egyedi árajánlatkérés alapján.",
+      "en-US": "Events can be organized based on an individual quote request.",
+      "de-DE": "Veranstaltungen können auf Basis eines individuellen Angebots organisiert werden.",
+      "it-IT": "È possibile organizzare eventi su richiesta di preventivo personalizzato.",
+      "pl-PL": "Organizacja wydarzeń jest możliwa po indywidualnej wycenie.",
+      "uk-UA": "Проведення заходів можливе за індивідуальним запитом на ціну."
+    },
+    "ajanlatot_kerhetek_rendezvenyre": {
+      "hu-HU": "Rendezvény tartható egyedi árajánlatkérés alapján.",
+      "en-US": "Events can be organized based on an individual quote request.",
+      "de-DE": "Veranstaltungen können auf Basis eines individuellen Angebots organisiert werden.",
+      "it-IT": "È possibile organizzare eventi su richiesta di preventivo personalizzato.",
+      "pl-PL": "Organizacja wydarzeń jest możliwa po indywidualnej wycenie.",
+      "uk-UA": "Проведення заходів можливе за індивідуальним запитом на ціну."
+    },
+    "rendezvenyre_alkalmas_a_helyszin": {
+      "hu-HU": "Igen",
+      "en-US": "Yes",
+      "de-DE": "Ja",
+      "it-IT": "Sì",
+      "pl-PL": "Tak",
+      "uk-UA": "Так"
+    },
+    "hanyfos_rendezveny_megoldhato": {
+      "hu-HU": "Rendezvény tartható egyedi árajánlatkérés alapján. Általában 30-50 főre alkalmas a helyszín.",
+      "en-US": "Events can be organized based on an individual quote request. The venue is generally suitable for 30 to 50 people.",
+      "de-DE": "Veranstaltungen können auf Basis eines individuellen Angebots organisiert werden. Der Veranstaltungsort ist in der Regel für 30 bis 50 Personen geeignet.",
+      "it-IT": "È possibile organizzare eventi su richiesta di preventivo personalizzato. La struttura è generalmente adatta a 30-50 persone.",
+      "pl-PL": "Organizacja wydarzeń jest możliwa po indywidualnej wycenie. Obiekt jest zazwyczaj odpowiedni dla 30-50 osób.",
+      "uk-UA": "Проведення заходів можливе за індивідуальним запитом на ціну. Локація зазвичай підходить для 30-50 осіб."
+    },
+    "konferencia_terem": {
+      "hu-HU": "Igen, van, maximum 30-40 főre alkalmas.",
+      "en-US": "Yes, there is one, suitable for up to 30-40 people.",
+      "de-DE": "Ja, es gibt einen, geeignet für maximal 30-40 Personen.",
+      "it-IT": "Sì, è disponibile, adatta fino a 30-40 persone.",
+      "pl-PL": "Tak, jest dostępna, odpowiednia maksymalnie dla 30-40 osób.",
+      "uk-UA": "Так, є, підходить максимум для 30-40 осіб."
+    },
+    "hanyan_ferunk_el": {
+      "hu-HU": "30-50 főre alkalmas a helyszín.",
+      "en-US": "The venue is suitable for 30 to 50 people.",
+      "de-DE": "Der Veranstaltungsort ist für 30 bis 50 Personen geeignet.",
+      "it-IT": "La struttura è adatta a 30-50 persone.",
+      "pl-PL": "Obiekt jest odpowiedni dla 30-50 osób.",
+      "uk-UA": "Локація підходить для 30-50 осіб."
+    }
+  },
+  "recepcio": {
+    "mindig_van_recepcio": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "van_recepcio": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "ejszakai_erkezes": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "mit_csinaljak_ha_megerkeztem": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "var_valaki_amikor_megerkezem": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "hogy_jutok_be_ha_megerkezem": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "ki_fogad": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "ejszaka_tudok_erkezni": {
+      "hu-HU": "Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "hogy_jutok_be_a_szallasra": {
+      "hu-HU": "Működik a self check-in rendszerünk. Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Our self check-in system is available. Please send us an SMS 5 minutes before arrival at any time. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Unser Self-Check-in-System ist verfügbar. Bitte informieren Sie uns jederzeit 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe jedoch telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "Il nostro sistema di self check-in è disponibile. La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo in qualsiasi momento. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "Nasz system samodzielnego zameldowania jest dostępny. Prosimy o wysłanie SMS-a 5 minut przed przyjazdem o każdej porze. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "Наша система самостійного заселення працює. Будь ласка, надішліть нам SMS за 5 хвилин до прибуття у будь-який час. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    },
+    "mikor_kell_erkezni": {
+      "hu-HU": "Bármikor. Minden időben kérjük SMS-ben értesítsen minket 5 perccel az érkezés előtt. Telefonszám: +36704089437. Mindig van elérhető recepciós, azonban éjszakai érkezésnél telefonon tud segíteni. Ebben az esetben csak bankkártyával lehet fizetni.",
+      "en-US": "Any time. Please send us an SMS 5 minutes before arrival. Phone number: +36704089437. A receptionist is always available, but for late-night arrivals assistance is provided by phone. In this case, payment is only possible by credit card.",
+      "de-DE": "Jederzeit. Bitte informieren Sie uns 5 Minuten vor Ihrer Ankunft per SMS. Telefonnummer: +36704089437. Es ist immer ein Rezeptionist erreichbar, bei nächtlicher Ankunft erfolgt die Hilfe telefonisch. In diesem Fall ist die Zahlung nur mit Bankkarte möglich.",
+      "it-IT": "In qualsiasi momento. La preghiamo di inviarci un SMS 5 minuti prima dell'arrivo. Numero di telefono: +36704089437. C'è sempre un receptionist disponibile, ma in caso di arrivo notturno l'assistenza viene fornita telefonicamente. In questo caso è possibile pagare solo con carta bancaria.",
+      "pl-PL": "O dowolnej porze. Prosimy o wysłanie SMS-a 5 minut przed przyjazdem. Numer telefonu: +36704089437. Recepcjonista jest zawsze dostępny, jednak przy nocnym przyjeździe pomoc udzielana jest telefonicznie. W takim przypadku płatność jest możliwa tylko kartą bankową.",
+      "uk-UA": "У будь-який час. Будь ласка, надішліть нам SMS за 5 хвилин до прибуття. Номер телефону: +36704089437. Адміністратор завжди доступний, але у разі нічного прибуття допомога надається телефоном. У такому випадку оплата можлива лише банківською карткою."
+    }
   },
   "szobak": {
-    "szobatipusok": ["Classic", "Deluxe", "Family apartman"],
-    "erkely": "Minden szobához tartozik",
-    "panorama": "Kertre néző",
-    "furdoszoba": "Minden szobában",
-    "klima": "Minden szobában",
-    "futes": "Minden szobában",
-    "tv": "Okos TV minden szobában",
-    "hajszarito": "Minden szobában",
-    "kavegep": "Igényelhető",
-    "huto": "Nincs a szobákban, csak közös hűtő van",
-    "takaritas": "Díj ellenében",
-    "torolkozo_csere": "Kérésre",
-    "agynemu_csere": "Kérésre",
-    "dohanyzo_szoba": "Nincs"
-  },
-  "cím": {
-    "cím": "8600 Siófok, Deák Ferenc sétány 57.ető",
-    "szálláshely címe": "8600 Siófok, Deák Ferenc sétány 57.",
-    "hotel címe": "8600 Siófok, Deák Ferenc sétány 57.",
-    "dietamerre találom a hotelt": "8600 Siófok, Deák Ferenc sétány 57.",
-    "konyha": "8600 Siófok, Deák Ferenc sétány 57.",
-    "adress": "8600 Siófok, Deák Ferenc sétány 57."
+    "szobatipusok": {
+      "hu-HU": [
+        "Classic",
+        "Deluxe",
+        "Family apartman"
+      ],
+      "en-US": [
+        "Classic",
+        "Deluxe",
+        "Family Apartment"
+      ],
+      "de-DE": [
+        "Classic",
+        "Deluxe",
+        "Family Apartment"
+      ],
+      "it-IT": [
+        "Classic",
+        "Deluxe",
+        "Appartamento Family"
+      ],
+      "pl-PL": [
+        "Classic",
+        "Deluxe",
+        "Apartament Family"
+      ],
+      "uk-UA": [
+        "Classic",
+        "Deluxe",
+        "Family Apartment"
+      ]
+    },
+    "erkely": {
+      "hu-HU": "Minden szobához tartozik",
+      "en-US": "Included with every room",
+      "de-DE": "Zu jedem Zimmer gehört ein Balkon",
+      "it-IT": "Presente in ogni camera",
+      "pl-PL": "Przynależy do każdego pokoju",
+      "uk-UA": "Є в кожному номері"
+    },
+    "panorama": {
+      "hu-HU": "Kertre néző",
+      "en-US": "Garden view",
+      "de-DE": "Gartenblick",
+      "it-IT": "Vista giardino",
+      "pl-PL": "Widok na ogród",
+      "uk-UA": "Вид на сад"
+    },
+    "furdoszoba": {
+      "hu-HU": "Minden szobában",
+      "en-US": "In every room",
+      "de-DE": "In jedem Zimmer",
+      "it-IT": "In ogni camera",
+      "pl-PL": "W każdym pokoju",
+      "uk-UA": "У кожному номері"
+    },
+    "klima": {
+      "hu-HU": "Minden szobában",
+      "en-US": "In every room",
+      "de-DE": "In jedem Zimmer",
+      "it-IT": "In ogni camera",
+      "pl-PL": "W każdym pokoju",
+      "uk-UA": "У кожному номері"
+    },
+    "futes": {
+      "hu-HU": "Minden szobában",
+      "en-US": "In every room",
+      "de-DE": "In jedem Zimmer",
+      "it-IT": "In ogni camera",
+      "pl-PL": "W każdym pokoju",
+      "uk-UA": "У кожному номері"
+    },
+    "tv": {
+      "hu-HU": "Okos TV minden szobában",
+      "en-US": "Smart TV in every room",
+      "de-DE": "Smart-TV in jedem Zimmer",
+      "it-IT": "Smart TV in ogni camera",
+      "pl-PL": "Smart TV w każdym pokoju",
+      "uk-UA": "Smart TV у кожному номері"
+    },
+    "hajszarito": {
+      "hu-HU": "Minden szobában",
+      "en-US": "In every room",
+      "de-DE": "In jedem Zimmer",
+      "it-IT": "In ogni camera",
+      "pl-PL": "W każdym pokoju",
+      "uk-UA": "У кожному номері"
+    },
+    "kavegep": {
+      "hu-HU": "Igényelhető",
+      "en-US": "Available on request",
+      "de-DE": "Auf Anfrage verfügbar",
+      "it-IT": "Disponibile su richiesta",
+      "pl-PL": "Dostępne na życzenie",
+      "uk-UA": "Доступно за запитом"
+    },
+    "huto": {
+      "hu-HU": "Nincs a szobákban, csak közös hűtő van",
+      "en-US": "There is no fridge in the rooms, only a shared fridge is available",
+      "de-DE": "Es gibt keinen Kühlschrank in den Zimmern, nur einen Gemeinschaftskühlschrank",
+      "it-IT": "Nelle camere non c'è il frigorifero, c'è solo un frigorifero in comune",
+      "pl-PL": "W pokojach nie ma lodówki, dostępna jest tylko wspólna lodówka",
+      "uk-UA": "У номерах немає холодильника, є лише спільний холодильник"
+    },
+    "takaritas": {
+      "hu-HU": "Díj ellenében",
+      "en-US": "For an extra fee",
+      "de-DE": "Gegen Aufpreis",
+      "it-IT": "A pagamento",
+      "pl-PL": "Za dodatkową opłatą",
+      "uk-UA": "За додаткову плату"
+    },
+    "torolkozo_csere": {
+      "hu-HU": "Kérésre",
+      "en-US": "On request",
+      "de-DE": "Auf Anfrage",
+      "it-IT": "Su richiesta",
+      "pl-PL": "Na życzenie",
+      "uk-UA": "За запитом"
+    },
+    "agynemu_csere": {
+      "hu-HU": "Kérésre",
+      "en-US": "On request",
+      "de-DE": "Auf Anfrage",
+      "it-IT": "Su richiesta",
+      "pl-PL": "Na życzenie",
+      "uk-UA": "За запитом"
+    },
+    "dohanyzo_szoba": {
+      "hu-HU": "Nincs",
+      "en-US": "None",
+      "de-DE": "Keine",
+      "it-IT": "Nessuna",
+      "pl-PL": "Brak",
+      "uk-UA": "Немає"
+    }
   },
   "etkezes": {
-    "reggeli": "Elérhető",
-    "reggeli_ido": "08:00–10:00",
-    "reggeli_tipus": "À la carte",
-    "dieta": "Gluténmentes és laktózmentes opció felár ellenében",
-    "konyha": "Kültéri konyha elérhető",
-    "kulsos_rendeles": "Lehetséges"
+    "reggeli": {
+      "hu-HU": "Elérhető",
+      "en-US": "Available",
+      "de-DE": "Verfügbar",
+      "it-IT": "Disponibile",
+      "pl-PL": "Dostępne",
+      "uk-UA": "Доступно"
+    },
+    "reggeli_ido": {
+      "hu-HU": "08:00–10:00",
+      "en-US": "08:00 AM–10:00 AM",
+      "de-DE": "08:00–10:00 Uhr",
+      "it-IT": "08:00–10:00",
+      "pl-PL": "08:00–10:00",
+      "uk-UA": "08:00–10:00"
+    },
+    "reggeli_tipus": {
+      "hu-HU": "À la carte",
+      "en-US": "À la carte",
+      "de-DE": "À la carte",
+      "it-IT": "À la carte",
+      "pl-PL": "À la carte",
+      "uk-UA": "À la carte"
+    },
+    "dieta": {
+      "hu-HU": "Gluténmentes és laktózmentes opció felár ellenében",
+      "en-US": "Gluten-free and lactose-free options are available for an extra charge",
+      "de-DE": "Glutenfreie und laktosefreie Optionen sind gegen Aufpreis verfügbar",
+      "it-IT": "Opzioni senza glutine e senza lattosio disponibili con supplemento",
+      "pl-PL": "Opcje bezglutenowe i bezlaktozowe dostępne za dodatkową opłatą",
+      "uk-UA": "Безглютенові та безлактозні варіанти доступні за додаткову плату"
+    },
+    "konyha": {
+      "hu-HU": "Kültéri konyha elérhető",
+      "en-US": "Outdoor kitchen available",
+      "de-DE": "Außenküche verfügbar",
+      "it-IT": "Cucina esterna disponibile",
+      "pl-PL": "Dostępna kuchnia zewnętrzna",
+      "uk-UA": "Доступна літня кухня"
+    },
+    "kulsos_rendeles": {
+      "hu-HU": "Lehetséges",
+      "en-US": "Possible",
+      "de-DE": "Möglich",
+      "it-IT": "Possibile",
+      "pl-PL": "Możliwe",
+      "uk-UA": "Можливо"
+    }
   },
   "wellness": {
-    "wellness": "Igen",
-    "wellness_tartalom": ["szauna", "jakuzzi", "medence"],
-    "wellness_ido": "09:00–21:00",
-    "wellness_foglalas": "Előzetes foglalás szükséges",
-    "masszazs": "Elérhető előzetes foglalással"
+    "wellness": {
+      "hu-HU": "Igen",
+      "en-US": "Yes",
+      "de-DE": "Ja",
+      "it-IT": "Sì",
+      "pl-PL": "Tak",
+      "uk-UA": "Так"
+    },
+    "wellness_tartalom": {
+      "hu-HU": [
+        "szauna",
+        "jakuzzi",
+        "medence"
+      ],
+      "en-US": [
+        "sauna",
+        "jacuzzi",
+        "pool"
+      ],
+      "de-DE": [
+        "Sauna",
+        "Whirlpool",
+        "Pool"
+      ],
+      "it-IT": [
+        "sauna",
+        "jacuzzi",
+        "piscina"
+      ],
+      "pl-PL": [
+        "sauna",
+        "jacuzzi",
+        "basen"
+      ],
+      "uk-UA": [
+        "сауна",
+        "джакузі",
+        "басейн"
+      ]
+    },
+    "wellness_ido": {
+      "hu-HU": "09:00–21:00",
+      "en-US": "09:00 AM–09:00 PM",
+      "de-DE": "09:00–21:00 Uhr",
+      "it-IT": "09:00–21:00",
+      "pl-PL": "09:00–21:00",
+      "uk-UA": "09:00–21:00"
+    },
+    "wellness_foglalas": {
+      "hu-HU": "Előzetes foglalás szükséges",
+      "en-US": "Advance booking is required",
+      "de-DE": "Vorherige Reservierung erforderlich",
+      "it-IT": "Prenotazione anticipata necessaria",
+      "pl-PL": "Wymagana wcześniejsza rezerwacja",
+      "uk-UA": "Потрібне попереднє бронювання"
+    },
+    "masszazs": {
+      "hu-HU": "Elérhető előzetes foglalással",
+      "en-US": "Available with advance booking",
+      "de-DE": "Mit vorheriger Reservierung verfügbar",
+      "it-IT": "Disponibile con prenotazione anticipata",
+      "pl-PL": "Dostępne po wcześniejszej rezerwacji",
+      "uk-UA": "Доступно за попереднім бронюванням"
+    }
   },
   "parkolas": {
-    "parkolas": "Ingyenes az épület előtt",
-    "parkolo_helyek": "Korlátozott",
-    "ev_tolto": "Elérhető"
+    "parkolas": {
+      "hu-HU": "Ingyenes az épület előtt",
+      "en-US": "Free in front of the building",
+      "de-DE": "Kostenlos vor dem Gebäude",
+      "it-IT": "Gratuito davanti all'edificio",
+      "pl-PL": "Bezpłatny przed budynkiem",
+      "uk-UA": "Безкоштовне перед будівлею"
+    },
+    "parkolo_helyek": {
+      "hu-HU": "Korlátozott",
+      "en-US": "Limited",
+      "de-DE": "Begrenzt",
+      "it-IT": "Limitati",
+      "pl-PL": "Ograniczone",
+      "uk-UA": "Обмежені"
+    },
+    "ev_tolto": {
+      "hu-HU": "Elérhető",
+      "en-US": "Available",
+      "de-DE": "Verfügbar",
+      "it-IT": "Disponibile",
+      "pl-PL": "Dostępna",
+      "uk-UA": "Доступно"
+    }
+  },
+  "bejelentkezes": {
+    "mikor_erkezhetunk": {
+      "hu-HU": "Szobaátvétel 14 órától",
+      "en-US": "Room takeover from 2:00 PM",
+      "de-DE": "Zimmerübernahme ab 14:00 Uhr",
+      "it-IT": "Consegna della camera dalle 14:00",
+      "pl-PL": "Odbiór pokoju od 14:00",
+      "uk-UA": "Заселення до номера з 14:00"
+    },
+    "hanyra_mehetunk": {
+      "hu-HU": "Szobaátvétel 14 órától",
+      "en-US": "Room takeover from 2:00 PM",
+      "de-DE": "Zimmerübernahme ab 14:00 Uhr",
+      "it-IT": "Consegna della camera dalle 14:00",
+      "pl-PL": "Odbiór pokoju od 14:00",
+      "uk-UA": "Заселення до номера з 14:00"
+    },
+    "hany_orakor_erkezhetunk": {
+      "hu-HU": "Szobaátvétel 14 órától",
+      "en-US": "Room takeover from 2:00 PM",
+      "de-DE": "Zimmerübernahme ab 14:00 Uhr",
+      "it-IT": "Consegna della camera dalle 14:00",
+      "pl-PL": "Odbiór pokoju od 14:00",
+      "uk-UA": "Заселення до номера з 14:00"
+    },
+    "mikor_vehetjuk_at_a_szobat": {
+      "hu-HU": "Szobaátvétel 14 órától",
+      "en-US": "Room takeover from 2:00 PM",
+      "de-DE": "Zimmerübernahme ab 14:00 Uhr",
+      "it-IT": "Consegna della camera dalle 14:00",
+      "pl-PL": "Odbiór pokoju od 14:00",
+      "uk-UA": "Заселення до номера з 14:00"
+    }
+  },
+  "vasalo és vasalodeszka": {
+    "vasalodeszka és vasalo van a szobában": {
+      "hu-HU": "Díj ellenében lehet kérni vasaló szettet.",
+      "en-US": "An iron set can be requested for an extra fee.",
+      "de-DE": "Ein Bügelset kann gegen Aufpreis angefragt werden.",
+      "it-IT": "È possibile richiedere un set da stiro a pagamento.",
+      "pl-PL": "Za dodatkową opłatą można poprosić o zestaw do prasowania.",
+      "uk-UA": "За додаткову плату можна замовити набір для прасування."
+    },
+    "lehet kérni vasaot és vasalodeszkát": {
+      "hu-HU": "Díj ellenében lehet kérni vasaló szettet.",
+      "en-US": "An iron set can be requested for an extra fee.",
+      "de-DE": "Ein Bügelset kann gegen Aufpreis angefragt werden.",
+      "it-IT": "È possibile richiedere un set da stiro a pagamento.",
+      "pl-PL": "Za dodatkową opłatą można poprosić o zestaw do prasowania.",
+      "uk-UA": "За додаткову плату можна замовити набір для прасування."
+    },
+    "hogy tudok kérni vasalódeszkát": {
+      "hu-HU": "Díj ellenében lehet kérni vasaló szettet.",
+      "en-US": "An iron set can be requested for an extra fee.",
+      "de-DE": "Ein Bügelset kann gegen Aufpreis angefragt werden.",
+      "it-IT": "È possibile richiedere un set da stiro a pagamento.",
+      "pl-PL": "Za dodatkową opłatą można poprosić o zestaw do prasowania.",
+      "uk-UA": "За додаткову плату можна замовити набір для прасування."
+    },
+    "vasaló": {
+      "hu-HU": "Díj ellenében lehet kérni vasaló szettet.",
+      "en-US": "An iron set can be requested for an extra fee.",
+      "de-DE": "Ein Bügelset kann gegen Aufpreis angefragt werden.",
+      "it-IT": "È possibile richiedere un set da stiro a pagamento.",
+      "pl-PL": "Za dodatkową opłatą można poprosić o zestaw do prasowania.",
+      "uk-UA": "За додаткову плату можна замовити набір для прасування."
+    }
   },
   "hazirend": {
-    "kisallat": "Behozható",
-    "kisallat_ar": "4000 Ft / éj",
-    "dohanyzas": "Kijelölt helyen",
-    "csendes_idoszak": "21:00–09:00",
-    "latogatok": "Nem engedélyezett"
+    "kisallat": {
+      "hu-HU": "Behozható",
+      "en-US": "Allowed",
+      "de-DE": "Erlaubt",
+      "it-IT": "Consentiti",
+      "pl-PL": "Dozwolone",
+      "uk-UA": "Дозволено"
+    },
+    "kisallat_ar": {
+      "hu-HU": "4000 Ft / éj",
+      "en-US": "4000 HUF / night",
+      "de-DE": "4000 HUF / Nacht",
+      "it-IT": "4000 HUF / notte",
+      "pl-PL": "4000 HUF / noc",
+      "uk-UA": "4000 HUF / ніч"
+    },
+    "dohanyzas": {
+      "hu-HU": "Kijelölt helyen",
+      "en-US": "In designated areas",
+      "de-DE": "In den ausgewiesenen Bereichen",
+      "it-IT": "Nelle aree designate",
+      "pl-PL": "W wyznaczonych miejscach",
+      "uk-UA": "У спеціально відведених місцях"
+    },
+    "csendes_idoszak": {
+      "hu-HU": "21:00–09:00",
+      "en-US": "09:00 PM–09:00 AM",
+      "de-DE": "21:00–09:00 Uhr",
+      "it-IT": "21:00–09:00",
+      "pl-PL": "21:00–09:00",
+      "uk-UA": "21:00–09:00"
+    },
+    "latogatok": {
+      "hu-HU": "Nem engedélyezett",
+      "en-US": "Not allowed",
+      "de-DE": "Nicht erlaubt",
+      "it-IT": "Non consentiti",
+      "pl-PL": "Niedozwoleni",
+      "uk-UA": "Не дозволено"
+    }
   },
   "wifi": {
-    "wifi": "Igen",
-    "wifi_nev": "Silvergarden",
-    "wifi_jelszo": "Balatonlive"
+    "wifi": {
+      "hu-HU": "Igen",
+      "en-US": "Yes",
+      "de-DE": "Ja",
+      "it-IT": "Sì",
+      "pl-PL": "Tak",
+      "uk-UA": "Так"
+    },
+    "wifi_nev": "SilverGarden",
+    "wifi_jelszo": "balatonlive"
   },
   "segitseg": {
-    "hiba": "Bármilyen hiba esetén kérjük, értesítse a recepciót.",
+    "hiba": {
+      "hu-HU": "Bármilyen hiba esetén kérjük, értesítse a recepciót.",
+      "en-US": "If there is any problem, please inform the reception.",
+      "de-DE": "Bitte informieren Sie die Rezeption, falls es irgendein Problem gibt.",
+      "it-IT": "In caso di qualsiasi problema, la preghiamo di informare la reception.",
+      "pl-PL": "W razie jakiegokolwiek problemu prosimy poinformować recepcję.",
+      "uk-UA": "У разі будь-якої проблеми, будь ласка, повідомте рецепцію."
+    },
     "surgosseg": "+36 70 408 9437",
     "segelyhivo": "112"
   },
   "kornyek": {
-    "strand": "Ezüstpart szabadstrand",
-    "ettermek": ["Valhalla Bistro", "Kiskert Étterem", "Hintaló Étterem", "Calypso Étterem"],
-    "kozel": ["Fordított ház", "éttermek", "boltok"],
-    "bolt": ["Spar", "Lidl"],
-    "vasut": "5 perc séta",
-    "busz": "2 perc séta"
+    "strand": {
+      "hu-HU": "Ezüstpart szabadstrand",
+      "en-US": "Ezüstpart free beach",
+      "de-DE": "Freistrand Ezüstpart",
+      "it-IT": "Spiaggia libera Ezüstpart",
+      "pl-PL": "Bezpłatna plaża Ezüstpart",
+      "uk-UA": "Безкоштовний пляж Ezüstpart"
+    },
+    "ettermek": {
+      "hu-HU": [
+        "Valhalla Bistro",
+        "Kiskert Étterem",
+        "Hintaló Étterem",
+        "Calypso Étterem"
+      ],
+      "en-US": [
+        "Valhalla Bistro",
+        "Kiskert Restaurant",
+        "Hintaló Restaurant",
+        "Calypso Restaurant"
+      ],
+      "de-DE": [
+        "Valhalla Bistro",
+        "Kiskert Restaurant",
+        "Hintaló Restaurant",
+        "Calypso Restaurant"
+      ],
+      "it-IT": [
+        "Valhalla Bistro",
+        "Kiskert Restaurant",
+        "Hintaló Restaurant",
+        "Calypso Restaurant"
+      ],
+      "pl-PL": [
+        "Valhalla Bistro",
+        "Kiskert Restaurant",
+        "Hintaló Restaurant",
+        "Calypso Restaurant"
+      ],
+      "uk-UA": [
+        "Valhalla Bistro",
+        "Kiskert Restaurant",
+        "Hintaló Restaurant",
+        "Calypso Restaurant"
+      ]
+    },
+    "kozel": {
+      "hu-HU": [
+        "Fordított ház",
+        "éttermek",
+        "boltok"
+      ],
+      "en-US": [
+        "Upside Down House",
+        "restaurants",
+        "shops"
+      ],
+      "de-DE": [
+        "Umgedrehtes Haus",
+        "Restaurants",
+        "Geschäfte"
+      ],
+      "it-IT": [
+        "Casa Capovolta",
+        "ristoranti",
+        "negozi"
+      ],
+      "pl-PL": [
+        "Dom do góry nogami",
+        "restauracje",
+        "sklepy"
+      ],
+      "uk-UA": [
+        "Будинок догори дриґом",
+        "ресторани",
+        "магазини"
+      ]
+    },
+    "bolt": {
+      "hu-HU": [
+        "Spar",
+        "Lidl"
+      ],
+      "en-US": [
+        "Spar",
+        "Lidl"
+      ],
+      "de-DE": [
+        "Spar",
+        "Lidl"
+      ],
+      "it-IT": [
+        "Spar",
+        "Lidl"
+      ],
+      "pl-PL": [
+        "Spar",
+        "Lidl"
+      ],
+      "uk-UA": [
+        "Spar",
+        "Lidl"
+      ]
+    },
+    "vasut": {
+      "hu-HU": "5 perc séta",
+      "en-US": "5-minute walk",
+      "de-DE": "5 Minuten zu Fuß",
+      "it-IT": "5 minuti a piedi",
+      "pl-PL": "5 minut spacerem",
+      "uk-UA": "5 хвилин пішки"
+    },
+    "busz": {
+      "hu-HU": "2 perc séta",
+      "en-US": "2-minute walk",
+      "de-DE": "2 Minuten zu Fuß",
+      "it-IT": "2 minuti a piedi",
+      "pl-PL": "2 minuty spacerem",
+      "uk-UA": "2 хвилини пішки"
+    }
   },
   "chatbot_szabalyok": {
     "mondhat_nem_tudom": true,
@@ -122,7 +975,14 @@
     "megadhat_telefon": true,
     "kiadhat_kod": true,
     "mondhat_arak": true,
-    "stilus_valasz": "Kedves, udvarias, segítőkész"
+    "stilus_valasz": {
+      "hu-HU": "Kedves, udvarias, segítőkész",
+      "en-US": "Kind, polite, helpful",
+      "de-DE": "Freundlich, höflich, hilfsbereit",
+      "it-IT": "Gentile, cortese, disponibile",
+      "pl-PL": "Miły, uprzejmy, pomocny",
+      "uk-UA": "Доброзичливий, ввічливий, корисний"
+    }
   },
   "faq": [
     {
@@ -142,11 +1002,19 @@
         "when can i check in",
         "what time is check in",
         "check in time",
-        "arrival time"
+        "arrival time",
+        "mikor erkezhetunk",
+        "hanyra mehetunk",
+        "hany orakor erkezhetunk",
+        "mikor vehetjuk at a szobat"
       ],
       "valaszok": {
-        "hu-HU": "Check-in 14:00 órától lehetséges, self check-in 24 órában elérhető.",
-        "en-US": "Check-in is available from 2:00 PM, and self check-in is available 24 hours a day."
+        "hu-HU": "Csekin 14:00 órától lehetséges, szelf csekin 24 órában elérhető.",
+        "en-US": "Check-in is available from 2:00 PM, and self check-in is available 24 hours a day.",
+        "de-DE": "Der Check-in ist ab 14:00 Uhr möglich, und der Self-Check-in ist rund um die Uhr verfügbar.",
+        "it-IT": "Il check-in è disponibile dalle 14:00 e il self check-in è disponibile 24 ore su 24.",
+        "pl-PL": "Zameldowanie jest możliwe od 14:00, a samodzielne zameldowanie jest dostępne przez całą dobę.",
+        "uk-UA": "Заїзд можливий з 14:00, а самостійне заселення доступне цілодобово."
       }
     },
     {
@@ -163,8 +1031,12 @@
         "can i check in late"
       ],
       "valaszok": {
-        "hu-HU": "Nincs check-in határidő, self check-in 24 órában elérhető.",
-        "en-US": "There is no check-in deadline. Self check-in is available 24 hours a day."
+        "hu-HU": "Nincs csekin határidő, szelf csekin 24 órában elérhető.",
+        "en-US": "There is no check-in deadline. Self check-in is available 24 hours a day.",
+        "de-DE": "Es gibt keine Check-in-Frist. Der Self-Check-in ist 24 Stunden am Tag verfügbar.",
+        "it-IT": "Non c'è un orario limite per il check-in. Il self check-in è disponibile 24 ore su 24.",
+        "pl-PL": "Nie ma ostatecznej godziny zameldowania. Samodzielne zameldowanie jest dostępne przez całą dobę.",
+        "uk-UA": "Кінцевого часу для заїзду немає. Самостійне заселення доступне цілодобово."
       }
     },
     {
@@ -185,7 +1057,11 @@
       ],
       "valaszok": {
         "hu-HU": "Check-out 10:00 óráig szükséges.",
-        "en-US": "Check-out is required by 10:00 AM."
+        "en-US": "Check-out is required by 10:00 AM.",
+        "de-DE": "Der Check-out ist bis 10:00 Uhr erforderlich.",
+        "it-IT": "Il check-out deve essere effettuato entro le 10:00.",
+        "pl-PL": "Wymeldowanie należy zrealizować do godziny 10:00.",
+        "uk-UA": "Виїзд потрібно здійснити до 10:00."
       }
     },
     {
@@ -201,7 +1077,11 @@
       ],
       "valaszok": {
         "hu-HU": "Késői check-out díj ellenében, elérhetőség függvényében kérhető.",
-        "en-US": "Late check-out is available for an extra fee, subject to availability."
+        "en-US": "Late check-out is available for an extra fee, subject to availability.",
+        "de-DE": "Ein später Check-out ist gegen Aufpreis und je nach Verfügbarkeit möglich.",
+        "it-IT": "Il late check-out è disponibile a pagamento, in base alla disponibilità.",
+        "pl-PL": "Późne wymeldowanie jest możliwe za dodatkową opłatą, w zależności od dostępności.",
+        "uk-UA": "Пізній виїзд можливий за додаткову плату, за наявності вільних місць."
       }
     },
     {
@@ -216,7 +1096,11 @@
       ],
       "valaszok": {
         "hu-HU": "Korai érkezés díj ellenében, elérhetőség függvényében lehetséges.",
-        "en-US": "Early check-in is possible for an extra fee, subject to availability."
+        "en-US": "Early check-in is possible for an extra fee, subject to availability.",
+        "de-DE": "Ein früher Check-in ist gegen Aufpreis und je nach Verfügbarkeit möglich.",
+        "it-IT": "Il check-in anticipato è possibile a pagamento, in base alla disponibilità.",
+        "pl-PL": "Wcześniejsze zameldowanie jest możliwe za dodatkową opłatą, w zależności od dostępności.",
+        "uk-UA": "Ранній заїзд можливий за додаткову плату, за наявності вільних місць."
       }
     },
     {
@@ -232,7 +1116,11 @@
       ],
       "valaszok": {
         "hu-HU": "Csomagmegőrzés díjmentesen lehetséges.",
-        "en-US": "Luggage storage is available free of charge."
+        "en-US": "Luggage storage is available free of charge.",
+        "de-DE": "Eine Gepäckaufbewahrung ist kostenlos möglich.",
+        "it-IT": "Il deposito bagagli è disponibile gratuitamente.",
+        "pl-PL": "Przechowalnia bagażu jest dostępna bezpłatnie.",
+        "uk-UA": "Зберігання багажу доступне безкоштовно."
       }
     },
     {
@@ -245,11 +1133,26 @@
         "bejelentkezeshez kell okmany",
         "do i need id",
         "passport needed",
-        "id card needed"
+        "id card needed",
+        "okmany szukseges",
+        "okmány szükséges",
+        "kell szemelyi",
+        "kell személyi",
+        "kell igazolvany",
+        "kell igazolvány",
+        "szemelyi kell",
+        "személyi kell",
+        "check inhez kell okmany",
+        "check inhez kell okmány",
+        "check inhez kell személyi"
       ],
       "valaszok": {
         "hu-HU": "Igen, bejelentkezéshez okmány szükséges.",
-        "en-US": "Yes, an ID document is required for check-in."
+        "en-US": "Yes, an ID document is required for check-in.",
+        "de-DE": "Ja, für den Check-in ist ein Ausweisdokument erforderlich.",
+        "it-IT": "Sì, per il check-in è richiesto un documento d'identità.",
+        "pl-PL": "Tak, do zameldowania wymagany jest dokument tożsamości.",
+        "uk-UA": "Так, для заселення потрібен документ, що посвідчує особу."
       }
     },
     {
@@ -266,7 +1169,11 @@
       ],
       "valaszok": {
         "hu-HU": "A kulcsátadás automatikus, self check-in rendszerrel történik.",
-        "en-US": "Key handover is automatic through the self check-in system."
+        "en-US": "Key handover is automatic through the self check-in system.",
+        "de-DE": "Die Schlüsselübergabe erfolgt automatisch über das Self-Check-in-System.",
+        "it-IT": "La consegna della chiave avviene automaticamente tramite il sistema di self check-in.",
+        "pl-PL": "Przekazanie klucza odbywa się automatycznie przez system samodzielnego zameldowania.",
+        "uk-UA": "Передача ключа відбувається автоматично через систему самостійного заселення."
       }
     },
     {
@@ -280,7 +1187,11 @@
       ],
       "valaszok": {
         "hu-HU": "Az elveszett kulcs díjfizetési kötelezettséggel jár.",
-        "en-US": "A lost key will result in an extra charge."
+        "en-US": "A lost key will result in an extra charge.",
+        "de-DE": "Bei Verlust des Schlüssels wird eine Gebühr berechnet.",
+        "it-IT": "La perdita della chiave comporta un costo aggiuntivo.",
+        "pl-PL": "Zgubienie klucza wiąże się z dodatkową opłatą.",
+        "uk-UA": "У разі втрати ключа стягується додаткова плата."
       }
     },
     {
@@ -296,7 +1207,11 @@
       ],
       "valaszok": {
         "hu-HU": "Foglalás online és telefonon is lehetséges.",
-        "en-US": "Booking is available online and by phone."
+        "en-US": "Booking is available online and by phone.",
+        "de-DE": "Buchungen sind online und telefonisch möglich.",
+        "it-IT": "La prenotazione è possibile online e telefonicamente.",
+        "pl-PL": "Rezerwacji można dokonać online oraz telefonicznie.",
+        "uk-UA": "Бронювання можливе онлайн і телефоном."
       }
     },
     {
@@ -315,7 +1230,11 @@
       ],
       "valaszok": {
         "hu-HU": "Fizetési módok: bankkártya, utalás, Revolut és készpénz.",
-        "en-US": "Payment methods: credit card, bank transfer, Revolut, and cash."
+        "en-US": "Payment methods: credit card, bank transfer, Revolut, and cash.",
+        "de-DE": "Zahlungsmethoden: Bankkarte, Überweisung, Revolut und Bargeld.",
+        "it-IT": "Metodi di pagamento: carta bancaria, bonifico, Revolut e contanti.",
+        "pl-PL": "Metody płatności: karta bankowa, przelew, Revolut i gotówka.",
+        "uk-UA": "Способи оплати: банківська картка, переказ, Revolut і готівка."
       }
     },
     {
@@ -330,7 +1249,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, SZÉP kártyát elfogadunk.",
-        "en-US": "Yes, we accept SZÉP Card."
+        "en-US": "Yes, we accept SZÉP Card.",
+        "de-DE": "Ja, wir akzeptieren die SZÉP-Karte.",
+        "it-IT": "Sì, accettiamo la carta SZÉP.",
+        "pl-PL": "Tak, akceptujemy kartę SZÉP.",
+        "uk-UA": "Так, ми приймаємо картку SZÉP."
       }
     },
     {
@@ -345,7 +1268,11 @@
       ],
       "valaszok": {
         "hu-HU": "Előrefizetés esetenként szükséges.",
-        "en-US": "Prepayment may be required in some cases."
+        "en-US": "Prepayment may be required in some cases.",
+        "de-DE": "In einigen Fällen kann eine Vorauszahlung erforderlich sein.",
+        "it-IT": "In alcuni casi potrebbe essere richiesto un pagamento anticipato.",
+        "pl-PL": "W niektórych przypadkach może być wymagana przedpłata.",
+        "uk-UA": "У деяких випадках може знадобитися передоплата."
       }
     },
     {
@@ -360,7 +1287,11 @@
       ],
       "valaszok": {
         "hu-HU": "A lemondási feltételek foglalástól függően változnak.",
-        "en-US": "Cancellation terms vary depending on the booking."
+        "en-US": "Cancellation terms vary depending on the booking.",
+        "de-DE": "Die Stornierungsbedingungen variieren je nach Buchung.",
+        "it-IT": "Le condizioni di cancellazione variano a seconda della prenotazione.",
+        "pl-PL": "Warunki anulacji różnią się w zależności od rezerwacji.",
+        "uk-UA": "Умови скасування залежать від бронювання."
       }
     },
     {
@@ -373,7 +1304,11 @@
       ],
       "valaszok": {
         "hu-HU": "A no-show feltételek foglalástól függően változnak.",
-        "en-US": "No-show conditions vary depending on the booking."
+        "en-US": "No-show conditions vary depending on the booking.",
+        "de-DE": "Die No-Show-Bedingungen variieren je nach Buchung.",
+        "it-IT": "Le condizioni di mancato arrivo variano a seconda della prenotazione.",
+        "pl-PL": "Warunki dotyczące niepojawienia się różnią się w zależności od rezerwacji.",
+        "uk-UA": "Умови незаїзду залежать від бронювання."
       }
     },
     {
@@ -388,7 +1323,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, számla kérhető.",
-        "en-US": "Yes, an invoice can be provided."
+        "en-US": "Yes, an invoice can be provided.",
+        "de-DE": "Ja, eine Rechnung kann ausgestellt werden.",
+        "it-IT": "Sì, è possibile richiedere una fattura.",
+        "pl-PL": "Tak, można otrzymać fakturę.",
+        "uk-UA": "Так, рахунок-фактуру можна отримати."
       }
     },
     {
@@ -396,14 +1335,18 @@
       "kerdesek": [
         "mennyi az ifa",
         "idegenforgalmi ado",
-        "turistaado",
+        "mennyi az idegenforgalmi adó",
         "tourist tax",
         "city tax",
         "local tax"
       ],
       "valaszok": {
         "hu-HU": "Az IFA 2 EUR / fő / éj.",
-        "en-US": "The tourist tax is 2 EUR per person per night."
+        "en-US": "The tourist tax is 2 EUR per person per night.",
+        "de-DE": "Die Kurtaxe beträgt 2 EUR pro Person und Nacht.",
+        "it-IT": "La tassa di soggiorno è di 2 EUR a persona per notte.",
+        "pl-PL": "Podatek turystyczny wynosi 2 EUR za osobę za noc.",
+        "uk-UA": "Туристичний податок становить 2 EUR з особи за ніч."
       }
     },
     {
@@ -418,7 +1361,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, reggeli elérhető.",
-        "en-US": "Yes, breakfast is available."
+        "en-US": "Yes, breakfast is available.",
+        "de-DE": "Ja, Frühstück ist verfügbar.",
+        "it-IT": "Sì, la colazione è disponibile.",
+        "pl-PL": "Tak, śniadanie jest dostępne.",
+        "uk-UA": "Так, сніданок доступний."
       }
     },
     {
@@ -435,7 +1382,11 @@
       ],
       "valaszok": {
         "hu-HU": "A reggeli 08:00–10:00 között érhető el.",
-        "en-US": "Breakfast is available between 8:00 AM and 10:00 AM."
+        "en-US": "Breakfast is available between 8:00 AM and 10:00 AM.",
+        "de-DE": "Das Frühstück ist zwischen 08:00 und 10:00 Uhr verfügbar.",
+        "it-IT": "La colazione è disponibile dalle 08:00 alle 10:00.",
+        "pl-PL": "Śniadanie jest dostępne w godzinach 08:00–10:00.",
+        "uk-UA": "Сніданок подається з 08:00 до 10:00."
       }
     },
     {
@@ -450,7 +1401,11 @@
       ],
       "valaszok": {
         "hu-HU": "A reggeli à la carte rendszerben érhető el.",
-        "en-US": "Breakfast is served à la carte."
+        "en-US": "Breakfast is served à la carte.",
+        "de-DE": "Das Frühstück wird à la carte serviert.",
+        "it-IT": "La colazione viene servita à la carte.",
+        "pl-PL": "Śniadanie serwowane jest à la carte.",
+        "uk-UA": "Сніданок подається по меню à la carte."
       }
     },
     {
@@ -464,7 +1419,11 @@
       ],
       "valaszok": {
         "hu-HU": "A reggeli ára 8 EUR / fő / nap.",
-        "en-US": "Breakfast costs 8 EUR per person per day."
+        "en-US": "Breakfast costs 8 EUR per person per day.",
+        "de-DE": "Das Frühstück kostet 8 EUR pro Person und Tag.",
+        "it-IT": "La colazione costa 8 EUR a persona al giorno.",
+        "pl-PL": "Śniadanie kosztuje 8 EUR za osobę za dzień.",
+        "uk-UA": "Сніданок коштує 8 EUR з особи на день."
       }
     },
     {
@@ -479,7 +1438,11 @@
       ],
       "valaszok": {
         "hu-HU": "Gluténmentes és laktózmentes opció felár ellenében elérhető.",
-        "en-US": "Gluten-free and lactose-free options are available for an extra charge."
+        "en-US": "Gluten-free and lactose-free options are available for an extra charge.",
+        "de-DE": "Glutenfreie und laktosefreie Optionen sind gegen Aufpreis verfügbar.",
+        "it-IT": "Opzioni senza glutine e senza lattosio sono disponibili con supplemento.",
+        "pl-PL": "Opcje bezglutenowe i bezlaktozowe są dostępne za dodatkową opłatą.",
+        "uk-UA": "Безглютенові та безлактозні варіанти доступні за додаткову плату."
       }
     },
     {
@@ -501,7 +1464,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, kültéri konyha elérhető.",
-        "en-US": "Yes, an outdoor kitchen is available."
+        "en-US": "Yes, an outdoor kitchen is available.",
+        "de-DE": "Ja, eine Außenküche ist verfügbar.",
+        "it-IT": "Sì, è disponibile una cucina esterna.",
+        "pl-PL": "Tak, dostępna jest kuchnia zewnętrzna.",
+        "uk-UA": "Так, доступна літня кухня."
       }
     },
     {
@@ -517,7 +1484,11 @@
       ],
       "valaszok": {
         "hu-HU": "Külsős ételrendelés lehetséges.",
-        "en-US": "Outside food delivery is allowed."
+        "en-US": "Outside food delivery is allowed.",
+        "de-DE": "Essenslieferungen von außerhalb sind möglich.",
+        "it-IT": "È consentito ordinare cibo dall'esterno.",
+        "pl-PL": "Można zamawiać jedzenie z zewnątrz.",
+        "uk-UA": "Можна замовляти їжу ззовні."
       }
     },
     {
@@ -531,7 +1502,11 @@
       ],
       "valaszok": {
         "hu-HU": "Elérhető szobatípusok: Classic, Deluxe és Family apartman.",
-        "en-US": "Available room types: Classic, Deluxe, and Family Apartment."
+        "en-US": "Available room types: Classic, Deluxe, and Family Apartment.",
+        "de-DE": "Verfügbare Zimmertypen: Classic, Deluxe und Family Apartment.",
+        "it-IT": "Tipi di camera disponibili: Classic, Deluxe e Appartamento Family.",
+        "pl-PL": "Dostępne typy pokoi: Classic, Deluxe oraz Apartament Family.",
+        "uk-UA": "Доступні типи номерів: Classic, Deluxe та Family Apartment."
       }
     },
     {
@@ -545,7 +1520,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, minden szobához tartozik erkély.",
-        "en-US": "Yes, every room has a balcony."
+        "en-US": "Yes, every room has a balcony.",
+        "de-DE": "Ja, jedes Zimmer verfügt über einen Balkon.",
+        "it-IT": "Sì, ogni camera ha un balcone.",
+        "pl-PL": "Tak, każdy pokój ma balkon.",
+        "uk-UA": "Так, кожен номер має балкон."
       }
     },
     {
@@ -560,7 +1539,11 @@
       ],
       "valaszok": {
         "hu-HU": "A szobák kertre nézőek.",
-        "en-US": "The rooms have a garden view."
+        "en-US": "The rooms have a garden view.",
+        "de-DE": "Die Zimmer haben Gartenblick.",
+        "it-IT": "Le camere hanno vista sul giardino.",
+        "pl-PL": "Pokoje mają widok na ogród.",
+        "uk-UA": "Номери мають вид на сад."
       }
     },
     {
@@ -574,22 +1557,49 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, minden szobához saját fürdőszoba tartozik.",
-        "en-US": "Yes, every room has a private bathroom."
+        "en-US": "Yes, every room has a private bathroom.",
+        "de-DE": "Ja, jedes Zimmer verfügt über ein eigenes Badezimmer.",
+        "it-IT": "Sì, ogni camera dispone di un bagno privato.",
+        "pl-PL": "Tak, każdy pokój ma prywatną łazienkę.",
+        "uk-UA": "Так, у кожному номері є власна ванна кімната."
       }
     },
     {
       "id": "klima",
       "kerdesek": [
-        "van klima",
+        "van klima a szobákban",
         "legkondi van",
         "klimatizalt",
         "air conditioning",
         "ac",
-        "is there air conditioning"
+        "is there air conditioning",
+        "van klima",
+        "van klíma",
+        "klima",
+        "klíma",
+        "van klima a szobaban",
+        "van klima a szobakban",
+        "van klíma a szobában",
+        "van klíma a szobákban",
+        "a szobaban van klima",
+        "a szobában van klíma",
+        "a szobakban van klima",
+        "a szobákban van klíma",
+        "legkondi",
+        "van legkondi",
+        "klimás a szoba",
+        "klimas a szoba",
+        "aircon",
+        "air con",
+        "do rooms have air conditioning"
       ],
       "valaszok": {
         "hu-HU": "Igen, minden szobában van klíma.",
-        "en-US": "Yes, all rooms have air conditioning."
+        "en-US": "Yes, all rooms have air conditioning.",
+        "de-DE": "Ja, alle Zimmer sind klimatisiert.",
+        "it-IT": "Sì, tutte le camere sono dotate di aria condizionata.",
+        "pl-PL": "Tak, wszystkie pokoje mają klimatyzację.",
+        "uk-UA": "Так, у всіх номерах є кондиціонер."
       }
     },
     {
@@ -602,7 +1612,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, minden szobában van fűtés.",
-        "en-US": "Yes, all rooms have heating."
+        "en-US": "Yes, all rooms have heating.",
+        "de-DE": "Ja, alle Zimmer verfügen über Heizung.",
+        "it-IT": "Sì, tutte le camere dispongono di riscaldamento.",
+        "pl-PL": "Tak, wszystkie pokoje mają ogrzewanie.",
+        "uk-UA": "Так, у всіх номерах є опалення."
       }
     },
     {
@@ -611,14 +1625,22 @@
         "van tv",
         "okos tv",
         "smart tv",
-        "televizió",
+        "televizio",
         "television",
         "van a szobában televizió",
-        "is there tv in the room"
+        "is there tv in the room",
+        "van tv a szobaban",
+        "van tv a szobákban",
+        "a szobaban van tv",
+        "a szobában van tv"
       ],
       "valaszok": {
         "hu-HU": "Igen, minden szobában okos TV található.",
-        "en-US": "Yes, every room has a smart TV."
+        "en-US": "Yes, every room has a smart TV.",
+        "de-DE": "Ja, jedes Zimmer verfügt über einen Smart-TV.",
+        "it-IT": "Sì, ogni camera dispone di una Smart TV.",
+        "pl-PL": "Tak, każdy pokój ma telewizor Smart TV.",
+        "uk-UA": "Так, у кожному номері є Smart TV."
       }
     },
     {
@@ -631,7 +1653,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, minden szobában van hajszárító.",
-        "en-US": "Yes, every room has a hair dryer."
+        "en-US": "Yes, every room has a hair dryer.",
+        "de-DE": "Ja, in jedem Zimmer gibt es einen Haartrockner.",
+        "it-IT": "Sì, ogni camera è dotata di asciugacapelli.",
+        "pl-PL": "Tak, w każdym pokoju jest suszarka do włosów.",
+        "uk-UA": "Так, у кожному номері є фен."
       }
     },
     {
@@ -644,7 +1670,11 @@
       ],
       "valaszok": {
         "hu-HU": "Kávégép igényelhető.",
-        "en-US": "A coffee machine can be requested."
+        "en-US": "A coffee machine can be requested.",
+        "de-DE": "Eine Kaffeemaschine kann angefragt werden.",
+        "it-IT": "È possibile richiedere una macchina da caffè.",
+        "pl-PL": "Można poprosić o ekspres do kawy.",
+        "uk-UA": "Кавоварку можна замовити за запитом."
       }
     },
     {
@@ -655,11 +1685,19 @@
         "mini bar van",
         "fridge",
         "is there a fridge",
-        "mini fridge"
+        "mini fridge",
+        "van huto a szobakban",
+        "van hűtő a szobákban",
+        "a szobaban van huto",
+        "a szobában van hűtő"
       ],
       "valaszok": {
         "hu-HU": "A szobákban nincs hűtő, csak közös hűtő áll rendelkezésre.",
-        "en-US": "There is no fridge in the rooms, but a shared fridge is available."
+        "en-US": "There is no fridge in the rooms, but a shared fridge is available.",
+        "de-DE": "In den Zimmern gibt es keinen Kühlschrank, aber ein Gemeinschaftskühlschrank ist verfügbar.",
+        "it-IT": "Nelle camere non c'è il frigorifero, ma è disponibile un frigorifero in comune.",
+        "pl-PL": "W pokojach nie ma lodówki, ale dostępna jest wspólna lodówka.",
+        "uk-UA": "У номерах немає холодильника, але доступний спільний холодильник."
       }
     },
     {
@@ -674,7 +1712,11 @@
       ],
       "valaszok": {
         "hu-HU": "Takarítás díj ellenében kérhető.",
-        "en-US": "Cleaning is available for an extra fee."
+        "en-US": "Cleaning is available for an extra fee.",
+        "de-DE": "Eine Reinigung ist gegen Aufpreis verfügbar.",
+        "it-IT": "La pulizia è disponibile a pagamento.",
+        "pl-PL": "Sprzątanie jest dostępne za dodatkową opłatą.",
+        "uk-UA": "Прибирання доступне за додаткову плату."
       }
     },
     {
@@ -687,7 +1729,11 @@
       ],
       "valaszok": {
         "hu-HU": "Törölközőcsere kérésre lehetséges.",
-        "en-US": "Towel change is available on request."
+        "en-US": "Towel change is available on request.",
+        "de-DE": "Ein Handtuchwechsel ist auf Anfrage möglich.",
+        "it-IT": "Il cambio degli asciugamani è disponibile su richiesta.",
+        "pl-PL": "Wymiana ręczników jest możliwa na życzenie.",
+        "uk-UA": "Заміна рушників можлива за запитом."
       }
     },
     {
@@ -700,7 +1746,11 @@
       ],
       "valaszok": {
         "hu-HU": "Ágyneműcsere kérésre lehetséges.",
-        "en-US": "Bed linen change is available on request."
+        "en-US": "Bed linen change is available on request.",
+        "de-DE": "Ein Bettwäschewechsel ist auf Anfrage möglich.",
+        "it-IT": "Il cambio della biancheria da letto è disponibile su richiesta.",
+        "pl-PL": "Wymiana pościeli jest możliwa na życzenie.",
+        "uk-UA": "Заміна постільної білизни можлива за запитом."
       }
     },
     {
@@ -713,7 +1763,11 @@
       ],
       "valaszok": {
         "hu-HU": "Nincs dohányzó szoba.",
-        "en-US": "There are no smoking rooms."
+        "en-US": "There are no smoking rooms.",
+        "de-DE": "Es gibt keine Raucherzimmer.",
+        "it-IT": "Non ci sono camere per fumatori.",
+        "pl-PL": "Nie ma pokoi dla palących.",
+        "uk-UA": "Номерів для курців немає."
       }
     },
     {
@@ -726,7 +1780,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, wellness elérhető.",
-        "en-US": "Yes, wellness facilities are available."
+        "en-US": "Yes, wellness facilities are available.",
+        "de-DE": "Ja, Wellnessangebote sind verfügbar.",
+        "it-IT": "Sì, i servizi wellness sono disponibili.",
+        "pl-PL": "Tak, strefa wellness jest dostępna.",
+        "uk-UA": "Так, wellness-зона доступна."
       }
     },
     {
@@ -743,7 +1801,11 @@
       ],
       "valaszok": {
         "hu-HU": "A wellness részlegben szauna, jakuzzi és medence található.",
-        "en-US": "The wellness area includes a sauna, jacuzzi, and pool."
+        "en-US": "The wellness area includes a sauna, jacuzzi, and pool.",
+        "de-DE": "Der Wellnessbereich umfasst eine Sauna, einen Whirlpool und einen Pool.",
+        "it-IT": "L'area wellness comprende sauna, jacuzzi e piscina.",
+        "pl-PL": "Strefa wellness obejmuje saunę, jacuzzi i basen.",
+        "uk-UA": "У wellness-зоні є сауна, джакузі та басейн."
       }
     },
     {
@@ -758,7 +1820,11 @@
       ],
       "valaszok": {
         "hu-HU": "A wellness 09:00–21:00 között érhető el.",
-        "en-US": "The wellness area is open from 9:00 AM to 9:00 PM."
+        "en-US": "The wellness area is open from 9:00 AM to 9:00 PM.",
+        "de-DE": "Der Wellnessbereich ist von 09:00 bis 21:00 Uhr geöffnet.",
+        "it-IT": "L'area wellness è aperta dalle 09:00 alle 21:00.",
+        "pl-PL": "Strefa wellness jest czynna w godzinach 09:00–21:00.",
+        "uk-UA": "Wellness-зона працює з 09:00 до 21:00."
       }
     },
     {
@@ -772,7 +1838,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, a wellness használatához előzetes foglalás szükséges.",
-        "en-US": "Yes, advance booking is required for wellness use."
+        "en-US": "Yes, advance booking is required for wellness use.",
+        "de-DE": "Ja, für die Nutzung des Wellnessbereichs ist eine vorherige Reservierung erforderlich.",
+        "it-IT": "Sì, per utilizzare il wellness è necessaria la prenotazione anticipata.",
+        "pl-PL": "Tak, korzystanie ze strefy wellness wymaga wcześniejszej rezerwacji.",
+        "uk-UA": "Так, для користування wellness-зоною потрібне попереднє бронювання."
       }
     },
     {
@@ -785,7 +1855,11 @@
       ],
       "valaszok": {
         "hu-HU": "Masszázs előzetes foglalással elérhető.",
-        "en-US": "Massage is available with advance booking."
+        "en-US": "Massage is available with advance booking.",
+        "de-DE": "Massagen sind nach vorheriger Reservierung verfügbar.",
+        "it-IT": "Il massaggio è disponibile con prenotazione anticipata.",
+        "pl-PL": "Masaż jest dostępny po wcześniejszej rezerwacji.",
+        "uk-UA": "Масаж доступний за попереднім бронюванням."
       }
     },
     {
@@ -800,11 +1874,19 @@
         "parking",
         "is there parking",
         "free parking",
-        "where can i park"
+        "where can i park",
+        "tudok parkolni",
+        "lehet parkolni",
+        "hol tudok parkolni",
+        "hol tudunk parkolni"
       ],
       "valaszok": {
         "hu-HU": "Parkolás ingyenesen elérhető az épület előtt, a helyek száma korlátozott.",
-        "en-US": "Free parking is available in front of the building, but spaces are limited."
+        "en-US": "Free parking is available in front of the building, but spaces are limited.",
+        "de-DE": "Kostenlose Parkplätze stehen vor dem Gebäude zur Verfügung, die Anzahl der Plätze ist jedoch begrenzt.",
+        "it-IT": "Il parcheggio gratuito è disponibile davanti all'edificio, ma i posti sono limitati.",
+        "pl-PL": "Bezpłatny parking jest dostępny przed budynkiem, ale liczba miejsc jest ograniczona.",
+        "uk-UA": "Безкоштовне паркування доступне перед будівлею, але кількість місць обмежена."
       }
     },
     {
@@ -818,7 +1900,11 @@
       ],
       "valaszok": {
         "hu-HU": "A parkolóhelyek száma korlátozott.",
-        "en-US": "The number of parking spaces is limited."
+        "en-US": "The number of parking spaces is limited.",
+        "de-DE": "Die Anzahl der Parkplätze ist begrenzt.",
+        "it-IT": "Il numero di posti auto è limitato.",
+        "pl-PL": "Liczba miejsc parkingowych jest ograniczona.",
+        "uk-UA": "Кількість паркувальних місць обмежена."
       }
     },
     {
@@ -833,7 +1919,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, elektromosautó-töltő elérhető.",
-        "en-US": "Yes, an electric vehicle charger is available."
+        "en-US": "Yes, an electric vehicle charger is available.",
+        "de-DE": "Ja, eine Ladestation für Elektroautos ist verfügbar.",
+        "it-IT": "Sì, è disponibile un caricatore per veicoli elettrici.",
+        "pl-PL": "Tak, dostępna jest ładowarka do samochodów elektrycznych.",
+        "uk-UA": "Так, доступна зарядка для електромобілів."
       }
     },
     {
@@ -850,7 +1940,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, kisállat behozható.",
-        "en-US": "Yes, pets are allowed."
+        "en-US": "Yes, pets are allowed.",
+        "de-DE": "Ja, Haustiere sind erlaubt.",
+        "it-IT": "Sì, gli animali domestici sono ammessi.",
+        "pl-PL": "Tak, zwierzęta są akceptowane.",
+        "uk-UA": "Так, домашні тварини дозволені."
       }
     },
     {
@@ -865,21 +1959,29 @@
       ],
       "valaszok": {
         "hu-HU": "A kisállat díja 4000 forint per éj.",
-        "en-US": "The pet fee is 4000 HUF per night."
+        "en-US": "The pet fee is 4000 HUF per night.",
+        "de-DE": "Die Gebühr für Haustiere beträgt 4000 HUF pro Nacht.",
+        "it-IT": "Il supplemento per gli animali domestici è di 4000 HUF a notte.",
+        "pl-PL": "Opłata za zwierzę wynosi 4000 HUF za noc.",
+        "uk-UA": "Плата за домашню тварину становить 4000 HUF за ніч."
       }
     },
     {
-      "id": "dohanyzas",
+      "id": "lehet dohanyozni",
       "kerdesek": [
-        "lehet dohanyozni",
         "hol lehet dohanyozni",
-        "dohanyzas",
+        "merre lehet dohanyozni",
+        "dohanyzas megengedett",
         "smoking",
         "can i smoke"
       ],
       "valaszok": {
-        "hu-HU": "Dohányzás csak kijelölt helyen engedélyezett.",
-        "en-US": "Smoking is only allowed in designated areas."
+        "hu-HU": "Dohányzás csak kijelölt helyeken illetve a teraszokon, csukott ajtónál engedélyezett.",
+        "en-US": "Smoking is only allowed in designated areas and on room terraces with the door closed.",
+        "de-DE": "Rauchen ist nur in den ausgewiesenen Bereichen sowie auf den Terrassen bei geschlossener Tür erlaubt.",
+        "it-IT": "È consentito fumare solo nelle aree designate e sulle terrazze con la porta chiusa.",
+        "pl-PL": "Palenie jest dozwolone wyłącznie w wyznaczonych miejscach oraz na tarasach przy zamkniętych drzwiach.",
+        "uk-UA": "Куріння дозволено лише у спеціально відведених місцях та на терасах із зачиненими дверима."
       }
     },
     {
@@ -893,7 +1995,11 @@
       ],
       "valaszok": {
         "hu-HU": "A csendes időszak 21:00–09:00 között van.",
-        "en-US": "Quiet hours are from 9:00 PM to 9:00 AM."
+        "en-US": "Quiet hours are from 9:00 PM to 9:00 AM.",
+        "de-DE": "Die Ruhezeit gilt von 21:00 bis 09:00 Uhr.",
+        "it-IT": "L'orario di silenzio è dalle 21:00 alle 09:00.",
+        "pl-PL": "Cisza nocna obowiązuje od 21:00 do 09:00.",
+        "uk-UA": "Час тиші триває з 21:00 до 09:00."
       }
     },
     {
@@ -907,7 +2013,11 @@
       ],
       "valaszok": {
         "hu-HU": "Látogatók nem engedélyezettek.",
-        "en-US": "Visitors are not allowed."
+        "en-US": "Visitors are not allowed.",
+        "de-DE": "Besucher sind nicht erlaubt.",
+        "it-IT": "I visitatori non sono ammessi.",
+        "pl-PL": "Odwiedzający nie są dozwoleni.",
+        "uk-UA": "Відвідувачі не дозволені."
       }
     },
     {
@@ -922,7 +2032,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, wifi elérhető.",
-        "en-US": "Yes, Wi-Fi is available."
+        "en-US": "Yes, Wi-Fi is available.",
+        "de-DE": "Ja, WLAN ist verfügbar.",
+        "it-IT": "Sì, il Wi-Fi è disponibile.",
+        "pl-PL": "Tak, Wi‑Fi jest dostępne.",
+        "uk-UA": "Так, Wi‑Fi доступний."
       }
     },
     {
@@ -933,11 +2047,22 @@
         "mi a net jelszo",
         "what is the wifi",
         "wifi password",
-        "what is the wifi password"
+        "what is the wifi password",
+        "mi a wifi neve",
+        "wifi nev",
+        "wifi neve",
+        "mi a wifi neve es jelszava",
+        "mi a wifi név és jelszó",
+        "net jelszo",
+        "internet jelszo"
       ],
       "valaszok": {
         "hu-HU": "A wifi neve: Silvergarden, a jelszó: Balatonlive.",
-        "en-US": "The Wi-Fi name is Silvergarden and the password is Balatonlive."
+        "en-US": "The Wi-Fi name is Silvergarden and the password is Balatonlive.",
+        "de-DE": "Der WLAN-Name ist Silvergarden und das Passwort lautet Balatonlive.",
+        "it-IT": "Il nome della rete Wi-Fi è Silvergarden e la password è Balatonlive.",
+        "pl-PL": "Nazwa sieci Wi‑Fi to Silvergarden, a hasło to Balatonlive.",
+        "uk-UA": "Назва Wi‑Fi мережі: Silvergarden, пароль: Balatonlive."
       }
     },
     {
@@ -951,7 +2076,11 @@
       ],
       "valaszok": {
         "hu-HU": "Bármilyen hiba esetén kérjük, értesítse a recepciót.",
-        "en-US": "If anything is not working, please inform the reception."
+        "en-US": "If anything is not working, please inform the reception.",
+        "de-DE": "Falls etwas nicht funktioniert, informieren Sie bitte die Rezeption.",
+        "it-IT": "Se qualcosa non funziona, informi gentilmente la reception.",
+        "pl-PL": "Jeśli coś nie działa, prosimy poinformować recepcję.",
+        "uk-UA": "Якщо щось не працює, будь ласка, повідомте рецепцію."
       }
     },
     {
@@ -965,7 +2094,11 @@
       ],
       "valaszok": {
         "hu-HU": "Sürgős esetben ezen a számon érhető el segítség: +36 70 408 9437.",
-        "en-US": "In urgent cases, you can get help at this number: +36 70 408 9437."
+        "en-US": "In urgent cases, you can get help at this number: +36 70 408 9437.",
+        "de-DE": "In dringenden Fällen erreichen Sie Hilfe unter dieser Nummer: +36 70 408 9437.",
+        "it-IT": "In caso di urgenza, può ricevere assistenza a questo numero: +36 70 408 9437.",
+        "pl-PL": "W nagłych przypadkach pomoc jest dostępna pod numerem: +36 70 408 9437.",
+        "uk-UA": "У термінових випадках допомогу можна отримати за номером: +36 70 408 9437."
       }
     },
     {
@@ -979,7 +2112,11 @@
       ],
       "valaszok": {
         "hu-HU": "Az általános segélyhívó szám: 112.",
-        "en-US": "The general emergency number is 112."
+        "en-US": "The general emergency number is 112.",
+        "de-DE": "Die allgemeine Notrufnummer ist 112.",
+        "it-IT": "Il numero di emergenza generale è 112.",
+        "pl-PL": "Ogólny numer alarmowy to 112.",
+        "uk-UA": "Загальний номер екстреної допомоги: 112."
       }
     },
     {
@@ -994,7 +2131,11 @@
       ],
       "valaszok": {
         "hu-HU": "A közelben található az Ezüstpart szabadstrand.",
-        "en-US": "The nearby beach is the Ezüstpart free beach."
+        "en-US": "The nearby beach is the Ezüstpart free beach.",
+        "de-DE": "In der Nähe befindet sich der kostenlose Strand Ezüstpart.",
+        "it-IT": "Nelle vicinanze si trova la spiaggia libera Ezüstpart.",
+        "pl-PL": "W pobliżu znajduje się bezpłatna plaża Ezüstpart.",
+        "uk-UA": "Поруч знаходиться безкоштовний пляж Ezüstpart."
       }
     },
     {
@@ -1009,7 +2150,11 @@
       ],
       "valaszok": {
         "hu-HU": "A közelben több étterem is található, például Valhalla Bistro, Kiskert Étterem, Hintaló Étterem és Calypso Étterem.",
-        "en-US": "There are several restaurants nearby, such as Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant, and Calypso Restaurant."
+        "en-US": "There are several restaurants nearby, such as Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant, and Calypso Restaurant.",
+        "de-DE": "In der Nähe gibt es mehrere Restaurants, zum Beispiel Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant und Calypso Restaurant.",
+        "it-IT": "Nelle vicinanze ci sono diversi ristoranti, come Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant e Calypso Restaurant.",
+        "pl-PL": "W pobliżu znajduje się kilka restauracji, na przykład Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant i Calypso Restaurant.",
+        "uk-UA": "Поруч є кілька ресторанів, зокрема Valhalla Bistro, Kiskert Restaurant, Hintaló Restaurant та Calypso Restaurant."
       }
     },
     {
@@ -1024,7 +2169,11 @@
       ],
       "valaszok": {
         "hu-HU": "A közelben több bolt is található, például Spar és Lidl.",
-        "en-US": "There are several shops nearby, including Spar and Lidl."
+        "en-US": "There are several shops nearby, including Spar and Lidl.",
+        "de-DE": "In der Nähe gibt es mehrere Geschäfte, darunter Spar und Lidl.",
+        "it-IT": "Nelle vicinanze ci sono diversi negozi, tra cui Spar e Lidl.",
+        "pl-PL": "W pobliżu znajdują się sklepy, między innymi Spar i Lidl.",
+        "uk-UA": "Поруч є кілька магазинів, зокрема Spar і Lidl."
       }
     },
     {
@@ -1038,7 +2187,11 @@
       ],
       "valaszok": {
         "hu-HU": "A közelben éttermek, boltok és a Fordított ház is megtalálható.",
-        "en-US": "Nearby you can find restaurants, shops, and the Upside Down House."
+        "en-US": "Nearby you can find restaurants, shops, and the Upside Down House.",
+        "de-DE": "In der Nähe finden Sie Restaurants, Geschäfte und auch das Umgedrehte Haus.",
+        "it-IT": "Nelle vicinanze può trovare ristoranti, negozi e anche la Casa Capovolta.",
+        "pl-PL": "W pobliżu znajdują się restauracje, sklepy oraz Dom Do Góry Nogami.",
+        "uk-UA": "Поруч є ресторани, магазини та Будинок догори дриґом."
       }
     },
     {
@@ -1052,7 +2205,11 @@
       ],
       "valaszok": {
         "hu-HU": "A vasútállomás körülbelül 5 perc sétára található.",
-        "en-US": "The train station is about a 5-minute walk away."
+        "en-US": "The train station is about a 5-minute walk away.",
+        "de-DE": "Der Bahnhof ist etwa 5 Gehminuten entfernt.",
+        "it-IT": "La stazione ferroviaria si trova a circa 5 minuti a piedi.",
+        "pl-PL": "Dworzec kolejowy znajduje się około 5 minut spacerem stąd.",
+        "uk-UA": "Залізничний вокзал розташований приблизно за 5 хвилин ходьби."
       }
     },
     {
@@ -1066,7 +2223,11 @@
       ],
       "valaszok": {
         "hu-HU": "A buszmegálló körülbelül 2 perc sétára található.",
-        "en-US": "The bus stop is about a 2-minute walk away."
+        "en-US": "The bus stop is about a 2-minute walk away.",
+        "de-DE": "Die Bushaltestelle ist etwa 2 Gehminuten entfernt.",
+        "it-IT": "La fermata dell'autobus si trova a circa 2 minuti a piedi.",
+        "pl-PL": "Przystanek autobusowy znajduje się około 2 minuty spacerem stąd.",
+        "uk-UA": "Автобусна зупинка розташована приблизно за 2 хвилини ходьби."
       }
     },
     {
@@ -1076,11 +2237,20 @@
         "hotel telefonszama",
         "hogyan erem el onoket",
         "phone number",
-        "contact number"
+        "contact number",
+        "mi a recepcio szama",
+        "mi a recepció száma",
+        "mi a recepcio telefonszama",
+        "recepcio telefonszam",
+        "reception phone number"
       ],
       "valaszok": {
         "hu-HU": "Telefonos elérhetőség: +36 70 408 94 37.",
-        "en-US": "Phone number: +36 70 408 94 37."
+        "en-US": "Phone number: +36 70 408 94 37.",
+        "de-DE": "Telefonnummer: +36 70 408 94 37.",
+        "it-IT": "Numero di telefono: +36 70 408 94 37.",
+        "pl-PL": "Numer telefonu: +36 70 408 94 37.",
+        "uk-UA": "Номер телефону: +36 70 408 94 37."
       }
     },
     {
@@ -1090,11 +2260,20 @@
         "hotel email",
         "hova irhatok",
         "email address",
-        "contact email"
+        "contact email",
+        "mi az email",
+        "mi az e mail cim",
+        "mi az e-mail cim",
+        "email cim",
+        "e mail cim"
       ],
       "valaszok": {
         "hu-HU": "E-mail címünk: info@silvergarden.hu.",
-        "en-US": "Our email address is: info@silvergarden.hu."
+        "en-US": "Our email address is: info@silvergarden.hu.",
+        "de-DE": "Unsere E-Mail-Adresse lautet: info@silvergarden.hu.",
+        "it-IT": "Il nostro indirizzo e-mail è: info@silvergarden.hu.",
+        "pl-PL": "Nasz adres e-mail to: info@silvergarden.hu.",
+        "uk-UA": "Наша електронна адреса: info@silvergarden.hu."
       }
     },
     {
@@ -1107,7 +2286,11 @@
       ],
       "valaszok": {
         "hu-HU": "WhatsApp elérhetőség: +36 70 408 9437.",
-        "en-US": "WhatsApp contact: +36 70 408 9437."
+        "en-US": "WhatsApp contact: +36 70 408 9437.",
+        "de-DE": "WhatsApp-Kontakt: +36 70 408 9437.",
+        "it-IT": "Contatto WhatsApp: +36 70 408 9437.",
+        "pl-PL": "Kontakt WhatsApp: +36 70 408 9437.",
+        "uk-UA": "Контакт WhatsApp: +36 70 408 9437."
       }
     },
     {
@@ -1118,11 +2301,20 @@
         "pontos cim",
         "address",
         "hotel address",
-        "where are you located"
+        "where are you located",
+        "hol van a hotel",
+        "hol van a szallas",
+        "hol van a szállás",
+        "mi a pontos cim",
+        "mi a pontos cím"
       ],
       "valaszok": {
-        "hu-HU": "Cím: 8600 Siófok, Deák Ferenc sétány 57.",
-        "en-US": "Address: 8600 Siófok, Deák Ferenc sétány 57."
+        "hu-HU": "Cím: 8600 Siófok, Deák Ferenc sétány 57",
+        "en-US": "Address: 8600 Siófok, Deák Ferenc sétány 57",
+        "de-DE": "Adresse: 8600 Siófok, Deák Ferenc sétány 57",
+        "it-IT": "Indirizzo: 8600 Siófok, Deák Ferenc sétány 57",
+        "pl-PL": "Adres: 8600 Siófok, Deák Ferenc sétány 57",
+        "uk-UA": "Адреса: 8600 Siófok, Deák Ferenc sétány 57"
       }
     },
     {
@@ -1136,7 +2328,11 @@
       ],
       "valaszok": {
         "hu-HU": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
-        "en-US": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7"
+        "en-US": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
+        "de-DE": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
+        "it-IT": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
+        "pl-PL": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7",
+        "uk-UA": "Google Maps: https://maps.app.goo.gl/bf3tNMf9y2hSDFSY7"
       }
     },
     {
@@ -1150,7 +2346,11 @@
       ],
       "valaszok": {
         "hu-HU": "Weboldal: https://www.silvergarden.hu",
-        "en-US": "Website: https://www.silvergarden.hu"
+        "en-US": "Website: https://www.silvergarden.hu",
+        "de-DE": "Webseite: https://www.silvergarden.hu",
+        "it-IT": "Sito web: https://www.silvergarden.hu",
+        "pl-PL": "Strona internetowa: https://www.silvergarden.hu",
+        "uk-UA": "Вебсайт: https://www.silvergarden.hu"
       }
     },
     {
@@ -1164,7 +2364,11 @@
       ],
       "valaszok": {
         "hu-HU": "A szálláshelyen magyarul és angolul beszélünk.",
-        "en-US": "We speak Hungarian and English at the property."
+        "en-US": "We speak Hungarian and English at the property.",
+        "de-DE": "In der Unterkunft sprechen wir Ungarisch und Englisch.",
+        "it-IT": "Nella struttura parliamo ungherese e inglese.",
+        "pl-PL": "W obiekcie mówimy po węgiersku i po angielsku.",
+        "uk-UA": "У помешканні ми розмовляємо угорською та англійською мовами."
       }
     },
     {
@@ -1177,7 +2381,11 @@
       ],
       "valaszok": {
         "hu-HU": "A Silver Garden Siófok egy bed and breakfast, vakációs szálláshely.",
-        "en-US": "Silver Garden Siófok is a bed and breakfast holiday accommodation."
+        "en-US": "Silver Garden Siófok is a bed and breakfast holiday accommodation.",
+        "de-DE": "Das Silver Garden Siófok ist eine Bed-and-Breakfast-Ferienunterkunft.",
+        "it-IT": "Silver Garden Siófok è una struttura ricettiva bed and breakfast per vacanze.",
+        "pl-PL": "Silver Garden Siófok to obiekt typu bed and breakfast na wakacyjny pobyt.",
+        "uk-UA": "Silver Garden Siófok — це готель типу bed and breakfast для відпочинку."
       }
     },
     {
@@ -1191,7 +2399,11 @@
       ],
       "valaszok": {
         "hu-HU": "A Silver Garden ideális pihenő környezet, különösen nyári kikapcsolódásra.",
-        "en-US": "Silver Garden offers an ideal place to relax, especially for summer holidays."
+        "en-US": "Silver Garden offers an ideal place to relax, especially for summer holidays.",
+        "de-DE": "Silver Garden bietet eine ideale Umgebung zum Entspannen, besonders für den Sommerurlaub.",
+        "it-IT": "Silver Garden offre un ambiente ideale per rilassarsi, soprattutto per una vacanza estiva.",
+        "pl-PL": "Silver Garden oferuje idealne miejsce do wypoczynku, szczególnie na letni urlop.",
+        "uk-UA": "Silver Garden — ідеальне місце для відпочинку, особливо влітку."
       }
     },
     {
@@ -1212,7 +2424,11 @@
       ],
       "valaszok": {
         "hu-HU": "Igen, van lehetőség kerékpár tárolásra.",
-        "en-US": "Yes, bicycle storage is available."
+        "en-US": "Yes, bicycle storage is available.",
+        "de-DE": "Ja, es gibt eine Möglichkeit zur Fahrradaufbewahrung.",
+        "it-IT": "Sì, è disponibile un deposito per biciclette.",
+        "pl-PL": "Tak, dostępne jest miejsce do przechowywania rowerów.",
+        "uk-UA": "Так, є можливість зберігання велосипедів."
       }
     },
     {
@@ -1227,7 +2443,11 @@
       ],
       "valaszok": {
         "hu-HU": "Pótágy kérhető, ára 20 EUR / éj.",
-        "en-US": "An extra bed can be requested for 20 EUR per night."
+        "en-US": "An extra bed can be requested for 20 EUR per night.",
+        "de-DE": "Ein Zustellbett kann für 20 EUR pro Nacht angefragt werden.",
+        "it-IT": "È possibile richiedere un letto supplementare al costo di 20 EUR a notte.",
+        "pl-PL": "Dodatkowe łóżko można zamówić za 20 EUR za noc.",
+        "uk-UA": "Додаткове ліжко можна замовити за 20 EUR за ніч."
       }
     },
     {
@@ -1240,7 +2460,11 @@
       ],
       "valaszok": {
         "hu-HU": "Nincs fürdőköntös a szobákban.",
-        "en-US": "There is no bathrobe in the rooms."
+        "en-US": "There is no bathrobe in the rooms.",
+        "de-DE": "In den Zimmern gibt es keinen Bademantel.",
+        "it-IT": "Nelle camere non è presente l'accappatoio.",
+        "pl-PL": "W pokojach nie ma szlafroków.",
+        "uk-UA": "У номерах немає халатів."
       }
     },
     {
@@ -1253,8 +2477,65 @@
       ],
       "valaszok": {
         "hu-HU": "Nem lehet itt közvetlenül szobát foglalni. Foglalás kizárólag online rendszerben, telefonon vagy e-mailben lehetséges.",
-        "en-US": "You cannot book a room directly here. Booking is only available online, by phone, or by email."
+        "en-US": "You cannot book a room directly here. Booking is only available online, by phone, or by email.",
+        "de-DE": "Hier kann kein Zimmer direkt gebucht werden. Buchungen sind nur online, telefonisch oder per E-Mail möglich.",
+        "it-IT": "Non è possibile prenotare direttamente qui. La prenotazione è possibile solo online, per telefono o via e-mail.",
+        "pl-PL": "Nie można tutaj bezpośrednio zarezerwować pokoju. Rezerwacja jest możliwa wyłącznie online, telefonicznie lub przez e-mail.",
+        "uk-UA": "Тут не можна забронювати номер безпосередньо. Бронювання можливе лише онлайн, телефоном або електронною поштою."
+      }
+    },
+    {
+      "id": "vasalas",
+      "kerdesek": [
+        "van vasalo",
+        "van vasaló",
+        "van vasalodeszka",
+        "van vasalódeszka",
+        "kerhetek vasalot",
+        "kérhetek vasalót",
+        "kerhetek vasalodeszkat",
+        "kérhetek vasalódeszkát",
+        "van a szobaban vasalo",
+        "van a szobában vasaló",
+        "iron",
+        "ironing board",
+        "can i get an iron",
+        "do you have an iron"
+      ],
+      "valaszok": {
+        "hu-HU": "Igen, díj ellenében kérhető vasaló és vasalódeszka.",
+        "en-US": "Yes, an iron and ironing board are available for an extra fee.",
+        "de-DE": "Ja, ein Bügeleisen und ein Bügelbrett sind gegen Aufpreis erhältlich.",
+        "it-IT": "Sì, ferro e asse da stiro sono disponibili a pagamento.",
+        "pl-PL": "Tak, żelazko i deska do prasowania są dostępne za dodatkową opłatą.",
+        "uk-UA": "Так, праску та прасувальну дошку можна отримати за додаткову плату."
       }
     }
-  ]
+  ],
+  "vasalas": {
+    "elérhető": {
+      "hu-HU": "Igen, díj ellenében kérhető vasaló és vasalódeszka.",
+      "en-US": "Yes, an iron and ironing board are available for an extra fee.",
+      "de-DE": "Ja, ein Bügeleisen und ein Bügelbrett sind gegen Aufpreis erhältlich.",
+      "it-IT": "Sì, ferro e asse da stiro sono disponibili a pagamento.",
+      "pl-PL": "Tak, żelazko i deska do prasowania są dostępne za dodatkową opłatą.",
+      "uk-UA": "Так, праску та прасувальну дошку можна отримати за додаткову плату."
+    },
+    "vasalo": {
+      "hu-HU": "Díj ellenében kérhető vasaló és vasalódeszka.",
+      "en-US": "An iron and ironing board are available for an extra fee.",
+      "de-DE": "Ein Bügeleisen und ein Bügelbrett sind gegen Aufpreis erhältlich.",
+      "it-IT": "Ferro e asse da stiro sono disponibili a pagamento.",
+      "pl-PL": "Żelazko i deska do prasowania są dostępne za dodatkową opłatą.",
+      "uk-UA": "Праска та прасувальна дошка доступні за додаткову плату."
+    },
+    "vasalodeszka": {
+      "hu-HU": "Díj ellenében kérhető vasaló és vasalódeszka.",
+      "en-US": "An iron and ironing board are available for an extra fee.",
+      "de-DE": "Ein Bügeleisen und ein Bügelbrett sind gegen Aufpreis erhältlich.",
+      "it-IT": "Ferro e asse da stiro sono disponibili a pagamento.",
+      "pl-PL": "Żelazko i deska do prasowania są dostępne za dodatkową opłatą.",
+      "uk-UA": "Праска та прасувальна дошка доступні за додаткову плату."
+    }
+  }
 }

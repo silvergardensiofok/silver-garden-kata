@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
@@ -96,14 +95,15 @@ const tr = (
 
 const getText = (text: LocalizedText, lang: LangCode) => text[lang] || text["hu-HU"];
 
-const normalizeForMatch = (text: string) =>
-  text
+function normalizeForMatch(text: string): string {
+  return text
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^\p{L}\p{N}\s]/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
 
 const replaceWords = (input: string, replacements: Array<[RegExp, string]>) => {
   let result = input;
@@ -238,8 +238,8 @@ const faqItems: MenuItem[] = [
   },
   { id: "wifi", label: tr("Wifi","Wifi","WLAN","Wifi","Wifi","Wi‑Fi"), answer: tr("A wifi neve SilverGarden. A jelszó balatonlive, kisbetűvel, egybeírva.","The wifi name is SilverGarden. The password is balatonlive in lowercase, written together.","Das WLAN heißt SilverGarden. Das Passwort ist balatonlive, klein geschrieben und zusammen.","Il nome del wifi è SilverGarden. La password è balatonlive, in minuscolo e senza spazi.","Nazwa wifi to SilverGarden. Hasło to balatonlive, małymi literami, bez spacji.","Назва Wi‑Fi — SilverGarden. Пароль — balatonlive, маленькими літерами, без пробілів.") },
   { id: "parking", label: tr("Parkolás-Elektromos töltés","Parking-electric charge","Parken-elektrische Ladung","Parcheggio-carica elettrica","Parking-ładunek elektryczny","Паркування-електричний заряд"), answer: tr("A vendégek számára ingyenes parkoló áll rendelkezésre az épület előtt az utcai parkolóban. Az elektromos autó töltéshez mindenképpen keresse kollégánkat.","Free parking is available for guests in the street parking area in front of the building. For electric car charging, be sure to contact our colleague.","Für Gäste stehen kostenlose Parkplätze vor dem Gebäude auf den Straßenparkplätzen zur Verfügung. Für das Laden von Elektroautos wenden Sie sich bitte an unseren Kollegen.","Per gli ospiti è disponibile un parcheggio gratuito davanti all'edificio, nei posti auto sulla strada. Per la ricarica delle auto elettriche, si prega di contattare il nostro collega.","Dla gości dostępny jest bezpłatny parking przed budynkiem, na miejscach parkingowych przy ulicy. Jeśli interesują Cię kwestie związane z ładowaniem samochodów elektrycznych, koniecznie skontaktuj się z naszym kolegą.","Для гостей доступне безкоштовне паркування перед будівлею на вуличних місцях. Для заряджання електромобіля зверніться до нашого колеги.") },
-  { id: "wellness", label: tr("Wellnesz","Wellness","Wellness","Wellness","Wellness","Велнес"), answer: tr("A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő, 3 órára. A fürdőmedence ingyenesen használható május 1-től szeptember 30-ig.","The wellness area is available to guests for an extra fee. Sauna use costs 4000 forints per person for 3 hours. The swimming pool is free to use from May 1st to September 30th.","Der Wellnessbereich steht den Gästen gegen Gebühr zur Verfügung. Die Saunanutzung kostet 4000 Forint pro Person für 3 Stunden. Die Nutzung des Schwimmbads ist vom 1. Mai bis zum 30. September kostenlos.","L'area wellness è disponibile per gli ospiti a pagamento. L'uso della sauna costa 4000 fiorini a persona per 3 ore. La piscina è gratuita dal 1° maggio al 30 settembre.","Strefa wellness jest dostępna dla gości za dodatkową opłatą. Korzystanie z sauny kosztuje 4000 forintów za osobę na 3 godziny. Z basenu można korzystać bezpłatnie od 1 maja do 30 września.","Велнес-зона доступна для гостей за додаткову плату. Користування сауною коштує 4000 форинтів з особи за 3 години. Басейном можна користуватися безкоштовно з 1 травня по 30 вересня.") },
-  { id: "pool", label: tr("Medence","Pool","Pool","Piscina","Basen","Басейн"), answer: tr("A medence minden nap 9:00 és 21:00 között használható.","The pool can be used every day between 9:00 and 21:00.","Der Pool kann täglich zwischen 9:00 und 21:00 Uhr genutzt werden.","La piscina può essere utilizzata ogni giorno dalle 9:00 alle 21:00.","Z basenu można korzystać codziennie w godzinach od 9:00 do 21:00.","Басейном можна користуватися щодня з 9:00 до 21:00.") },
+  { id: "wellness", label: tr("Wellnesz","Wellness","Wellness","Wellness","Wellness","Велнес"), answer: tr("A wellnesz a vendégek számára díj ellenében érhető el. A szauna használat 4000 forint per fő, 3 óra használatra.  Amennyiben van szabad időpont Megrendeléstől számított  2 óra mulva tudja igénybevenni.  A dzsakuzi díj ellenében vehető igénybe. Érdeklődjön a recepción.  A fürdőmedence ingyenesen használható május 1-től szeptember 30-ig.","The wellness area is available to guests for an extra fee. Sauna use costs 4000 forints per person for 3 hours. The swimming pool is free to use from May 1st to September 30th.","Der Wellnessbereich steht den Gästen gegen Gebühr zur Verfügung. Die Saunanutzung kostet 4000 Forint pro Person für 3 Stunden. Die Nutzung des Schwimmbads ist vom 1. Mai bis zum 30. September kostenlos.","L'area wellness è disponibile per gli ospiti a pagamento. L'uso della sauna costa 4000 fiorini a persona per 3 ore. La piscina è gratuita dal 1° maggio al 30 settembre.","Strefa wellness jest dostępna dla gości za dodatkową opłatą. Korzystanie z sauny kosztuje 4000 forintów za osobę na 3 godziny. Z basenu można korzystać bezpłatnie od 1 maja do 30 września.","Велнес-зона доступна для гостей за додаткову плату. Користування сауною коштує 4000 форинтів з особи за 3 години. Басейном можна користуватися безкоштовно з 1 травня по 30 вересня.") },
+  { id: "pool", label: tr("Medence","Pool","Pool","Piscina","Basen","Басейн"), answer: tr("A medence minden nap 9:00 és 21:00 óra között használható.","The pool can be used every day between 9:00 and 21:00.","Der Pool kann täglich zwischen 9:00 und 21:00 Uhr genutzt werden.","La piscina può essere utilizzata ogni giorno dalle 9:00 alle 21:00.","Z basenu można korzystać codziennie w godzinach od 9:00 do 21:00.","Басейном можна користуватися щодня з 9:00 до 21:00.") },
   { id: "checkout", label: tr("Kijelentkezés","Check-out","Check-out","Check-out","Wymeldowanie","Виїзд"), answer: tr("A kijelentkezés legkésőbb 10:00 óráig lehetséges. Megkérjük vendégeinket, hogy a kulcsot hagyják a szobaajtóban.","Check-out is possible until 10:00 at the latest. Please leave the key in the room door.","Der Check-out ist spätestens bis 10:00 Uhr möglich. Wir bitten unsere Gäste, den Schlüssel in der Zimmertür zu lassen.","Il check-out è possibile al più tardi entro le 10:00. Chiediamo gentilmente agli ospiti di lasciare la chiave nella porta della camera.","Wymeldowanie jest możliwe najpóźniej do godziny 10:00. Prosimy gości o pozostawienie klucza w drzwiach pokoju.","Виїзд можливий не пізніше 10:00. Просимо гостей залишити ключ у дверях номера.") },
   { id: "checkin", label: tr("Bejelentkezés","Check-in","Check-in","Check-in","Zameldowanie","Заселення"), answer: tr("A bejelentkezés 14:00 órától lehetséges.","Check-in is possible from 14:00.","Der Check-in ist ab 14:00 Uhr möglich.","Il check-in è possibile dalle 14:00.","Zameldowanie jest możliwe od godziny 14:00.","Заселення можливе з 14:00.") },
   { id: "gate", label: tr("Kapu","Gate","Tor","Cancello","Brama","Ворота"), answer: tr("A kapu éjszaka nyitva van. Bármikor kulcs nélkül be lehet jutni.","The gate is open at night. You can enter at any time without a key.","Das Tor ist nachts offen. Sie können jederzeit ohne Schlüssel eintreten.","Il cancello è aperto di notte. Si può entrare in qualsiasi momento senza chiave.","Brama jest otwarta w nocy. Można wejść w każdej chwili bez klucza.","Ворота вночі відкриті. Ви можете зайти будь-коли без ключа.") },
@@ -268,32 +268,60 @@ function getSimpleAnswer(userMessage: string, selectedLanguage: LangCode): strin
   const question = normalizeForMatch(userMessage);
   const data = knowledge as any;
 
-  // CÍM
+  if (
+    question.includes("email") ||
+    question.includes("e mail") ||
+    question.includes("mail") ||
+    question.includes("email cim") ||
+    question.includes("email cím") ||
+    question.includes("mail cim") ||
+    question.includes("mail cím") ||
+    question.includes("contact email")
+  ) {
+    const email = data?.email ?? CONTACT_EMAIL;
+    return selectedLanguage === "en-US"
+      ? `The email address is ${email}.`
+      : `Email cím: ${email}.`;
+  }
+
   if (
     question.includes("cim") ||
+    question.includes("cime") ||
+    question.includes("cimet") ||
+    question.includes("cimetek") ||
+    question.includes("pontos cim") ||
+    question.includes("mi a cim") ||
+    question.includes("mi a cime") ||
     question.includes("mi a hotel cime") ||
     question.includes("hotel cime") ||
-    question.includes("mi a cime") ||
+    question.includes("szallas cime") ||
     question.includes("hol van a hotel") ||
-    question.includes("address")
+    question.includes("hol van a szallas") ||
+    question.includes("hol van a szállás") ||
+    question.includes("hol talalhato") ||
+    question.includes("hol vagytok") ||
+    question.includes("merre van") ||
+    question.includes("address") ||
+    question.includes("location")
   ) {
-    const address = data?.cim ?? "8600 Siófok, Deák Ferenc sétány 57.";
-    return selectedLanguage === "en-US" ? `Address: ${address}.` : `Cím: ${address}.`;
+    const address = data?.cim ?? "8600 Siófok, Deák Ferenc sétány 57";
+
+    if (selectedLanguage === "en-US") return `Address: ${address}.`;
+    if (selectedLanguage === "de-DE") return `Adresse: ${address}.`;
+    if (selectedLanguage === "it-IT") return `Indirizzo: ${address}.`;
+    if (selectedLanguage === "pl-PL") return `Adres: ${address}.`;
+    if (selectedLanguage === "uk-UA") return `Адреса: ${address}.`;
+
+    return `Cím: ${address}.`;
   }
 
-  // EMAIL
-  if (question.includes("email") || question.includes("e-mail")) {
-    const email = data?.email ?? CONTACT_EMAIL;
-    return `Email: ${email}.`;
-  }
-
-  // TELEFON
   if (question.includes("telefon") || question.includes("phone")) {
     const phone = data?.telefon ?? CONTACT_PHONE_DISPLAY;
-    return selectedLanguage === "en-US" ? `Phone number: ${phone}.` : `Telefonszám: ${phone}.`;
+    return selectedLanguage === "en-US"
+      ? `Phone number: ${phone}.`
+      : `Telefonszám: ${phone}.`;
   }
 
-  // WIFI
   if (question.includes("wifi") || question.includes("wi fi")) {
     const wifiName = data?.wifi?.wifi_nev ?? "SilverGarden";
     const wifiPass = data?.wifi?.wifi_jelszo ?? "balatonlive";
@@ -302,7 +330,6 @@ function getSimpleAnswer(userMessage: string, selectedLanguage: LangCode): strin
       : `Wifi neve: ${wifiName}, jelszó: ${wifiPass}.`;
   }
 
-  // PARKOLÁS
   if (question.includes("parkol")) {
     const parking = data?.parkolas?.parkolas ?? "Ingyenes parkolás az utcán.";
     const places = data?.parkolas?.parkolo_helyek ?? "";
@@ -311,7 +338,6 @@ function getSimpleAnswer(userMessage: string, selectedLanguage: LangCode): strin
       : `Parkolás: ${parking}${places ? ` Helyek: ${places}.` : ""}`;
   }
 
-  // REGGELI
   if (question.includes("reggeli")) {
     const breakfast = data?.etkezes?.reggeli ?? "Elérhető";
     const breakfastTime = data?.etkezes?.reggeli_ido ?? "8:00-10:00";
@@ -322,14 +348,12 @@ function getSimpleAnswer(userMessage: string, selectedLanguage: LangCode): strin
       : `Reggeli: ${breakfast}, idő: ${breakfastTime}, típus: ${breakfastType}, ár: ${breakfastPrice}.`;
   }
 
-  // HŰTŐ
   if (question.includes("huto") || question.includes("hűtő") || question.includes("fridge")) {
     return selectedLanguage === "en-US"
       ? "There is no fridge in the rooms, only a shared fridge is available."
       : "A szobákban nincs hűtő, csak közös hűtő áll rendelkezésre.";
   }
 
-  // IFA
   if (question.includes("ifa") || question.includes("idegenforgalmi ado")) {
     const ifa = data?.foglalas_fizetes?.ifa;
     if (ifa) {
@@ -337,13 +361,19 @@ function getSimpleAnswer(userMessage: string, selectedLanguage: LangCode): strin
     }
   }
 
-  // FAQ - EZ MARADJON A VÉGÉN
   if (data.faq) {
     for (const item of data.faq as FAQItem[]) {
       for (const q of item.kerdesek ?? []) {
         const normalizedQ = normalizeForMatch(q);
 
-        if (question.includes(normalizedQ)) {
+        if (
+          normalizedQ &&
+          (
+            question === normalizedQ ||
+            question.includes(normalizedQ) ||
+            normalizedQ.includes(question)
+          )
+        ) {
           if (item.valaszok?.[selectedLanguage]) return item.valaszok[selectedLanguage] ?? null;
           if (item.valaszok?.["hu-HU"]) return item.valaszok["hu-HU"] ?? null;
           if (typeof item.valasz === "string") return item.valasz;
@@ -462,9 +492,8 @@ export default function Home() {
       } catch {}
 
       try {
-        recognitionRef.current?.abort?.();
-        recognitionRef.current?.stop();
-      } catch {}
+  recognitionRef.current?.abort?.();
+} catch {}
     };
   }, []);
 
@@ -515,31 +544,27 @@ export default function Home() {
   };
 
   const forceStopRecognition = () => {
-    clearRecognitionTimeout();
+  clearRecognitionTimeout();
 
-    try {
-      if (recognitionRef.current) {
-        recognitionRef.current.onstart = null;
-        recognitionRef.current.onresult = null;
-        recognitionRef.current.onerror = null;
-        recognitionRef.current.onend = null;
-      }
-    } catch {}
+  try {
+    if (recognitionRef.current) {
+      recognitionRef.current.onstart = null;
+      recognitionRef.current.onresult = null;
+      recognitionRef.current.onerror = null;
+      recognitionRef.current.onend = null;
+    }
+  } catch {}
 
-    try {
-      recognitionRef.current?.abort?.();
-    } catch {}
+  try {
+    recognitionRef.current?.abort?.();
+  } catch {}
 
-    try {
-      recognitionRef.current?.stop();
-    } catch {}
-
-    recognitionRef.current = null;
-    isStartingRecognitionRef.current = false;
-    isStoppingRecognitionRef.current = false;
-    handledResultRef.current = false;
-    setIsListening(false);
-  };
+  recognitionRef.current = null;
+  isStartingRecognitionRef.current = false;
+  isStoppingRecognitionRef.current = false;
+  handledResultRef.current = false;
+  setIsListening(false);
+};
 
   const speak = (text: string) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -749,131 +774,130 @@ export default function Home() {
   const getRecognitionLang = () => (selectedLanguage === "hu-HU" ? "hu-HU" : selectedLanguage);
 
   const startListening = async () => {
-    if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return;
 
-    if (isListening) {
-      forceStopRecognition();
-      return;
-    }
+  if (isListening || isStartingRecognitionRef.current) {
+    forceStopRecognition();
+    setHeardText("");
+    return;
+  }
 
-    if (isStartingRecognitionRef.current) return;
-    isStartingRecognitionRef.current = true;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    setAnswer(getText(ui.recognitionUnsupported, selectedLanguage));
+    return;
+  }
 
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      setAnswer(getText(ui.recognitionUnsupported, selectedLanguage));
-      isStartingRecognitionRef.current = false;
-      return;
-    }
+  if (!navigator.mediaDevices?.getUserMedia) {
+    setAnswer(getText(ui.micUnavailable, selectedLanguage));
+    return;
+  }
 
-    if (!navigator.mediaDevices?.getUserMedia) {
-      setAnswer(getText(ui.micUnavailable, selectedLanguage));
-      isStartingRecognitionRef.current = false;
-      return;
-    }
+  isStartingRecognitionRef.current = true;
+  handledResultRef.current = false;
+  clearRecognitionTimeout();
 
-    try {
-      window.speechSynthesis?.cancel();
-    } catch {}
+  try {
+    window.speechSynthesis?.cancel();
+  } catch {}
 
-    handledResultRef.current = false;
-    recognitionSessionRef.current += 1;
-    const sessionId = recognitionSessionRef.current;
+  try {
+    await navigator.mediaDevices.getUserMedia({ audio: true });
+  } catch {
+    isStartingRecognitionRef.current = false;
+    setAnswer(getText(ui.micDenied, selectedLanguage));
+    return;
+  }
 
-    try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch {
-      setAnswer(getText(ui.micDenied, selectedLanguage));
-      isStartingRecognitionRef.current = false;
-      return;
-    }
+  try {
+    recognitionRef.current?.abort?.();
+  } catch {}
 
-    const recognition = new SpeechRecognition();
-    recognitionRef.current = recognition;
-    recognition.lang = getRecognitionLang();
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    recognition.continuous = false;
+  const recognition = new SpeechRecognition();
+  recognitionRef.current = recognition;
+  recognition.lang = getRecognitionLang();
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  recognition.continuous = false;
 
-    recognition.onstart = () => {
-      if (recognitionSessionRef.current !== sessionId) return;
-      setIsListening(true);
-      setHeardText(getText(ui.listening, selectedLanguage));
-      setAnswer(getText(ui.speakNow, selectedLanguage));
-      isStartingRecognitionRef.current = false;
+  recognition.onstart = () => {
+    isStartingRecognitionRef.current = false;
+    setIsListening(true);
+    setHeardText(getText(ui.listening, selectedLanguage));
+    setAnswer(getText(ui.speakNow, selectedLanguage));
 
-      recognitionTimeoutRef.current = window.setTimeout(() => {
-        if (recognitionSessionRef.current !== sessionId) return;
-        if (!handledResultRef.current) {
-          forceStopRecognition();
-          setHeardText("");
-          setAnswer(getText(ui.noSpeech, selectedLanguage));
-        }
-      }, 10000);
-    };
-
-    recognition.onresult = async (event: SpeechRecognitionEventLike) => {
-      if (recognitionSessionRef.current !== sessionId) return;
-      handledResultRef.current = true;
-      clearRecognitionTimeout();
-
-      const transcript = event.results?.[0]?.[0]?.transcript?.trim() || "";
-      if (!transcript) {
-        setHeardText("");
-        setAnswer(getText(ui.noSpeech, selectedLanguage));
+    recognitionTimeoutRef.current = window.setTimeout(() => {
+      if (!handledResultRef.current) {
         forceStopRecognition();
-        return;
-      }
-
-      setHeardText(transcript);
-      const response = await getResponse(transcript);
-      setAnswerAndSpeak(response.text, { receptionistHelp: response.receptionistHelp });
-      forceStopRecognition();
-    };
-
-    recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
-      if (recognitionSessionRef.current !== sessionId) return;
-      forceStopRecognition();
-      isStartingRecognitionRef.current = false;
-
-      if (event.error === "no-speech" || event.error === "aborted") {
         setHeardText("");
         setAnswer(getText(ui.noSpeech, selectedLanguage));
-        return;
       }
-      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
-        setHeardText("");
-        setAnswer(getText(ui.micDenied, selectedLanguage));
-        return;
-      }
-      if (event.error === "audio-capture") {
-        setHeardText("");
-        setAnswer(getText(ui.micUnavailable, selectedLanguage));
-        return;
-      }
-
-      setHeardText("");
-      setAnswer(getText(ui.recognitionFailed, selectedLanguage));
-    };
-
-    recognition.onend = () => {
-      if (recognitionSessionRef.current !== sessionId) return;
-      clearRecognitionTimeout();
-      setIsListening(false);
-      isStartingRecognitionRef.current = false;
-      isStoppingRecognitionRef.current = false;
-      recognitionRef.current = null;
-    };
-
-    try {
-      recognition.start();
-    } catch {
-      setIsListening(false);
-      isStartingRecognitionRef.current = false;
-      setAnswer(getText(ui.recognitionFailed, selectedLanguage));
-      forceStopRecognition();
-    }
+    }, 8000);
   };
+
+  recognition.onresult = async (event: SpeechRecognitionEventLike) => {
+    handledResultRef.current = true;
+    clearRecognitionTimeout();
+
+    const transcript = event.results?.[0]?.[0]?.transcript?.trim() || "";
+
+    forceStopRecognition();
+
+    if (!transcript) {
+      setHeardText("");
+      setAnswer(getText(ui.noSpeech, selectedLanguage));
+      return;
+    }
+
+    setHeardText(transcript);
+
+    const response = await getResponse(transcript);
+    setAnswerAndSpeak(response.text, {
+      receptionistHelp: response.receptionistHelp,
+    });
+  };
+
+  recognition.onerror = (event: SpeechRecognitionErrorEventLike) => {
+    clearRecognitionTimeout();
+    forceStopRecognition();
+
+    if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+      setHeardText("");
+      setAnswer(getText(ui.micDenied, selectedLanguage));
+      return;
+    }
+
+    if (event.error === "audio-capture") {
+      setHeardText("");
+      setAnswer(getText(ui.micUnavailable, selectedLanguage));
+      return;
+    }
+
+    if (event.error === "no-speech" || event.error === "aborted") {
+      setHeardText("");
+      setAnswer(getText(ui.noSpeech, selectedLanguage));
+      return;
+    }
+
+    setHeardText("");
+    setAnswer(getText(ui.recognitionFailed, selectedLanguage));
+  };
+
+  recognition.onend = () => {
+    clearRecognitionTimeout();
+    recognitionRef.current = null;
+    isStartingRecognitionRef.current = false;
+    isStoppingRecognitionRef.current = false;
+    setIsListening(false);
+  };
+
+  try {
+    recognition.start();
+  } catch {
+    forceStopRecognition();
+    setAnswer(getText(ui.recognitionFailed, selectedLanguage));
+  }
+};
 
   const handleItemClick = (item: MenuItem) => {
     setTypedQuestion("");
