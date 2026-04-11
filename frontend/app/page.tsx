@@ -94,7 +94,19 @@ const tr = (
 });
 
 const getText = (text: LocalizedText, lang: LangCode) => text[lang] || text["hu-HU"];
+function isLocalizedText(value: unknown): value is LocalizedText {
+  return typeof value === "object" && value !== null && "hu-HU" in value;
+}
 
+function getLocalizedString(value: unknown, lang: LangCode, fallback = ""): string {
+  if (typeof value === "string") return value;
+
+  if (isLocalizedText(value)) {
+    return value[lang] || value["en-US"] || value["hu-HU"] || fallback;
+  }
+
+  return fallback;
+}
 function normalizeForMatch(text: string): string {
   return text
     .toLowerCase()
